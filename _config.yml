@@ -16,7 +16,7 @@ timezone: Asia/Seoul
 
 title: CoderyWorld # the main title
 
-tagline: 안녕하세요. 각종 개발기록들을 정리하는 블로그입니다. # it will display as the sub-title
+tagline: 각종 개발기록들을 정리하는 블로그입니다. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
@@ -42,7 +42,7 @@ social:
 
 # Site Verification Settings
 webmaster_verifications:
-  google: # fill in your Google verification code
+  google: 6ol6ygzrfBDanoxVYzgTJpVKhKcmf4QNEs-na6pLF58
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
@@ -55,7 +55,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: # fill in your Google Analytics ID
+    id: G-KLVBSMX4JD
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
@@ -220,3 +220,5 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+destination: "/home/jeuk/workspace/coderyworld.github.io/"
