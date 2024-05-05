@@ -9,7 +9,7 @@ categories:
 tags:
 - rooting
 - Galaxy Tab S7
-- android
+- android 13
 date: 2024-05-05 15:26 +0900
 ---
 > 루팅을 진행하게 되면 갤럭시 노트 워런티가 깨지게 됩니다. 추후 순정 펌웨어로 돌린다고 하더라도 삼성페이를 포함한 각종 은행 어플들을 사용할 수 없게 됩니다.
@@ -141,5 +141,3 @@ Samsung USB Driver의 압축을 풀고, exe파일을 통해 설치합니다.
 > Magisk를 이용한 루팅은 **리커버리 모드**에서만 작동합니다. 일반 부팅은 루팅이 되지 않은 상태로 부팅됩니다. 
 > 리커버리 모드로 부팅하기 위해서는, **휴대폰을 컴퓨터에 연결**한 채로 볼륨상키와 전원버튼을 꾹 누르고 있어야 합니다. (이후 Reboot System now를 통해 리커버리 모드로 부팅)
 > 만약 리커버리 모드 부팅이 안될 시에는, adb 툴을 이용해 `adb reboot recovery` 명령어를 사용하시면 됩니다.
-
-*Tags: Android 12, Android 13, Rooting, Bootloader Unlock*
