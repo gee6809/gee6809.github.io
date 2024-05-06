@@ -4,7 +4,6 @@ title: Android 13 루팅하기 (갤럭시 탭 S7 / S7+)
 description: Guide for rooting
 author: jeuk
 categories:
-- IT
 - Tips
 tags:
 - rooting
@@ -30,16 +29,17 @@ date: 2024-05-05 15:26 +0900
 필요한 파일들은 다음과 같습니다. 펌웨어 다운로드는 오래 걸리니 미리 준비하시기를 추천드립니다.
 
 **Odin**
-: https://www.osamsung.com/kr/
+: [https://www.osamsung.com/kr/](https://www.osamsung.com/kr/)  
 공식 웹사이트로부터 최신 버전을 다운 받아줍니다. 
 
 **Samsung USB Driver**
-: https://developer.samsung.com/android-usb-driver
+: [https://developer.samsung.com/android-usb-driver](https://www.osamsung.com/kr/)  
 공식 웹사이트로부터 최신 버전을 다운 받아줍니다. 
 
 **Firmware**
-: https://samfrew.com/firmware/upload/Desc/0/10
-확인했던 모델명 (SM-T975)과 OS 버전(13)을 선택합니다. 핸드폰의 경우 통신사에 따라 Region을 선택해줍니다.
+: [https://samfrew.com/firmware/upload/Desc/0/10](https://www.osamsung.com/kr/)  
+확인했던 모델명 (SM-T975)과 OS 버전(13)을 선택합니다.  
+핸드폰의 경우 통신사에 따라 Region을 선택해줍니다.
 
 |Region| 통신사|
 |---|---|
@@ -49,7 +49,7 @@ date: 2024-05-05 15:26 +0900
 |LUC | LG |
 
 **Magisk**
-: https://magiskmanager.com/
+: [https://magiskmanager.com/](https://www.osamsung.com/kr/)  
 공식 웹사이트로부터 최신 버전을 다운 받아줍니다. 
 
 ## Samsung USB Driver 설치하기
@@ -57,12 +57,19 @@ Samsung USB Driver의 압축을 풀고, exe파일을 통해 설치합니다.
 
 ## Magisk Patch File 준비하기
 1) 펌웨어 파일의 압축을 해제합니다.
+
 2) 휴대폰을 컴퓨터에 연결합니다.
+
 3) 펌웨어 파일 중 AP로 시작하는 파일을 휴대폰으로 옮깁니다. (AP_XXX.tar.md5)
+
 4) Magisk.apk 파일을 휴대폰으로 옮겨 설치합니다.
+
 5) Magisk 앱 내에서 '설치'를 선택합니다.
-6) '파일 선택'을 탭한 후 AP_XXX.tar.md5 파일을 찾아 선택합니다
+
+6) '파일 선택'을 탭한 후 AP_XXX.tar.md5 파일을 찾아 선택합니다.
+
 7) '패치' 버튼을 눌러 파일 패치를 시작합니다.
+
 8) 패치가 완료된 파일을 컴퓨터로 복사합니다. (magisk_patched-XXX.tar)
 
 ![magisk](/assets/img/rooting/magisk_app.png){: width="350" }
