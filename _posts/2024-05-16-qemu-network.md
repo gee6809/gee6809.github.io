@@ -1,5 +1,6 @@
 ---
 title: QEMU Network 설정 방법 (가상머신끼리 통신하기)
+description: QEMU Network 설정 방법에 대한 가이드입니다. user network와 tap network에 대하여 설명합니다.
 categories:
 - QEMU
 tags:
@@ -34,7 +35,7 @@ date: 2024-05-16 13:20 +0900
 
 가상머신은 호스트를 거쳐 외부 네트워크로 요청을 보낼 수 있습니다. 하지만, 일종의 사설 네트워크망이기 때문에 외부 네트워크에서 VM에 접근하기는 어렵습니다. 따라서 SSH, RDP 등의 기능을 사용하기 위해서는 포트 포워딩을 사용해야 합니다.
 
-### QEMU Argument
+### QEMU Argument (user)
 ```bash
 -netdev user,id=usernet,hostfwd=tcp::2222-:22,hostfwd=tcp::8080-:80 -device e1000,netdev=usernet
 ```
@@ -80,7 +81,7 @@ sudo ifconfig tap0 up
 ```
 tap0를 생성하고 br0 브릿지에 추가합니다.
 
-### QEMU Argument
+### QEMU Argument (tap)
 ```bash
 -netdev tap,id=net0,ifname=tap0,script=no,downscript=no -device e1000,netdev=net0
 ```

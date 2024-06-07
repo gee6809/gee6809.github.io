@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Charles Proxy로 안드로이드 앱 HTTPS 패킷 분석하기
+description: Charles Proxy를 이용하여 안드로이드 어플들이 보내는 패킷을 후킹하는 방법에 대하여 안내합니다.
 author: jeuk
 categories:
 - Tips
