@@ -14,35 +14,35 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: CoderyWorld # the main title
+title: 커널노트 블로그 # the main title
 
-tagline: 각종 개발기록들을 정리하는 블로그입니다. # it will display as the sub-title
+tagline: 운영체제, QEMU 및 각종 개발기록들을 정리하는 블로그입니다. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  It is a blog that organizes operating systems, QEMU, and various development logs.
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://coderyworld.github.io"
+url: "https://gee6809.github.io"
 
 github:
-  username: coderyworld # change to your github username
+  username: gee6809 # change to your github username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Jeuk Kim
-  email: jeuk20.kim@gmail.com # change to your email address
+  email: gee6809@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://github.com/coderyworld # change to your github homepage
+    - https://github.com/gee6809 # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     - https://www.linkedin.com/in/jeuk-kim-098200288
 
 # Site Verification Settings
 webmaster_verifications:
-  google: UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4
+  google: 
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
@@ -55,7 +55,7 @@ webmaster_verifications:
 # Web Analytics Settings
 analytics:
   google:
-    id: G-TKJP6H07PT
+    id:
   goatcounter:
     id: # fill in your GoatCounter ID
   umami:
@@ -221,4 +221,4 @@ jekyll-archives:
     tag: /tags/:name/
     category: /categories/:name/
 
-destination: "/home/jeuk/workspace/coderyworld.github.io/"
+destination: "/home/jeuk/workspace/gee6809.github.io/"
