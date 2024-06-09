@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle>It is a blog that organizes operating systems, QEMU, and various development logs.</subtitle>
-  <updated>2024-06-08T21:31:34+09:00</updated>
+  <updated>2024-06-09T13:30:57+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,56 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>나만의 Smartphone Test Farm 만들기 (STF)</title>
+    <link href="https://gee6809.github.io/posts/stf/" rel="alternate" type="text/html" title="나만의 Smartphone Test Farm 만들기 (STF)" />
+    <published>2024-05-24T17:57:00+09:00</published>
+  
+    <updated>2024-06-09T13:30:55+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/stf/</id>
+    <content src="https://gee6809.github.io/posts/stf/" />
+    <author>
+      <name>jeuk</name>
+    </author>
+
+  
+    
+    <category term="Tips" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인 것 같습니다.
+
+공식 git 주소는 다음과 같습니다.
+https://github.com/DeviceFarmer/stf
+
+환경
+
+  Ubuntu 22.04
+  adb 연결된 android device
+    $ adb devices
+List of devices attached
+192.168.0.40:5555       device
+    
+  
+
+
+주요 기...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>

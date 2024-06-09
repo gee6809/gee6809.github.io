@@ -30,25 +30,25 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Charles Proxy로 안드로이드 HTTP 패킷 분석하기" />
+<meta property="og:title" content="나만의 Smartphone Test Farm 만들기 (STF)" />
 <meta name="author" content="Jeuk Kim" />
 <meta property="og:locale" content="ko" />
-<meta name="description" content="Charles Proxy를 이용하여 안드로이드 어플들이 보내는 패킷을 후킹하는 방법에 대하여 안내합니다." />
-<meta property="og:description" content="Charles Proxy를 이용하여 안드로이드 어플들이 보내는 패킷을 후킹하는 방법에 대하여 안내합니다." />
-<link rel="canonical" href="https://gee6809.github.io/posts/charles_proxy/" />
-<meta property="og:url" content="https://gee6809.github.io/posts/charles_proxy/" />
+<meta name="description" content="이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인 것 같습니다." />
+<meta property="og:description" content="이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인 것 같습니다." />
+<link rel="canonical" href="https://gee6809.github.io/posts/stf/" />
+<meta property="og:url" content="https://gee6809.github.io/posts/stf/" />
 <meta property="og:site_name" content="커널노트 블로그" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-05-19T18:21:00+09:00" />
+<meta property="article:published_time" content="2024-05-24T17:57:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Charles Proxy로 안드로이드 HTTP 패킷 분석하기" />
+<meta property="twitter:title" content="나만의 Smartphone Test Farm 만들기 (STF)" />
 <meta name="google-site-verification" content="UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-06-08T19:55:51+09:00","datePublished":"2024-05-19T18:21:00+09:00","description":"Charles Proxy를 이용하여 안드로이드 어플들이 보내는 패킷을 후킹하는 방법에 대하여 안내합니다.","headline":"Charles Proxy로 안드로이드 HTTP 패킷 분석하기","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/charles_proxy/"},"url":"https://gee6809.github.io/posts/charles_proxy/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-06-09T13:30:55+09:00","datePublished":"2024-05-24T17:57:00+09:00","description":"이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인 것 같습니다.","headline":"나만의 Smartphone Test Farm 만들기 (STF)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/stf/"},"url":"https://gee6809.github.io/posts/stf/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Charles Proxy로 안드로이드 HTTP 패킷 분석하기 | 커널노트 블로그
+  <title>나만의 Smartphone Test Farm 만들기 (STF) | 커널노트 블로그
   </title>
 
   <!--
@@ -464,7 +464,7 @@
         
           
             
-              <span>Charles Proxy로 안드로이드 HTTP 패킷 분석하기</span>
+              <span>나만의 Smartphone Test Farm 만들기 (STF)</span>
             
 
           
@@ -539,337 +539,6 @@
     
       
       
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
     
 
     
@@ -1054,17 +723,6 @@
 
       
     
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
 
     
   
@@ -1080,6 +738,50 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
       
 
       
@@ -1137,7 +839,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>Charles Proxy로 안드로이드 HTTP 패킷 분석하기</h1>
+    <h1 data-toc-skip>나만의 Smartphone Test Farm 만들기 (STF)</h1>
 
     <div class="post-meta text-muted">
       <!-- published date -->
@@ -1153,13 +855,13 @@
 
 <time
   
-  data-ts="1716110460"
+  data-ts="1716541020"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  May 19, 2024
+  May 24, 2024
 </time>
 
       </span>
@@ -1178,13 +880,13 @@
 
 <time
   
-  data-ts="1717844151"
+  data-ts="1717907455"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Jun  8, 2024
+  Jun  9, 2024
 </time>
 
         </span>
@@ -1214,9 +916,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="1053 words"
+  title="631 words"
 >
-  <em>5 min</em> read</span>
+  <em>3 min</em> read</span>
 
       </div>
       <!-- .d-flex -->
@@ -1225,112 +927,66 @@
   </header>
 
   <div class="content">
-    <p>Charles Proxy를 이용하면, 안드로이드에서 보내는 패킷들을 분석할 수 있습니다.</p>
+    <p>이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인 것 같습니다.</p>
 
-<h2 id="charles-proxy-설치-및-환경설정"><span class="me-2">Charles Proxy 설치 및 환경설정</span><a href="#charles-proxy-설치-및-환경설정" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>공식 git 주소는 다음과 같습니다.<br />
+<a href="https://github.com/DeviceFarmer/stf">https://github.com/DeviceFarmer/stf</a></p>
+
+<h2 id="환경"><span class="me-2">환경</span><a href="#환경" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <ul>
-  <li><a href="https://www.charlesproxy.com/">https://www.charlesproxy.com/</a> 에서 각 OS에 맞는 버전을 다운받습니다. ubuntu에서는 다음 명령어로 쉽게 설치할 수 있습니다.
+  <li>Ubuntu 22.04</li>
+  <li>adb 연결된 android device
     <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-4
-</pre></td><td class="rouge-code"><pre>wget <span class="nt">-qO-</span> https://www.charlesproxy.com/packages/apt/charles-repo.asc | <span class="nb">sudo tee</span> /etc/apt/keyrings/charles-repo.asc
-<span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'echo deb [signed-by=/etc/apt/keyrings/charles-repo.asc] https://www.charlesproxy.com/packages/apt/ charles-proxy main &gt; /etc/apt/sources.list.d/charles.list'</span>
-<span class="nb">sudo </span>apt-get update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>charles-proxy
-charles
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>adb devices
+List of devices attached
+192.168.0.40:5555       device
 </pre></td></tr></tbody></table></code></div>    </div>
   </li>
-  <li>Proxy -&gt; Proxy settings 에서 http proxy port를 확인해줍니다.
-<a href="/assets/img/charles_proxy/proxy_port.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/proxy_port.png" alt="alt text" loading="lazy"></a></li>
 </ul>
 
-<h2 id="android-proxy-설정"><span class="me-2">Android Proxy 설정</span><a href="#android-proxy-설정" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="주요-기능"><span class="me-2">주요 기능</span><a href="#주요-기능" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="운영-체제-지원"><span class="me-2">운영 체제 지원</span><a href="#운영-체제-지원" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 <ul>
-  <li>Android 디바이스에서 WIFI 설정으로 들어갑니다.</li>
-  <li>연결되어 있는 WIFI의 Proxy 설정으로 진입합니다.</li>
+  <li><strong>안드로이드</strong>: 2.3.3 (SDK 10)부터 12 (SDK 32)까지 지원</li>
+  <li><strong>Wear OS</strong>: 5.1 지원 (5.0은 권한 문제로 지원하지 않음)</li>
+  <li><strong>기타</strong>: Fire OS, CyanogenMod 등 안드로이드 기반 배포판 지원</li>
 </ul>
 
-<p><a href="/assets/img/charles_proxy/each_wifi.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/each_wifi.png" alt="alt text" width="400" loading="lazy"></a></p>
-
-<p><a href="/assets/img/charles_proxy/proxy_tab.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/proxy_tab.png" alt="alt text" width="400" loading="lazy"></a></p>
-
+<h3 id="장치-제어"><span class="me-2">장치 제어</span><a href="#장치-제어" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 <ul>
-  <li>Charles Proxy를 실행하는 PC의 ip와, 이전에 확인했던 port값을 입력합니다.</li>
+  <li>브라우저에서 장치 원격 제어</li>
+  <li>실시간 화면 보기 (최대 30-40 FPS)</li>
+  <li>회전 지원</li>
+  <li>키보드 입력 및 메타 키 지원</li>
+  <li>드래그 앤 드롭을 통한 apk 파일 설치 및 실행</li>
+  <li>장치 로그 실시간 보기 및 필터링</li>
 </ul>
 
-<p><a href="/assets/img/charles_proxy/wifi_settings.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/wifi_settings.png" alt="alt text" loading="lazy"></a></p>
-
+<h3 id="장치-관리"><span class="me-2">장치 관리</span><a href="#장치-관리" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 <ul>
-  <li>Android device에서 chrome을 실행하고 아무 페이지에 진입합니다.</li>
-  <li>Charles Proxy에서 연결을 허용하겠냐는 팝업이 뜨면 “Allow”를 클릭합니다.
-<a href="/assets/img/charles_proxy/allow.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/allow.png" alt="alt text" loading="lazy"></a></li>
+  <li>연결된 장치 상태 모니터링 (사용 중, 오프라인, 인증되지 않음 등)</li>
+  <li>장치 하드웨어 사양 표시</li>
+  <li>배터리 상태 모니터링</li>
 </ul>
 
-<h2 id="packet-녹화"><span class="me-2">Packet 녹화</span><a href="#packet-녹화" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="설치-방법"><span class="me-2">설치 방법</span><a href="#설치-방법" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<h3 id="1-필수-의존성-설치"><span class="me-2">1. 필수 의존성 설치</span><a href="#1-필수-의존성-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 <ul>
-  <li>
-    <p>Charles Proxy에서 “Start Recording” 버튼을 누르면 기록을 시작합니다.
-<a href="/assets/img/charles_proxy/recording.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/recording.png" alt="alt text" loading="lazy"></a></p>
-  </li>
-  <li>
-    <p>핸드폰으로 웹사이트에 접근하면 charles proxy에서 패킷을 기록합니다.</p>
-  </li>
-</ul>
-
-<h2 id="ssl-인증서-설치-https"><span class="me-2">SSL 인증서 설치 (https)</span><a href="#ssl-인증서-설치-https" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>위 작업만으로도 <code class="language-plaintext highlighter-rouge">http://</code> 웹사이트들의 패킷은 전부 살펴볼 수 있습니다. 하지만 <code class="language-plaintext highlighter-rouge">https://</code> 웹사이트들은 SSL 암호화를 이용하기 때문에 패킷들이 깨져보이게 됩니다. 
-이를 해결하기 위해 charles proxy에서 SSL 인증서를 받아서 설치해주어야 합니다. 또한 안드로이드의 SSL Pinning을 우회하기 위해서 사용자 인증서를 시스템 인증서로 등록해주는 작업이 필요합니다. 이때 루트 권한이 필요합니다.</p>
-<blockquote class="prompt-warning">
-  <p>안드로이드에서 암호화 패킷을 확인하기 위해서는 루팅된 디바이스가 필요합니다.</p>
-</blockquote>
-
-<h3 id="ssl-프록시-활성화"><span class="me-2">SSL 프록시 활성화:</span><a href="#ssl-프록시-활성화" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul>
-  <li>Charles Proxy를 실행합니다.</li>
-  <li>Proxy 메뉴로 이동한 다음 SSL Proxying Settings를 선택합니다.</li>
-  <li>SSL Proxying을 활성화하고 Add 버튼을 클릭하여 HTTPS 트래픽을 모니터링할 도메인을 추가합니다. (*를 입력하여 모든 도메인의 HTTPS 트래픽을 모니터링할 수 있습니다.)</li>
-</ul>
-
-<h3 id="컴퓨터에-ssl-인증서-설치"><span class="me-2">컴퓨터에 SSL 인증서 설치</span><a href="#컴퓨터에-ssl-인증서-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul>
-  <li>Help &gt; SSL Proxying &gt; Install Charles Root Certificate를 선택합니다.</li>
-  <li>설치 후 인증서를 신뢰하는지 묻는 팝업이 뜨면 신뢰를 선택합니다.</li>
-</ul>
-
-<blockquote class="prompt-info">
-  <p>ubuntu에서 설치가 잘 안될 시에, 수동으로 설치할 수 있습니다.</p>
-  <ul>
-    <li>Help &gt; SSL Proxying &gt; Save Charles Root Certificate를 선택합니다.</li>
-    <li>Binary certificate (.cer)을 선택하고 확인을 누릅니다.</li>
-    <li>다음 명령어를 통해 시스템 인증서 저장소를 업데이트합니다
-      <div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>openssl x509 <span class="nt">-inform</span> DER <span class="nt">-in</span> ~/charles-ssl-proxying-certificate.cer <span class="nt">-out</span> /usr/local/share/ca-certificates/charles-ssl-proxying-certificate.crt
-<span class="nb">cd</span> /usr/local/share/ca-certificates
-<span class="nb">sudo </span>update-ca-certificates
-</pre></td></tr></tbody></table></code></div>      </div>
-    </li>
-  </ul>
-</blockquote>
-
-<h3 id="안드로이드-장치에-인증서-설치"><span class="me-2">안드로이드 장치에 인증서 설치</span><a href="#안드로이드-장치에-인증서-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul class="prompt-info">
-  <li>모바일 디바이스에서 http://chls.pro/ssl에 접속합니다. (charles proxy에 연결되어 있어야 합니다.)</li>
-  <li>Charles 인증서를 다운로드합니다.</li>
-  <li>HTTPS 트래픽을 후킹하기 위해 Android에서 신뢰할 수 있는 시스템 CA 인증서로 보이도록 해줘야 합니다. 다음 명령어를 수행합니다.
-    <blockquote>
-      <p>Android 인증서 저장소:</p>
-      <ul>
-        <li>시스템 저장소: /system/etc/security/cacerts/</li>
-        <li>사용자 저장소: /data/misc/user/0/cacerts-added/</li>
-      </ul>
-    </blockquote>
-  </li>
+  <li>Node.js (최대 20.x)</li>
+  <li>ADB</li>
+  <li>RethinkDB (&gt;= 2.2)</li>
+  <li>CMake (&gt;= 3.9)</li>
+  <li>GraphicsMagick</li>
+  <li>ZeroMQ 라이브러리</li>
+  <li>Protocol Buffers 라이브러리</li>
+  <li>yasm</li>
+  <li>pkg-config</li>
 </ul>
 
 <div class="language-bash highlighter-rouge"><div class="code-header">
@@ -1345,41 +1001,65 @@ charles
 8
 9
 10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="rouge-code"><pre><span class="c"># 안드로이드 기기에 다운로드 했던 charles 인증서 파일을 데스크탑으로 옮겨서 작업합니다.</span>
-openssl x509 <span class="nt">-inform</span> PEM <span class="nt">-subject_hash_old</span> <span class="nt">-in</span> your_certificate.pem.crt | <span class="nb">head</span> <span class="nt">-1</span> <span class="c"># 해쉬값이 나옵니다 (ex. abcdef12)</span>
-<span class="nb">mv </span>your_certificate.pem.crt your_hash.0 <span class="c"># ex. mv charle-proxy-ssl-proxying-certificate.pem.crt abcdef12.0</span>
-adb push your_hash.0 /data/local/tmp/
+</pre></td><td class="rouge-code"><pre><span class="c"># Add the RethinkDB repository</span>
+wget <span class="nt">-qO-</span> https://download.rethinkdb.com/repository/raw/pubkey.gpg | <span class="se">\</span>
+    <span class="nb">sudo </span>gpg <span class="nt">--dearmor</span> <span class="nt">-o</span> /usr/share/keyrings/rethinkdb-archive-keyrings.gpg
 
-adb shell
-su
-<span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nt">-m</span> 700 /data/local/tmp/htk-ca-copy
-<span class="nb">cp</span> /system/etc/security/cacerts/<span class="k">*</span> /data/local/tmp/htk-ca-copy/
-mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
-<span class="nb">mv</span> /data/local/tmp/htk-ca-copy/<span class="k">*</span> /system/etc/security/cacerts/
-<span class="nb">mv</span> /data/local/tmp/your_hash.0 /system/etc/security/cacerts/
-<span class="nb">chown </span>root:root /system/etc/security/cacerts/<span class="k">*</span>
-<span class="nb">chmod </span>644 /system/etc/security/cacerts/<span class="k">*</span>
-<span class="nb">chcon </span>u:object_r:system_file:s0 /system/etc/security/cacerts/<span class="k">*</span>
+<span class="nb">echo</span> <span class="s2">"deb [signed-by=/usr/share/keyrings/rethinkdb-archive-keyrings.gpg] https://download.rethinkdb.com/repository/ubuntu-</span><span class="si">$(</span>lsb_release <span class="nt">-cs</span><span class="si">)</span><span class="s2"> </span><span class="si">$(</span>lsb_release <span class="nt">-cs</span><span class="si">)</span><span class="s2"> main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/rethinkdb.list
 
-<span class="nb">rm</span> <span class="nt">-r</span> /data/local/tmp/htk-ca-copy
+<span class="nb">sudo </span>apt-get update
+
+<span class="c"># Install all requirements</span>
+<span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> nodejs adb rethinkdb cmake graphicsmagick libzmq3-dev libprotobuf-dev yasm pkg-config npm
 </pre></td></tr></tbody></table></code></div></div>
-<blockquote class="prompt-info">
-  <p>참고사이트: https://httptoolkit.com/blog/intercepting-android-https/</p>
+
+<h3 id="2-stf-설치"><span class="me-2">2. STF 설치</span><a href="#2-stf-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>npm <span class="nb">install</span> <span class="nt">-g</span> @devicefarmer/stf
+</pre></td></tr></tbody></table></code></div></div>
+<h3 id="3-rethinkdb-실행"><span class="me-2">3. RethinkDB 실행</span><a href="#3-rethinkdb-실행" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>rethinkdb
+</pre></td></tr></tbody></table></code></div></div>
+<h3 id="4-stf-실행"><span class="me-2">4. STF 실행:</span><a href="#4-stf-실행" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>stf <span class="nb">local</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p>그 후 브라우저로 <code class="language-plaintext highlighter-rouge">http://localhost:7100</code> 접속하면 됩니다.<br />
+<a href="/assets/img/STF/login.png" class="popup img-link  shimmer"><img src="/assets/img/STF/login.png" alt="STF 로그인 페이지" loading="lazy"></a></p>
+<p class="image-caption">STF 로그인 페이지</p>
+
+<p>초기 관리자 계정은 다음과 같습니다.</p>
+<blockquote>
+  <p>Name: administrator<br />
+E-mail: administrator@fakedomain.com</p>
 </blockquote>
 
-<ul>
-  <li>몇번의 재부팅을 해줍니다.</li>
-  <li>Android 기기 설정 &gt; 생체 인식 및 보안 &gt; 기타 보안 설정 &gt; 인증서 확인에서 “XK72 Ltd”가 보이면 성공입니다.</li>
-</ul>
+<p>만약 localhost가 아닌 외부에서 접근하고 싶다면 다음과 같이 실행하면 됩니다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>stf <span class="nb">local</span> <span class="nt">--public-ip</span> &lt;your_internal_network_ip_here&gt;
+<span class="c"># ex) stf local --public-ip 192.168.0.55  </span>
+<span class="c"># 브라우저로 http://192.168.0.55:7100 접속</span>
+</pre></td></tr></tbody></table></code></div></div>
 
-<p><a href="/assets/img/charles_proxy/https_success.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/https_success.png" alt="alt text" loading="lazy"></a></p>
+<p>또한 usb가 아닌 wifi로 연결되어 있는 디바이스(<code class="language-plaintext highlighter-rouge">ex. adb connect 192.168.0.40:5555</code>)도 지원하려면 <code class="language-plaintext highlighter-rouge">--allow-remote</code>를 추가해야 합니다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>stf <span class="nb">local</span> <span class="nt">--allow-remote</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p><a href="/assets/img/STF/stf.png" class="popup img-link  shimmer"><img src="/assets/img/STF/stf.png" alt="stf 화면" loading="lazy"></a></p>
+<p class="image-caption">STF 메인 화면</p>
 
   </div>
 
@@ -1399,9 +1079,9 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/android/"
+            href="/tags/stf/"
             class="post-tag no-text-decoration"
-          >android</a>
+          >STF</a>
         
       </div>
     
@@ -1437,21 +1117,21 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=Charles%20Proxy%EB%A1%9C%20%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20HTTP%20%ED%8C%A8%ED%82%B7%20%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fcharles_proxy%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=%EB%82%98%EB%A7%8C%EC%9D%98%20Smartphone%20Test%20Farm%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20(STF)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fstf%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=Charles%20Proxy%EB%A1%9C%20%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20HTTP%20%ED%8C%A8%ED%82%B7%20%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&u=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fcharles_proxy%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=%EB%82%98%EB%A7%8C%EC%9D%98%20Smartphone%20Test%20Farm%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20(STF)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&u=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fstf%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fcharles_proxy%2F&text=Charles%20Proxy%EB%A1%9C%20%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20HTTP%20%ED%8C%A8%ED%82%B7%20%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fstf%2F&text=%EB%82%98%EB%A7%8C%EC%9D%98%20Smartphone%20Test%20Farm%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20(STF)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1708,19 +1388,19 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1736,7 +1416,7 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/stf/" class="post-preview card h-100">
+          <a href="/posts/charles_proxy/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1748,14 +1428,14 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
 <time
   
-  data-ts="1716541020"
+  data-ts="1716110460"
   data-df="ll"
   
 >
-  May 24, 2024
+  May 19, 2024
 </time>
 
-              <h4 class="pt-0 my-2">나만의 Smartphone Test Farm 만들기 (STF)</h4>
+              <h4 class="pt-0 my-2">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</h4>
               <div class="text-muted">
                 <p>
                   
@@ -1764,7 +1444,12 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
 
 
-                  이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인...
+                  Charles Proxy를 이용하면, 안드로이드에서 보내는 패킷들을 분석할 수 있습니다.
+
+Charles Proxy 설치 및 환경설정
+
+  https://www.charlesproxy.com/ 에서 각 OS에 맞는 버전을 다운받습니다. ubuntu에서는 다음 명령어로 쉽게 설치할 수 있습니다.
+    wget -qO- https://www.charle...
                 </p>
               </div>
             </div>
@@ -1786,22 +1471,18 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
   
     <a
-      href="/posts/qemu-network/"
+      href="/posts/charles_proxy/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>QEMU Network 설정 방법 (가상머신끼리 통신하기)</p>
+      <p>Charles Proxy로 안드로이드 HTTP 패킷 분석하기</p>
     </a>
   
 
   
-    <a
-      href="/posts/stf/"
-      class="btn btn-outline-primary"
-      aria-label="Newer"
-    >
-      <p>나만의 Smartphone Test Farm 만들기 (STF)</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="Newer">
+      <p>-</p>
+    </div>
   
 </nav>
 
