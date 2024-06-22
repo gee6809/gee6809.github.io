@@ -30,25 +30,25 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="나만의 Smartphone Test Farm 만들기 (STF)" />
+<meta property="og:title" content="QEMU UEFI 환경으로 부팅하기 (OVMF)" />
 <meta name="author" content="Jeuk Kim" />
 <meta property="og:locale" content="ko" />
-<meta name="description" content="이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인 것 같습니다." />
-<meta property="og:description" content="이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인 것 같습니다." />
-<link rel="canonical" href="https://gee6809.github.io/posts/stf/" />
-<meta property="og:url" content="https://gee6809.github.io/posts/stf/" />
+<meta name="description" content="OVMF란? QEMU는 기본 bios로 SeaBios를 사용합니다. SeaBios는 GPT를 지원하지 않습니다. 이 때문에 다른 PC에서 설치한 운영체제를 QEMU로 부팅하려고 하면 실패하는 경우가 많습니다 (대부분의 최신 메인보드는 UEFI를 지원하기 때문에, GPT 테이블을 이용하고 있을 확률이 높습니다)." />
+<meta property="og:description" content="OVMF란? QEMU는 기본 bios로 SeaBios를 사용합니다. SeaBios는 GPT를 지원하지 않습니다. 이 때문에 다른 PC에서 설치한 운영체제를 QEMU로 부팅하려고 하면 실패하는 경우가 많습니다 (대부분의 최신 메인보드는 UEFI를 지원하기 때문에, GPT 테이블을 이용하고 있을 확률이 높습니다)." />
+<link rel="canonical" href="https://gee6809.github.io/posts/ovmf/" />
+<meta property="og:url" content="https://gee6809.github.io/posts/ovmf/" />
 <meta property="og:site_name" content="커널노트 블로그" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-05-24T17:57:00+09:00" />
+<meta property="article:published_time" content="2024-05-23T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="나만의 Smartphone Test Farm 만들기 (STF)" />
+<meta property="twitter:title" content="QEMU UEFI 환경으로 부팅하기 (OVMF)" />
 <meta name="google-site-verification" content="UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-06-09T13:30:55+09:00","datePublished":"2024-05-24T17:57:00+09:00","description":"이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인 것 같습니다.","headline":"나만의 Smartphone Test Farm 만들기 (STF)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/stf/"},"url":"https://gee6809.github.io/posts/stf/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-06-07T20:21:22+09:00","datePublished":"2024-05-23T00:00:00+09:00","description":"OVMF란? QEMU는 기본 bios로 SeaBios를 사용합니다. SeaBios는 GPT를 지원하지 않습니다. 이 때문에 다른 PC에서 설치한 운영체제를 QEMU로 부팅하려고 하면 실패하는 경우가 많습니다 (대부분의 최신 메인보드는 UEFI를 지원하기 때문에, GPT 테이블을 이용하고 있을 확률이 높습니다).","headline":"QEMU UEFI 환경으로 부팅하기 (OVMF)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/ovmf/"},"url":"https://gee6809.github.io/posts/ovmf/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>나만의 Smartphone Test Farm 만들기 (STF) | 커널노트 블로그
+  <title>QEMU UEFI 환경으로 부팅하기 (OVMF) | 커널노트 블로그
   </title>
 
   <!--
@@ -464,7 +464,7 @@
         
           
             
-              <span>나만의 Smartphone Test Farm 만들기 (STF)</span>
+              <span>QEMU UEFI 환경으로 부팅하기 (OVMF)</span>
             
 
           
@@ -532,142 +532,6 @@
 
 
 
-  
-  
-
-  
-    
-      
-      
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-
-  
-
 
 <!-- Add header for code snippets -->
 
@@ -723,6 +587,28 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -730,93 +616,6 @@
   
   
 
-  
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-
-    
   
 
   
@@ -839,7 +638,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>나만의 Smartphone Test Farm 만들기 (STF)</h1>
+    <h1 data-toc-skip>QEMU UEFI 환경으로 부팅하기 (OVMF)</h1>
 
     <div class="post-meta text-muted">
       <!-- published date -->
@@ -855,13 +654,13 @@
 
 <time
   
-  data-ts="1716541020"
+  data-ts="1716390000"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  May 24, 2024
+  May 23, 2024
 </time>
 
       </span>
@@ -880,13 +679,13 @@
 
 <time
   
-  data-ts="1717907455"
+  data-ts="1717759282"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Jun  9, 2024
+  Jun  7, 2024
 </time>
 
         </span>
@@ -916,9 +715,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="631 words"
+  title="1089 words"
 >
-  <em>3 min</em> read</span>
+  <em>6 min</em> read</span>
 
       </div>
       <!-- .d-flex -->
@@ -927,68 +726,145 @@
   </header>
 
   <div class="content">
-    <p>이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인 것 같습니다.</p>
+    <h2 id="ovmf란"><span class="me-2">OVMF란?</span><a href="#ovmf란" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>QEMU는 기본 bios로 SeaBios를 사용합니다. SeaBios는 GPT를 지원하지 않습니다. 이 때문에 다른 PC에서 설치한 운영체제를 QEMU로 부팅하려고 하면 실패하는 경우가 많습니다 (대부분의 최신 메인보드는 UEFI를 지원하기 때문에, GPT 테이블을 이용하고 있을 확률이 높습니다).</p>
 
-<p>공식 git 주소는 다음과 같습니다.<br />
-<a href="https://github.com/DeviceFarmer/stf">https://github.com/DeviceFarmer/stf</a></p>
+<p>이때 필요한 게 OVMF입니다. OVMF는 QEMU에서도 UEFI 환경을 이용할 수 있도록 해줍니다. OVMF는 opensource UEFI 펌웨어로써, 가상화 환경에서 사용하는데 특화되어 있습니다.</p>
 
-<h2 id="환경"><span class="me-2">환경</span><a href="#환경" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>또한 OVMF는 NVMe, Virtio, USB 등 다양한 디바이스 드라이버를 포함하고 있습니다. 따라서 storage device passthrough를 통해 QEMU 환경에서 부팅하려고 할 때도 필수적입니다.</p>
+
+<p><del>마지막으로, OVMF는 TPM(Trusted Platform Module)을 지원합니다. Windows 11 같은 경우에는 TPM 기능을 지원하지 않으면 운영체제를 설치할 수가 없습니다. 따라서 QEMU에서 Windows 11을 구동시키려 하는 분도 OVMF 사용이 필수적입니다.</del> (SeaBios도 update를 통해 TPM을 지원한다고 합니다.)</p>
+
+<h2 id="ovmf-설치"><span class="me-2">OVMF 설치</span><a href="#ovmf-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>Ubuntu에서 다음 명령어를 통해 ovmf 펌웨어를 다운받을 수 있습니다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>apt <span class="nb">install </span>ovmf
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>설치된 파일은 다음과 같이 확인할 수 있습니다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nb">ls</span> /usr/share/ovmf/OVMF.fd
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="ovmf-실행-qemu-command"><span class="me-2">OVMF 실행 (QEMU command)</span><a href="#ovmf-실행-qemu-command" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>다음 argument를 추가해 줍니다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nt">-bios</span> /usr/share/ovmf/OVMF.fd
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>전체 명령어 예시는 다음과 같습니다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c">#!/bin/bash</span>
+qemu-system-x86_64 <span class="se">\</span>
+<span class="nt">-enable-kvm</span> <span class="nt">-m</span> 8G <span class="se">\</span>
+<span class="nt">-cpu</span> host <span class="nt">-smp</span> 4 <span class="se">\</span>
+<span class="nt">-drive</span> <span class="nv">file</span><span class="o">=</span>/dev/sda,format<span class="o">=</span>raw,if<span class="o">=</span>none,id<span class="o">=</span>img <span class="se">\</span>
+<span class="nt">-device</span> nvme,drive<span class="o">=</span>img,serial<span class="o">=</span>1234 <span class="se">\</span>
+<span class="nt">-bios</span> /usr/share/ovmf/OVMF.fd <span class="se">\</span>
+<span class="nt">-vnc</span> localhost:1
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>만약 UEFI 설정 화면에 진입하고 싶다면, QEMU 실행 직후에 F2키를 연속해서 눌러주면 됩니다.</p>
+
+<h2 id="ovmf-빌드"><span class="me-2">OVMF 빌드</span><a href="#ovmf-빌드" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>관심이 있는 분들은 직접 빌드할 수도 있습니다. 다음 순서로 진행합니다.</p>
+
 <ul>
-  <li>Ubuntu 22.04</li>
-  <li>adb 연결된 android device
+  <li>도구 및 라이브러리를 설치합니다.
     <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>adb devices
-List of devices attached
-192.168.0.40:5555       device
+</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>build-essential uuid-dev nasm iasl gcc git nasm python3-distutils python3-pip
+<span class="nb">sudo </span>apt-get <span class="nb">install </span>qemu
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+  <li>OVMF는 EDK II 프로젝트의 일부입니다. EDK II 소스 코드를 다운로드합니다.
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>git clone https://github.com/tianocore/edk2.git
+<span class="nb">cd </span>edk2
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+  <li>빌드에 필요한 의존성 도구를 설치합니다.
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>pip3 <span class="nb">install</span> <span class="nt">--user</span> <span class="nt">-r</span> pip-requirements.txt
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+  <li>submodule을 초기화해 줍니다.
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git submodule update <span class="nt">--init</span>
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+  <li>환경 변수를 설정합니다. edksetup.sh 스크립트를 실행합니다.
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nb">.</span> edksetup.sh
+make <span class="nt">-C</span> BaseTools
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+  <li>build를 수행합니다.
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>build <span class="nt">-a</span> X64 <span class="nt">-t</span> GCC5 <span class="nt">-b</span> RELEASE <span class="nt">-p</span> OvmfPkg/OvmfPkgX64.dsc
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+  <li>빌드 결과물은 다음 경로에서 찾아볼 수 있습니다.
+    <div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nb">ls</span> <span class="nt">-l</span> Build/OvmfX64/RELEASE_GCC5/FV/OVMF.fd
 </pre></td></tr></tbody></table></code></div>    </div>
   </li>
 </ul>
 
-<h2 id="주요-기능"><span class="me-2">주요 기능</span><a href="#주요-기능" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="ovmf에-드라이버-추가하기"><span class="me-2">OVMF에 드라이버 추가하기</span><a href="#ovmf에-드라이버-추가하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>OVMF는 EDK II 프로젝트의 일부입니다. EDK II 프로젝트는 UEFI 펌웨어를 구현하기 위한 오픈소스 프로젝트로, 다양한 개발자들과 회사들이 참여해서 개발 중입니다. 이에 따라서 지원하는 디바이스의 종류도 매우 다양합니다.</p>
 
-<h3 id="운영-체제-지원"><span class="me-2">운영 체제 지원</span><a href="#운영-체제-지원" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul>
-  <li><strong>안드로이드</strong>: 2.3.3 (SDK 10)부터 12 (SDK 32)까지 지원</li>
-  <li><strong>Wear OS</strong>: 5.1 지원 (5.0은 권한 문제로 지원하지 않음)</li>
-  <li><strong>기타</strong>: Fire OS, CyanogenMod 등 안드로이드 기반 배포판 지원</li>
-</ul>
+<p>하지만 OVMF가 이 디바이스들을 다 지원하지는 않습니다. OVMF설정에서 기본값으로 포함되어 있지 않기 때문입니다. 간단한 코드 수정을 통해 해당 드라이버들을 포함해 줄 수 있습니다.</p>
 
-<h3 id="장치-제어"><span class="me-2">장치 제어</span><a href="#장치-제어" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul>
-  <li>브라우저에서 장치 원격 제어</li>
-  <li>실시간 화면 보기 (최대 30-40 FPS)</li>
-  <li>회전 지원</li>
-  <li>키보드 입력 및 메타 키 지원</li>
-  <li>드래그 앤 드롭을 통한 apk 파일 설치 및 실행</li>
-  <li>장치 로그 실시간 보기 및 필터링</li>
-</ul>
+<p>EDK II 프로젝트에서 디바이스 드라이버들은 <em>edk2/MdeModulePkg</em> 디렉터리에 모아져 있습니다. 예를 들어 UFS(Universal Flash Storage)를 검색해 보면 MdeModulePkg내에 UFS 드라이버가 존재한다는 것을 확인할 수 있습니다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>find MdeModulePkg/ <span class="nt">-type</span> f <span class="nt">-iname</span> <span class="s2">"*ufs*"</span>
+MdeModulePkg/Bus/Pci/UfsPciHcPei/UfsPciHcPeiExtra.uni
+MdeModulePkg/Bus/Pci/UfsPciHcPei/UfsPciHcPei.h
+MdeModulePkg/Bus/Pci/UfsPciHcPei/UfsPciHcPei.inf
+...
+</pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="장치-관리"><span class="me-2">장치 관리</span><a href="#장치-관리" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul>
-  <li>연결된 장치 상태 모니터링 (사용 중, 오프라인, 인증되지 않음 등)</li>
-  <li>장치 하드웨어 사양 표시</li>
-  <li>배터리 상태 모니터링</li>
-</ul>
-
-<h2 id="설치-방법"><span class="me-2">설치 방법</span><a href="#설치-방법" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<h3 id="1-필수-의존성-설치"><span class="me-2">1. 필수 의존성 설치</span><a href="#1-필수-의존성-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul>
-  <li>Node.js (최대 20.x)</li>
-  <li>ADB</li>
-  <li>RethinkDB (&gt;= 2.2)</li>
-  <li>CMake (&gt;= 3.9)</li>
-  <li>GraphicsMagick</li>
-  <li>ZeroMQ 라이브러리</li>
-  <li>Protocol Buffers 라이브러리</li>
-  <li>yasm</li>
-  <li>pkg-config</li>
-</ul>
-
+<p>따라서 OVMF의 dsc와 fdf파일에 다음 코드를 추가하여 UFS 디바이스를 지원하도록 할 수 있습니다.</p>
 <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -1001,65 +877,48 @@ List of devices attached
 8
 9
 10
-</pre></td><td class="rouge-code"><pre><span class="c"># Add the RethinkDB repository</span>
-wget <span class="nt">-qO-</span> https://download.rethinkdb.com/repository/raw/pubkey.gpg | <span class="se">\</span>
-    <span class="nb">sudo </span>gpg <span class="nt">--dearmor</span> <span class="nt">-o</span> /usr/share/keyrings/rethinkdb-archive-keyrings.gpg
-
-<span class="nb">echo</span> <span class="s2">"deb [signed-by=/usr/share/keyrings/rethinkdb-archive-keyrings.gpg] https://download.rethinkdb.com/repository/ubuntu-</span><span class="si">$(</span>lsb_release <span class="nt">-cs</span><span class="si">)</span><span class="s2"> </span><span class="si">$(</span>lsb_release <span class="nt">-cs</span><span class="si">)</span><span class="s2"> main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/rethinkdb.list
-
-<span class="nb">sudo </span>apt-get update
-
-<span class="c"># Install all requirements</span>
-<span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> nodejs adb rethinkdb cmake graphicsmagick libzmq3-dev libprotobuf-dev yasm pkg-config npm
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre>diff <span class="nt">--git</span> a/OvmfPkg/OvmfPkgX64.dsc b/OvmfPkg/OvmfPkgX64.dsc
+index 8f5cd23b2e..5b83f836aa 100644
+<span class="nt">---</span> a/OvmfPkg/OvmfPkgX64.dsc
++++ b/OvmfPkg/OvmfPkgX64.dsc
+@@ <span class="nt">-906</span>,6 +906,8 @@
+   MdeModulePkg/Bus/Ata/AtaAtapiPassThru/AtaAtapiPassThru.inf
+   MdeModulePkg/Bus/Ata/AtaBusDxe/AtaBusDxe.inf
+   MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
++  MdeModulePkg/Bus/Pci/UfsPciHcDxe/UfsPciHcDxe.inf
++  MdeModulePkg/Bus/Ufs/UfsPassThruDxe/UfsPassThruDxe.inf
+   MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
+   MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
+   MdeModulePkg/Universal/DisplayEngineDxe/DisplayEngineDxe.inf
+diff <span class="nt">--git</span> a/OvmfPkg/OvmfPkgX64.fdf b/OvmfPkg/OvmfPkgX64.fdf
+index b6e8f43566..32cef0ce90 100644
+<span class="nt">---</span> a/OvmfPkg/OvmfPkgX64.fdf
++++ b/OvmfPkg/OvmfPkgX64.fdf
+@@ <span class="nt">-302</span>,6 +302,8 @@ INF  MdeModulePkg/Bus/Pci/SataControllerDxe/SataControllerDxe.inf
+ INF  MdeModulePkg/Bus/Ata/AtaAtapiPassThru/AtaAtapiPassThru.inf
+ INF  MdeModulePkg/Bus/Ata/AtaBusDxe/AtaBusDxe.inf
+ INF  MdeModulePkg/Bus/Pci/NvmExpressDxe/NvmExpressDxe.inf
++INF  MdeModulePkg/Bus/Pci/UfsPciHcDxe/UfsPciHcDxe.inf
++INF  MdeModulePkg/Bus/Ufs/UfsPassThruDxe/UfsPassThruDxe.inf
+ INF  MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
+ INF  MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="2-stf-설치"><span class="me-2">2. STF 설치</span><a href="#2-stf-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>npm <span class="nb">install</span> <span class="nt">-g</span> @devicefarmer/stf
-</pre></td></tr></tbody></table></code></div></div>
-<h3 id="3-rethinkdb-실행"><span class="me-2">3. RethinkDB 실행</span><a href="#3-rethinkdb-실행" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>rethinkdb
-</pre></td></tr></tbody></table></code></div></div>
-<h3 id="4-stf-실행"><span class="me-2">4. STF 실행:</span><a href="#4-stf-실행" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>stf <span class="nb">local</span>
-</pre></td></tr></tbody></table></code></div></div>
-<p>그 후 브라우저로 <code class="language-plaintext highlighter-rouge">http://localhost:7100</code> 접속하면 됩니다.<br />
-<a href="/assets/img/STF/login.png" class="popup img-link  shimmer"><img src="/assets/img/STF/login.png" alt="STF 로그인 페이지" loading="lazy"></a></p>
-<p class="image-caption">STF 로그인 페이지</p>
-
-<p>초기 관리자 계정은 다음과 같습니다.</p>
-<blockquote>
-  <p>Name: administrator<br />
-E-mail: administrator@fakedomain.com</p>
-</blockquote>
-
-<p>만약 localhost가 아닌 외부에서 접근하고 싶다면 다음과 같이 실행하면 됩니다.</p>
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre>stf <span class="nb">local</span> <span class="nt">--public-ip</span> &lt;your_internal_network_ip_here&gt;
-<span class="c"># ex) stf local --public-ip 192.168.0.55  </span>
-<span class="c"># 브라우저로 http://192.168.0.55:7100 접속</span>
-</pre></td></tr></tbody></table></code></div></div>
-
-<p>또한 usb가 아닌 wifi로 연결되어 있는 디바이스(<code class="language-plaintext highlighter-rouge">ex. adb connect 192.168.0.40:5555</code>)도 지원하려면 <code class="language-plaintext highlighter-rouge">--allow-remote</code>를 추가해야 합니다.</p>
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>stf <span class="nb">local</span> <span class="nt">--allow-remote</span>
-</pre></td></tr></tbody></table></code></div></div>
-<p><a href="/assets/img/STF/stf.png" class="popup img-link  shimmer"><img src="/assets/img/STF/stf.png" alt="stf 화면" loading="lazy"></a></p>
-<p class="image-caption">STF 메인 화면</p>
 
   </div>
 
@@ -1069,7 +928,7 @@ E-mail: administrator@fakedomain.com</p>
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/tips/">Tips</a>
+          <a href="/categories/qemu/">QEMU</a>
       </div>
     
 
@@ -1079,9 +938,14 @@ E-mail: administrator@fakedomain.com</p>
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/stf/"
+            href="/tags/qemu/"
             class="post-tag no-text-decoration"
-          >STF</a>
+          >QEMU</a>
+        
+          <a
+            href="/tags/ovmf/"
+            class="post-tag no-text-decoration"
+          >OVMF</a>
         
       </div>
     
@@ -1117,21 +981,21 @@ E-mail: administrator@fakedomain.com</p>
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=%EB%82%98%EB%A7%8C%EC%9D%98%20Smartphone%20Test%20Farm%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20(STF)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fstf%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=QEMU%20UEFI%20%ED%99%98%EA%B2%BD%EC%9C%BC%EB%A1%9C%20%EB%B6%80%ED%8C%85%ED%95%98%EA%B8%B0%20(OVMF)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fovmf%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=%EB%82%98%EB%A7%8C%EC%9D%98%20Smartphone%20Test%20Farm%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20(STF)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&u=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fstf%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=QEMU%20UEFI%20%ED%99%98%EA%B2%BD%EC%9C%BC%EB%A1%9C%20%EB%B6%80%ED%8C%85%ED%95%98%EA%B8%B0%20(OVMF)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&u=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fovmf%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fstf%2F&text=%EB%82%98%EB%A7%8C%EC%9D%98%20Smartphone%20Test%20Farm%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20(STF)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fovmf%2F&text=QEMU%20UEFI%20%ED%99%98%EA%B2%BD%EC%9C%BC%EB%A1%9C%20%EB%B6%80%ED%8C%85%ED%95%98%EA%B8%B0%20(OVMF)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1455,7 +1319,7 @@ E-mail: administrator@fakedomain.com</p>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/charles_proxy/" class="post-preview card h-100">
+          <a href="/posts/qemu-network/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1467,14 +1331,14 @@ E-mail: administrator@fakedomain.com</p>
 
 <time
   
-  data-ts="1716110460"
+  data-ts="1715833200"
   data-df="ll"
   
 >
-  May 19, 2024
+  May 16, 2024
 </time>
 
-              <h4 class="pt-0 my-2">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</h4>
+              <h4 class="pt-0 my-2">QEMU Network 설정 방법 (가상머신끼리 통신하기)</h4>
               <div class="text-muted">
                 <p>
                   
@@ -1483,12 +1347,11 @@ E-mail: administrator@fakedomain.com</p>
 
 
 
-                  Charles Proxy를 이용하면, 안드로이드에서 보내는 패킷들을 분석할 수 있습니다.
+                  User Networking (SLIRP)
 
-Charles Proxy 설치 및 환경설정
-
-  https://www.charlesproxy.com/ 에서 각 OS에 맞는 버전을 다운받습니다. ubuntu에서는 다음 명령어로 쉽게 설치할 수 있습니다.
-    wget -qO- https://www.charle...
+                             +---------------------------+
+                             |      Host Machine         |
+                             |                        ...
                 </p>
               </div>
             </div>
@@ -1510,18 +1373,22 @@ Charles Proxy 설치 및 환경설정
 
   
     <a
-      href="/posts/ovmf/"
+      href="/posts/charles_proxy/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>QEMU UEFI 환경으로 부팅하기 (OVMF)</p>
+      <p>Charles Proxy로 안드로이드 HTTP 패킷 분석하기</p>
     </a>
   
 
   
-    <div class="btn btn-outline-primary disabled" aria-label="Newer">
-      <p>-</p>
-    </div>
+    <a
+      href="/posts/stf/"
+      class="btn btn-outline-primary"
+      aria-label="Newer"
+    >
+      <p>나만의 Smartphone Test Farm 만들기 (STF)</p>
+    </a>
   
 </nav>
 
