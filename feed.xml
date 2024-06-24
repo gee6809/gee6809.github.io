@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle>It is a blog that organizes operating systems, QEMU, and various development logs.</subtitle>
-  <updated>2024-06-23T20:34:28+09:00</updated>
+  <updated>2024-06-24T21:36:21+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -128,7 +128,7 @@ List of devices attached
     <link href="https://gee6809.github.io/posts/ovmf/" rel="alternate" type="text/html" title="QEMU UEFI 환경으로 부팅하기 (OVMF)" />
     <published>2024-05-23T00:00:00+09:00</published>
   
-    <updated>2024-06-07T20:21:22+09:00</updated>
+    <updated>2024-06-24T21:35:11+09:00</updated>
   
     <id>https://gee6809.github.io/posts/ovmf/</id>
     <content src="https://gee6809.github.io/posts/ovmf/" />
