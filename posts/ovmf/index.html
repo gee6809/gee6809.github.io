@@ -1067,6 +1067,13 @@ index b6e8f43566..32cef0ce90 100644
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/debug_kernel/">GDB로 리눅스 커널 디버깅 하기</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/ovmf/">QEMU UEFI 환경으로 부팅하기 (OVMF)</a>
         </li>
       
@@ -1089,13 +1096,6 @@ index b6e8f43566..32cef0ce90 100644
         
         <li class="text-truncate lh-lg">
           <a href="/posts/charles_proxy/">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/qemu-network/">QEMU Network 설정 방법 (가상머신끼리 통신하기)</a>
         </li>
       
     </ul>
@@ -1139,10 +1139,11 @@ index b6e8f43566..32cef0ce90 100644
     
     
     
-      
-        
-        
-
+  
+    
+    
+    
+    
   
     
     
@@ -1158,23 +1159,9 @@ index b6e8f43566..32cef0ce90 100644
     
     
       
-    
-  
-    
-    
-    
-    
-      
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1191,6 +1178,110 @@ index b6e8f43566..32cef0ce90 100644
         
         
 
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1237,6 +1328,12 @@ index b6e8f43566..32cef0ce90 100644
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/android/">android</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/gdb/">gdb</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/linux-kernel/">Linux Kernel</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/network/">network</a>
@@ -1313,6 +1410,18 @@ index b6e8f43566..32cef0ce90 100644
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1326,6 +1435,44 @@ index b6e8f43566..32cef0ce90 100644
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">Further Reading</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/debug_kernel/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719292260"
+  data-df="ll"
+  
+>
+  Jun 25, 2024
+</time>
+
+              <h4 class="pt-0 my-2">GDB로 리눅스 커널 디버깅 하기</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  Linux kernel의 가장 큰 장점은 opensource라는 것이다. 모든 코드들이 공개되어 있기 때문에 시스템 개발자로서는 최고의 교과서라고 할 수 있다. 하지만 교과서가 너무 거대하다..
+
+QEMU를 이용하면 Linux kernel에 gdb를 붙여 그나마 코드 분석을 조금 용이하게 할 수 있다. 여기에는 QEMU와 gdb를 이용해서 linux ...
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/qemu-network/" class="post-preview card h-100">
@@ -1481,10 +1628,11 @@ index b6e8f43566..32cef0ce90 100644
     
     
     
-      
-        
-        
-
+  
+    
+    
+    
+    
   
     
     
@@ -1500,23 +1648,9 @@ index b6e8f43566..32cef0ce90 100644
     
     
       
-    
-  
-    
-    
-    
-    
-      
         
         
 
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1533,6 +1667,110 @@ index b6e8f43566..32cef0ce90 100644
         
         
 
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
   
     
     
@@ -1579,6 +1817,12 @@ index b6e8f43566..32cef0ce90 100644
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/android/">android</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/gdb/">gdb</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/linux-kernel/">Linux Kernel</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/network/">network</a>

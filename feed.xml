@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle>It is a blog that organizes operating systems, QEMU, and various development logs.</subtitle>
-  <updated>2024-06-24T21:36:21+09:00</updated>
+  <updated>2024-06-25T14:29:06+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,54 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>GDB로 리눅스 커널 디버깅 하기</title>
+    <link href="https://gee6809.github.io/posts/debug_kernel/" rel="alternate" type="text/html" title="GDB로 리눅스 커널 디버깅 하기" />
+    <published>2024-06-25T14:11:00+09:00</published>
+  
+    <updated>2024-06-25T14:11:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/debug_kernel/</id>
+    <content src="https://gee6809.github.io/posts/debug_kernel/" />
+    <author>
+      <name>jeuk</name>
+    </author>
+
+  
+    
+    <category term="Linux Kernel" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Linux kernel의 가장 큰 장점은 opensource라는 것이다. 모든 코드들이 공개되어 있기 때문에 시스템 개발자로서는 최고의 교과서라고 할 수 있다. 하지만 교과서가 너무 거대하다..
+
+QEMU를 이용하면 Linux kernel에 gdb를 붙여 그나마 코드 분석을 조금 용이하게 할 수 있다. 여기에는 QEMU와 gdb를 이용해서 linux kernel을 디버깅하는 방법에 대해 정리해놓는다.
+
+환경
+
+  x86_64 CPU
+  Ubuntu 22.04
+  Linux kernel source code v6.10 기준
+
+
+준비물
+QEMU에서는 linux kernel을 간단하게 올려볼 수 있도록 -kernel 옵션을 제공한다.
+
+  When using these options, you can use ...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -196,48 +244,6 @@ Charles Proxy 설치 및 환경설정
   https://www.charlesproxy.com/ 에서 각 OS에 맞는 버전을 다운받습니다. ubuntu에서는 다음 명령어로 쉽게 설치할 수 있습니다.
     wget -qO- https://www.charlesproxy.com/packages/apt/charles-repo.asc | sudo tee /etc/apt/keyrings/charles-repo.asc
 sudo sh -c 'echo deb [signed-by=/etc/apt/keyrings/charles-repo.asc] https://www.charlesproxy.com/packages/apt/ ch...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>QEMU Network 설정 방법 (가상머신끼리 통신하기)</title>
-    <link href="https://gee6809.github.io/posts/qemu-network/" rel="alternate" type="text/html" title="QEMU Network 설정 방법 (가상머신끼리 통신하기)" />
-    <published>2024-05-16T13:20:00+09:00</published>
-  
-    <updated>2024-06-07T20:32:08+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/qemu-network/</id>
-    <content src="https://gee6809.github.io/posts/qemu-network/" />
-    <author>
-      <name>Jeuk Kim</name>
-    </author>
-
-  
-    
-    <category term="QEMU" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      User Networking (SLIRP)
-
-                             +---------------------------+
-                             |      Host Machine         |
-                             |                           |
-                             |   +-------------------+   |
-                             |   |    user net       |   |
-    Router ------------------|---|  (192.168.0.2)    |   |
- (192.168.0.1)    ...
     </summary>
   
 

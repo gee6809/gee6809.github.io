@@ -32,25 +32,25 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Charles Proxy로 안드로이드 HTTP 패킷 분석하기" />
+<meta property="og:title" content="GDB로 리눅스 커널 디버깅 하기" />
 <meta name="author" content="Jeuk Kim" />
 <meta property="og:locale" content="ko" />
-<meta name="description" content="Charles Proxy를 이용하여 안드로이드 어플들이 보내는 패킷을 후킹하는 방법에 대하여 안내합니다." />
-<meta property="og:description" content="Charles Proxy를 이용하여 안드로이드 어플들이 보내는 패킷을 후킹하는 방법에 대하여 안내합니다." />
-<link rel="canonical" href="https://gee6809.github.io/posts/charles_proxy/" />
-<meta property="og:url" content="https://gee6809.github.io/posts/charles_proxy/" />
+<meta name="description" content="리눅스 커널에 gdb를 붙여서 디버깅을 할 수 있다. gdb를 이용하면 line-by-line 실행 및 stacktrace, 변수값 출력등의 기능들을 사용할 수 있다." />
+<meta property="og:description" content="리눅스 커널에 gdb를 붙여서 디버깅을 할 수 있다. gdb를 이용하면 line-by-line 실행 및 stacktrace, 변수값 출력등의 기능들을 사용할 수 있다." />
+<link rel="canonical" href="https://gee6809.github.io/posts/debug_kernel/" />
+<meta property="og:url" content="https://gee6809.github.io/posts/debug_kernel/" />
 <meta property="og:site_name" content="커널노트 블로그" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-05-19T18:21:00+09:00" />
+<meta property="article:published_time" content="2024-06-25T14:11:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Charles Proxy로 안드로이드 HTTP 패킷 분석하기" />
+<meta property="twitter:title" content="GDB로 리눅스 커널 디버깅 하기" />
 <meta name="google-site-verification" content="UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-06-08T19:55:51+09:00","datePublished":"2024-05-19T18:21:00+09:00","description":"Charles Proxy를 이용하여 안드로이드 어플들이 보내는 패킷을 후킹하는 방법에 대하여 안내합니다.","headline":"Charles Proxy로 안드로이드 HTTP 패킷 분석하기","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/charles_proxy/"},"url":"https://gee6809.github.io/posts/charles_proxy/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-06-25T14:11:00+09:00","datePublished":"2024-06-25T14:11:00+09:00","description":"리눅스 커널에 gdb를 붙여서 디버깅을 할 수 있다. gdb를 이용하면 line-by-line 실행 및 stacktrace, 변수값 출력등의 기능들을 사용할 수 있다.","headline":"GDB로 리눅스 커널 디버깅 하기","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/debug_kernel/"},"url":"https://gee6809.github.io/posts/debug_kernel/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Charles Proxy로 안드로이드 HTTP 패킷 분석하기 | 커널노트 블로그
+  <title>GDB로 리눅스 커널 디버깅 하기 | 커널노트 블로그
   </title>
 
   <!--
@@ -466,7 +466,7 @@
         
           
             
-              <span>Charles Proxy로 안드로이드 HTTP 패킷 분석하기</span>
+              <span>GDB로 리눅스 커널 디버깅 하기</span>
             
 
           
@@ -534,473 +534,6 @@
 
 
 
-  
-  
-
-  
-    
-      
-      
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-    
-
-    
-
-    
-      
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-
-  
-
 
 <!-- Add header for code snippets -->
 
@@ -1067,6 +600,50 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -1074,49 +651,6 @@
   
   
 
-  
-    
-    
-
-    
-      
-        
-        
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-
-    
   
 
   
@@ -1139,7 +673,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>Charles Proxy로 안드로이드 HTTP 패킷 분석하기</h1>
+    <h1 data-toc-skip>GDB로 리눅스 커널 디버깅 하기</h1>
 
     <div class="post-meta text-muted">
       <!-- published date -->
@@ -1155,41 +689,18 @@
 
 <time
   
-  data-ts="1716110460"
+  data-ts="1719292260"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  May 19, 2024
+  Jun 25, 2024
 </time>
 
       </span>
 
       <!-- lastmod date -->
-      
-        <span>
-          Updated
-          <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1717844151"
-  data-df="ll"
-  
-    data-bs-toggle="tooltip" data-bs-placement="bottom"
-  
->
-  Jun  8, 2024
-</time>
-
-        </span>
       
 
       
@@ -1216,9 +727,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="1053 words"
+  title="1543 words"
 >
-  <em>5 min</em> read</span>
+  <em>8 min</em> read</span>
 
       </div>
       <!-- .d-flex -->
@@ -1227,114 +738,185 @@
   </header>
 
   <div class="content">
-    <p>Charles Proxy를 이용하면, 안드로이드에서 보내는 패킷들을 분석할 수 있습니다.</p>
+    <p>Linux kernel의 가장 큰 장점은 opensource라는 것이다. 모든 코드들이 공개되어 있기 때문에 시스템 개발자로서는 최고의 교과서라고 할 수 있다. <del>하지만 교과서가 너무 거대하다..</del></p>
 
-<h2 id="charles-proxy-설치-및-환경설정"><span class="me-2">Charles Proxy 설치 및 환경설정</span><a href="#charles-proxy-설치-및-환경설정" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>QEMU를 이용하면 Linux kernel에 gdb를 붙여 그나마 코드 분석을 조금 용이하게 할 수 있다. 여기에는 QEMU와 gdb를 이용해서 linux kernel을 디버깅하는 방법에 대해 정리해놓는다.</p>
+
+<h2 id="환경"><span class="me-2">환경</span><a href="#환경" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <ul>
-  <li><a href="https://www.charlesproxy.com/">https://www.charlesproxy.com/</a> 에서 각 OS에 맞는 버전을 다운받습니다. ubuntu에서는 다음 명령어로 쉽게 설치할 수 있습니다.
-    <div class="language-bash highlighter-rouge"><div class="code-header">
+  <li>x86_64 CPU</li>
+  <li>Ubuntu 22.04</li>
+  <li>Linux kernel source code v6.10 기준</li>
+</ul>
+
+<h2 id="준비물"><span class="me-2">준비물</span><a href="#준비물" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>QEMU에서는 linux kernel을 간단하게 올려볼 수 있도록 -kernel 옵션을 제공한다.</p>
+<blockquote>
+  <p>When using these options, you can use a given Linux or Multiboot kernel without installing it in the disk image. It can be useful for easier testing of various kernels.</p>
+  <div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>-kernel bzImage
+  Use bzImage as kernel image. The kernel can be either a Linux kernel or in multiboot format.
+</pre></td></tr></tbody></table></code></div>  </div>
+</blockquote>
+
+<p>해당 옵션을 사용하기 위해 우리가 준비해야하는 건 3가지다.</p>
+<ul>
+  <li>
+    <dl>
+      <dt>bzImage</dt>
+      <dd>빌드한 linux kernel 이미지</dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>initramfs</dt>
+      <dd>초기 램 디스크 이미지로, 부팅 과정에서 필요한 초기 파일 시스템을 제공한다.</dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>busybox</dt>
+      <dd>최소한의 유틸리티들을 제공하는 도구로, initramfs에 포함되어 초기 시스템 환경을 구축하는 데 사용된다.</dd>
+    </dl>
+  </li>
+</ul>
+
+<h2 id="bzimage-linux-kernel-빌드"><span class="me-2">bzImage (Linux Kernel 빌드)</span><a href="#bzimage-linux-kernel-빌드" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>먼저, Linux kernel 소스를 clone한다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git clone https://github.com/torvalds/linux.git
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>gdb를 연결하기 위해서는 디버그 빌드와 같은 커널 옵션들을 설정해줘야 한다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nb">cd </span>linux
+make defconfig
+make menuconfig
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>다음 두 항목을 수정해준다.</p>
+
+<dl>
+  <dt>1) debug build option을 켜줘야 한다.</dt>
+  <dd>이 항목을 활성화하면 gcc에서 <code class="language-plaintext highlighter-rouge">-g</code> 옵션이 추가되어 디버그 심볼이 포함되게 된다.
+    <div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>-&gt; Kernel hacking                                                                                        
+  -&gt; Compile-time checks and compiler options                                                            
+    -&gt; Debug information (&lt;choice&gt; [=y])                                                                 
+ -&gt; Rely on the toolchain's implicit default DWARF version (DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT [=y])
+</pre></td></tr></tbody></table></code></div>    </div>
+  </dd>
+  <dt>2) KASLR 옵션을 꺼줘야 한다.</dt>
+  <dd>해당 기능은 커널 바이너리가 랜덤한 오프셋 값만큼 밀린 채로 메모리에 올라가도록 한다. 이는 해커들로부터 커널 함수들의 주소를 숨기는 역할을 하기에 보안에 좋다. 하지만 우리에게는 gdb가 함수 주소를 매칭시키지 못하게 하는 방해꾼이다. 비활성화 시켜주도록 하자.
+    <div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>-&gt; Processor type and features                                                
+  -&gt; Build a relocatable kernel (RELOCATABLE [=y])                            
+    -&gt; Randomize the address of the kernel image (KASLR) (RANDOMIZE_BASE [=n])
+</pre></td></tr></tbody></table></code></div>    </div>
+  </dd>
+</dl>
+
+<p>마지막으로 make명령어를 통해 커널을 빌드한다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>make <span class="nt">-j</span><span class="si">$(</span><span class="nb">nproc</span><span class="si">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p>빌드가 정상적으로 완료되면 arch/x86/boot/bzImage 파일과 vmlinux 파일이 생성된다.</p>
+
+<h2 id="busybox-빌드"><span class="me-2">busybox 빌드</span><a href="#busybox-빌드" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>리눅스 커널과 마찬가지로 소스를 clone한다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git clone https://git.busybox.net/busybox
+</pre></td></tr></tbody></table></code></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="nb">cd </span>busybox
+make defconfig
+make menuconfig
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>static 빌드를 위해 menuconfig에서 해당 옵션을 y로 설정한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>Settings  ---&gt;
+ --- Build Options
+ [y] Build static binary (no shared libs)
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>make 명령어를 통해 빌드한다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>make <span class="nt">-j</span><span class="si">$(</span><span class="nb">nproc</span><span class="si">)</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p>빌드가 완료되면 busybox 파일이 생성된다.</p>
+
+<h2 id="initramfs-준비"><span class="me-2">initramfs 준비</span><a href="#initramfs-준비" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>initramfs는 부팅 과정에서 필요한 초기 파일 시스템을 제공한다. 이를 준비하기 위해 initramfs 디렉터리를 만들고 필요한 파일들을 포함시킨다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
-</pre></td><td class="rouge-code"><pre>wget <span class="nt">-qO-</span> https://www.charlesproxy.com/packages/apt/charles-repo.asc | <span class="nb">sudo tee</span> /etc/apt/keyrings/charles-repo.asc
-<span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'echo deb [signed-by=/etc/apt/keyrings/charles-repo.asc] https://www.charlesproxy.com/packages/apt/ charles-proxy main &gt; /etc/apt/sources.list.d/charles.list'</span>
-<span class="nb">sudo </span>apt-get update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>charles-proxy
-charles
-</pre></td></tr></tbody></table></code></div>    </div>
-  </li>
-  <li>Proxy -&gt; Proxy settings 에서 http proxy port를 확인해줍니다.
-<a href="/assets/img/charles_proxy/proxy_port.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/proxy_port.png" alt="alt text" loading="lazy"></a></li>
-</ul>
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre><span class="nb">mkdir </span>initramfs
+<span class="nb">cd </span>initramfs
+<span class="nb">mkdir</span> <span class="nt">-p</span> <span class="o">{</span>bin,sbin,dev,etc,home,mnt,proc,sys,usr,tmp<span class="o">}</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> usr/<span class="o">{</span>bin,sbin<span class="o">}</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> proc/sys/kernel
+<span class="nb">cd </span>dev
+<span class="nb">sudo mknod </span>sda b 8 0
+<span class="nb">sudo mknod </span>console c 5 1
+<span class="nb">cd</span> ..
+</pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="android-proxy-설정"><span class="me-2">Android Proxy 설정</span><a href="#android-proxy-설정" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<ul>
-  <li>Android 디바이스에서 WIFI 설정으로 들어갑니다.</li>
-  <li>연결되어 있는 WIFI의 Proxy 설정으로 진입합니다.</li>
-</ul>
-
-<p><a href="/assets/img/charles_proxy/each_wifi.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/each_wifi.png" alt="alt text" width="400" loading="lazy"></a></p>
-
-<p><a href="/assets/img/charles_proxy/proxy_tab.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/proxy_tab.png" alt="alt text" width="400" loading="lazy"></a></p>
-
-<ul>
-  <li>Charles Proxy를 실행하는 PC의 ip와, 이전에 확인했던 port값을 입력합니다.</li>
-</ul>
-
-<p><a href="/assets/img/charles_proxy/wifi_settings.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/wifi_settings.png" alt="alt text" loading="lazy"></a></p>
-
-<ul>
-  <li>Android device에서 chrome을 실행하고 아무 페이지에 진입합니다.</li>
-  <li>Charles Proxy에서 연결을 허용하겠냐는 팝업이 뜨면 “Allow”를 클릭합니다.
-<a href="/assets/img/charles_proxy/allow.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/allow.png" alt="alt text" loading="lazy"></a></li>
-</ul>
-
-<h2 id="packet-녹화"><span class="me-2">Packet 녹화</span><a href="#packet-녹화" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<ul>
-  <li>
-    <p>Charles Proxy에서 “Start Recording” 버튼을 누르면 기록을 시작합니다.
-<a href="/assets/img/charles_proxy/recording.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/recording.png" alt="alt text" loading="lazy"></a></p>
-  </li>
-  <li>
-    <p>핸드폰으로 웹사이트에 접근하면 charles proxy에서 패킷을 기록합니다.</p>
-  </li>
-</ul>
-
-<h2 id="ssl-인증서-설치-https"><span class="me-2">SSL 인증서 설치 (https)</span><a href="#ssl-인증서-설치-https" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-<p>위 작업만으로도 <code class="language-plaintext highlighter-rouge">http://</code> 웹사이트들의 패킷은 전부 살펴볼 수 있습니다. 하지만 <code class="language-plaintext highlighter-rouge">https://</code> 웹사이트들은 SSL 암호화를 이용하기 때문에 패킷들이 깨져보이게 됩니다. 
-이를 해결하기 위해 charles proxy에서 SSL 인증서를 받아서 설치해주어야 합니다. 또한 안드로이드의 SSL Pinning을 우회하기 위해서 사용자 인증서를 시스템 인증서로 등록해주는 작업이 필요합니다. 이때 루트 권한이 필요합니다.</p>
-<blockquote class="prompt-warning">
-  <p>안드로이드에서 암호화 패킷을 확인하기 위해서는 루팅된 디바이스가 필요합니다.</p>
-</blockquote>
-
-<h3 id="ssl-프록시-활성화"><span class="me-2">SSL 프록시 활성화:</span><a href="#ssl-프록시-활성화" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul>
-  <li>Charles Proxy를 실행합니다.</li>
-  <li>Proxy 메뉴로 이동한 다음 SSL Proxying Settings를 선택합니다.</li>
-  <li>SSL Proxying을 활성화하고 Add 버튼을 클릭하여 HTTPS 트래픽을 모니터링할 도메인을 추가합니다. (*를 입력하여 모든 도메인의 HTTPS 트래픽을 모니터링할 수 있습니다.)</li>
-</ul>
-
-<h3 id="컴퓨터에-ssl-인증서-설치"><span class="me-2">컴퓨터에 SSL 인증서 설치</span><a href="#컴퓨터에-ssl-인증서-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul>
-  <li>Help &gt; SSL Proxying &gt; Install Charles Root Certificate를 선택합니다.</li>
-  <li>설치 후 인증서를 신뢰하는지 묻는 팝업이 뜨면 신뢰를 선택합니다.</li>
-</ul>
-
-<blockquote class="prompt-info">
-  <p>ubuntu에서 설치가 잘 안될 시에, 수동으로 설치할 수 있습니다.</p>
-  <ul>
-    <li>Help &gt; SSL Proxying &gt; Save Charles Root Certificate를 선택합니다.</li>
-    <li>Binary certificate (.cer)을 선택하고 확인을 누릅니다.</li>
-    <li>다음 명령어를 통해 시스템 인증서 저장소를 업데이트합니다
-      <div class="language-bash highlighter-rouge"><div class="code-header">
+<p>다음으로 빌드한 busybox 바이너리를 포함시켜 주어야 한다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>openssl x509 <span class="nt">-inform</span> DER <span class="nt">-in</span> ~/charles-ssl-proxying-certificate.cer <span class="nt">-out</span> /usr/local/share/ca-certificates/charles-ssl-proxying-certificate.crt
-<span class="nb">cd</span> /usr/local/share/ca-certificates
-<span class="nb">sudo </span>update-ca-certificates
-</pre></td></tr></tbody></table></code></div>      </div>
-    </li>
-  </ul>
-</blockquote>
+</pre></td><td class="rouge-code"><pre><span class="nb">cp</span> ../busybox/busybox ./bin/
+</pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="안드로이드-장치에-인증서-설치"><span class="me-2">안드로이드 장치에 인증서 설치</span><a href="#안드로이드-장치에-인증서-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul class="prompt-info">
-  <li>모바일 디바이스에서 http://chls.pro/ssl에 접속합니다. (charles proxy에 연결되어 있어야 합니다.)</li>
-  <li>Charles 인증서를 다운로드합니다.</li>
-  <li>HTTPS 트래픽을 후킹하기 위해 Android에서 신뢰할 수 있는 시스템 CA 인증서로 보이도록 해줘야 합니다. 다음 명령어를 수행합니다.
-    <blockquote>
-      <p>Android 인증서 저장소:</p>
-      <ul>
-        <li>시스템 저장소: /system/etc/security/cacerts/</li>
-        <li>사용자 저장소: /data/misc/user/0/cacerts-added/</li>
-      </ul>
-    </blockquote>
-  </li>
-</ul>
-
+<p>qemu 부팅 후 실행될 init script를 만들어준다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>nano init
+</pre></td></tr></tbody></table></code></div></div>
 <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
@@ -1354,34 +936,185 @@ charles
 15
 16
 17
-</pre></td><td class="rouge-code"><pre><span class="c"># 안드로이드 기기에 다운로드 했던 charles 인증서 파일을 데스크탑으로 옮겨서 작업합니다.</span>
-openssl x509 <span class="nt">-inform</span> PEM <span class="nt">-subject_hash_old</span> <span class="nt">-in</span> your_certificate.pem.crt | <span class="nb">head</span> <span class="nt">-1</span> <span class="c"># 해쉬값이 나옵니다 (ex. abcdef12)</span>
-<span class="nb">mv </span>your_certificate.pem.crt your_hash.0 <span class="c"># ex. mv charle-proxy-ssl-proxying-certificate.pem.crt abcdef12.0</span>
-adb push your_hash.0 /data/local/tmp/
+</pre></td><td class="rouge-code"><pre><span class="c">#!/bin/busybox sh</span>
 
-adb shell
-su
-<span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nt">-m</span> 700 /data/local/tmp/htk-ca-copy
-<span class="nb">cp</span> /system/etc/security/cacerts/<span class="k">*</span> /data/local/tmp/htk-ca-copy/
-mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
-<span class="nb">mv</span> /data/local/tmp/htk-ca-copy/<span class="k">*</span> /system/etc/security/cacerts/
-<span class="nb">mv</span> /data/local/tmp/your_hash.0 /system/etc/security/cacerts/
-<span class="nb">chown </span>root:root /system/etc/security/cacerts/<span class="k">*</span>
-<span class="nb">chmod </span>644 /system/etc/security/cacerts/<span class="k">*</span>
-<span class="nb">chcon </span>u:object_r:system_file:s0 /system/etc/security/cacerts/<span class="k">*</span>
+<span class="c"># Make symlinks</span>
+/bin/busybox <span class="nt">--install</span> <span class="nt">-s</span>
 
-<span class="nb">rm</span> <span class="nt">-r</span> /data/local/tmp/htk-ca-copy
+<span class="c"># Mount system</span>
+mount <span class="nt">-t</span> devtmpfs devtmpfs /dev
+mount <span class="nt">-t</span> proc     proc     /proc
+mount <span class="nt">-t</span> sysfs    sysfs    /sys
+mount <span class="nt">-t</span> tmpfs    tmpfs    /tmp
+
+<span class="c"># Busybox TTY fix</span>
+setsid cttyhack sh
+<span class="nb">echo</span> /sbin/mdev <span class="o">&gt;</span> /proc/sys/kernel/hotplug
+mdev <span class="nt">-s</span>
+
+sh
 </pre></td></tr></tbody></table></code></div></div>
-<blockquote class="prompt-info">
-  <p>참고사이트: https://httptoolkit.com/blog/intercepting-android-https/</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nb">chmod</span> +x init
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>결과적으로 initramfs 디렉토리가 다음과 같이 구성되어야 한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre>.
+├── bin
+│   └── busybox
+├── dev
+│   ├── console
+│   └── sda
+├── etc
+├── home
+├── init
+├── mnt
+├── proc
+│   └── sys
+│       └── kernel
+├── sbin
+├── sys
+├── tmp
+└── usr
+    ├── bin
+    └── sbin
+
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>마지막으로 압축을 통해 initramfs파일을 만들어준다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>find <span class="nb">.</span> <span class="nt">-print0</span> | cpio <span class="nt">--null</span> <span class="nt">-ov</span> <span class="nt">--format</span><span class="o">=</span>newc | <span class="nb">gzip</span> <span class="nt">-9</span> <span class="o">&gt;</span> initramfs.cpio.gz
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>성공적으로 마쳤다면 initramfs.cpio.gz 파일이 생성된 것을 확인할 수 있다.</p>
+
+<h2 id="qemu를-이용한-linux-kernel-실행"><span class="me-2">QEMU를 이용한 Linux Kernel 실행</span><a href="#qemu를-이용한-linux-kernel-실행" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>QEMU를 사용하여 bzImage와 initramfs를 로드한다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="rouge-code"><pre>qemu-system-x86_64 <span class="se">\</span>
+  <span class="nt">-nographic</span> <span class="se">\</span>
+  <span class="nt">-enable-kvm</span> <span class="se">\</span>
+  <span class="nt">-cpu</span> host <span class="se">\</span>
+  <span class="nt">-m</span> 1G <span class="se">\</span>
+  <span class="nt">-gdb</span> tcp::1234 <span class="se">\</span>
+  <span class="nt">-append</span> <span class="s2">"console=ttyS0 nokaslr"</span> <span class="se">\</span>
+  <span class="nt">-kernel</span> <span class="o">{</span>/path/to/linux/arch/x86_64/boot/bzImage<span class="o">}</span> <span class="se">\</span>
+  <span class="nt">-initrd</span> <span class="o">{</span>/path/to/initramfs.cpio.gz<span class="o">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>실행하면 부팅과정에서 kernel의 message들이 출력된 후 shell script가 실행된 모습을 볼 수 있다.</p>
+
+<h2 id="gdb를-이용한-디버깅"><span class="me-2">gdb를 이용한 디버깅</span><a href="#gdb를-이용한-디버깅" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>QEMU의 <code class="language-plaintext highlighter-rouge">-gdb tcp::1234</code> 옵션은 gdb server를 1234 포트로 실행하라는 뜻이다. 따라서 localhost:1234에 접속하여 gdb를 attach 시킬 수 있다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>gdb <span class="nt">-ex</span> <span class="s2">"target remote localhost:1234"</span> /path/to/linux/vmlinux
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>이제 gdb를 통해 Linux kernel의 소스 코드를 따라가며 디버깅할 수 있다.</p>
+
+<blockquote class="prompt-tip">
+  <p>QEMU를 강제로 종료하고 싶다면 ctrl+a =&gt; x를 누르면 된다. 정상적으로 종료시키고 싶다면 busybox shell에서 <code class="language-plaintext highlighter-rouge">poweroff -f</code> 명령어를 입력한다.</p>
 </blockquote>
 
-<ul>
-  <li>몇번의 재부팅을 해줍니다.</li>
-  <li>Android 기기 설정 &gt; 생체 인식 및 보안 &gt; 기타 보안 설정 &gt; 인증서 확인에서 “XK72 Ltd”가 보이면 성공입니다.</li>
-</ul>
+<h2 id="arm64-디버깅"><span class="me-2">arm64 디버깅</span><a href="#arm64-디버깅" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>만약 x86이 아니라 arm이나 risc-v에 대해 디버깅을 해보고 싶다면, 리눅스 커널과 busybox를 빌드할때 ARCH와 CROSS_COMPILE옵션을 주면 된다.</p>
 
-<p><a href="/assets/img/charles_proxy/https_success.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/https_success.png" alt="alt text" loading="lazy"></a></p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>make <span class="nv">ARCH</span><span class="o">=</span>arm64 <span class="nv">CROSS_COMPILE</span><span class="o">=</span>aarch64-linux-gnu- defconfig
+make <span class="nv">ARCH</span><span class="o">=</span>arm64 <span class="nv">CROSS_COMPILE</span><span class="o">=</span>aarch64-linux-gnu- menuconfig
+qemu-system-aarch64 ...
+</pre></td></tr></tbody></table></code></div></div>
+
+<blockquote class="prompt-tip">
+  <p>kernel config를 직접 편집해도 된다. 다음 옵션들이 들어있는지 확인하자</p>
+  <div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre>CONFIG_DEBUG_INFO=y
+CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
+CONFIG_EXPERT=y
+# CONFIG_DEBUG_INFO_REDUCED is not set
+# CONFIG_RELOCATABLE is not set
+# CONFIG_RANDOMIZE_BASE is not set
+</pre></td></tr></tbody></table></code></div>  </div>
+</blockquote>
+
+<p>busybox를 initramfs/bin에 cp해서 initramfs.cpio.gz를 만들어준다.
+qemu command는 다음과 같이 수정해주자.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="rouge-code"><pre>qemu-system-aarch64 <span class="se">\</span>
+  <span class="nt">-nographic</span> <span class="se">\</span>
+  <span class="nt">-cpu</span> cortex-a57 <span class="se">\</span>
+  <span class="nt">-machine</span> virt <span class="se">\</span>
+  <span class="nt">-nodefaults</span> <span class="se">\</span>
+  <span class="nt">-m</span> 1G <span class="se">\</span>
+  <span class="nt">-gdb</span> tcp::1234 <span class="se">\</span>
+  <span class="nt">-append</span> <span class="s2">"console=ttyAMA0 nokaslr"</span> <span class="se">\</span>
+  <span class="nt">-serial</span> mon:stdio <span class="se">\</span>
+  <span class="nt">-kernel</span> kernel/arch/arm64/boot/Image <span class="se">\</span>
+  <span class="nt">-initrd</span> initramfs.cpio.gz
+</pre></td></tr></tbody></table></code></div></div>
 
   </div>
 
@@ -1391,7 +1124,7 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/tips/">Tips</a>
+          <a href="/categories/linux-kernel/">Linux Kernel</a>
       </div>
     
 
@@ -1401,9 +1134,19 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/android/"
+            href="/tags/linux-kernel/"
             class="post-tag no-text-decoration"
-          >android</a>
+          >Linux Kernel</a>
+        
+          <a
+            href="/tags/qemu/"
+            class="post-tag no-text-decoration"
+          >QEMU</a>
+        
+          <a
+            href="/tags/gdb/"
+            class="post-tag no-text-decoration"
+          >gdb</a>
         
       </div>
     
@@ -1439,21 +1182,21 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=Charles%20Proxy%EB%A1%9C%20%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20HTTP%20%ED%8C%A8%ED%82%B7%20%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fcharles_proxy%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=GDB%EB%A1%9C%20%EB%A6%AC%EB%88%85%EC%8A%A4%20%EC%BB%A4%EB%84%90%20%EB%94%94%EB%B2%84%EA%B9%85%20%ED%95%98%EA%B8%B0%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fdebug_kernel%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=Charles%20Proxy%EB%A1%9C%20%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20HTTP%20%ED%8C%A8%ED%82%B7%20%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&u=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fcharles_proxy%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=GDB%EB%A1%9C%20%EB%A6%AC%EB%88%85%EC%8A%A4%20%EC%BB%A4%EB%84%90%20%EB%94%94%EB%B2%84%EA%B9%85%20%ED%95%98%EA%B8%B0%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&u=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fdebug_kernel%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fcharles_proxy%2F&text=Charles%20Proxy%EB%A1%9C%20%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20HTTP%20%ED%8C%A8%ED%82%B7%20%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fdebug_kernel%2F&text=GDB%EB%A1%9C%20%EB%A6%AC%EB%88%85%EC%8A%A4%20%EC%BB%A4%EB%84%90%20%EB%94%94%EB%B2%84%EA%B9%85%20%ED%95%98%EA%B8%B0%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1853,31 +1596,31 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1893,7 +1636,7 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
       
         <article class="col">
-          <a href="/posts/stf/" class="post-preview card h-100">
+          <a href="/posts/qemu-network/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1905,14 +1648,14 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
 <time
   
-  data-ts="1716541020"
+  data-ts="1715833200"
   data-df="ll"
   
 >
-  May 24, 2024
+  May 16, 2024
 </time>
 
-              <h4 class="pt-0 my-2">나만의 Smartphone Test Farm 만들기 (STF)</h4>
+              <h4 class="pt-0 my-2">QEMU Network 설정 방법 (가상머신끼리 통신하기)</h4>
               <div class="text-muted">
                 <p>
                   
@@ -1921,7 +1664,11 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
 
 
-                  이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인...
+                  User Networking (SLIRP)
+
+                             +---------------------------+
+                             |      Host Machine         |
+                             |                        ...
                 </p>
               </div>
             </div>
@@ -1929,7 +1676,7 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         </article>
       
         <article class="col">
-          <a href="/posts/note10-rooting/" class="post-preview card h-100">
+          <a href="/posts/ovmf/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1941,14 +1688,14 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
 <time
   
-  data-ts="1719142380"
+  data-ts="1716390000"
   data-df="ll"
   
 >
-  Jun 23, 2024
+  May 23, 2024
 </time>
 
-              <h4 class="pt-0 my-2">갤럭시 노트10+ 루팅하기 (Android 12)</h4>
+              <h4 class="pt-0 my-2">QEMU UEFI 환경으로 부팅하기 (OVMF)</h4>
               <div class="text-muted">
                 <p>
                   
@@ -1957,15 +1704,10 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
 
 
-                  
-  루팅을 진행하게 되면 갤럭시 노트 워런티가 깨지게 됩니다. 추후 순정 펌웨어로 돌린다고 하더라도 삼성페이를 포함한 각종 은행 어플들을 사용할 수 없게 됩니다.
+                  OVMF란?
+QEMU는 기본 bios로 SeaBios를 사용합니다. SeaBios는 GPT를 지원하지 않습니다. 이 때문에 다른 PC에서 설치한 운영체제를 QEMU로 부팅하려고 하면 실패하는 경우가 많습니다 (대부분의 최신 메인보드는 UEFI를 지원하기 때문에, GPT 테이블을 이용하고 있을 확률이 높습니다).
 
-
-안드로이드 버전 12 및 13에는 동일한 방법으로 루팅을 할 수 있습니다.
-
-  갤럭시 S20, S21, S22 시리즈
-  갤럭시 노트 10, 20 시리즈
-  갤럭시 탭 S6 lite,...
+이때 필요한 게 OVMF입니다. OVM...
                 </p>
               </div>
             </div>
@@ -1987,22 +1729,18 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
   
     <a
-      href="/posts/qemu-network/"
+      href="/posts/note10-rooting/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>QEMU Network 설정 방법 (가상머신끼리 통신하기)</p>
+      <p>갤럭시 노트10+ 루팅하기 (Android 12)</p>
     </a>
   
 
   
-    <a
-      href="/posts/ovmf/"
-      class="btn btn-outline-primary"
-      aria-label="Newer"
-    >
-      <p>QEMU UEFI 환경으로 부팅하기 (OVMF)</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="Newer">
+      <p>-</p>
+    </div>
   
 </nav>
 
