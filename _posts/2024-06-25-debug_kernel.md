@@ -241,3 +241,8 @@ qemu-system-aarch64 \
   -kernel kernel/arch/arm64/boot/Image \
   -initrd initramfs.cpio.gz
 ```
+
+gdb는 gdb-multiarch를 사용해주어야 한다.
+```bash
+gdb-multiarch -ex "target remote localhost:1234" /path/to/linux/vmlinux
+```
