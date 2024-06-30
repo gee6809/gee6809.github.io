@@ -1523,6 +1523,13 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/galaxy-kvm_1/">Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/debug_kernel/">GDB로 리눅스 커널 디버깅 하기</a>
         </li>
       
@@ -1545,13 +1552,6 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         
         <li class="text-truncate lh-lg">
           <a href="/posts/stf/">나만의 Smartphone Test Farm 만들기 (STF)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/charles_proxy/">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</a>
         </li>
       
     </ul>
@@ -1605,25 +1605,10 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
     
-      
-        
-        
-
   
     
     
     
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1634,20 +1619,6 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -1669,14 +1640,15 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
     
-      
-    
   
     
     
     
     
-      
+  
+    
+    
+    
     
   
     
@@ -1692,21 +1664,19 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
     
-      
-    
   
     
     
     
     
       
-    
+        
+        
+
   
     
     
     
-    
-      
     
   
     
@@ -1729,7 +1699,33 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
     
+  
+    
+    
+    
+    
       
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
     
   
     
@@ -1744,6 +1740,105 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
       
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -1786,10 +1881,16 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         <a class="post-tag btn btn-outline-primary" href="/tags/android/">android</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/linux-kernel/">Linux Kernel</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/exynos/">Exynos</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/gdb/">gdb</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/linux-kernel/">Linux Kernel</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/kvm/">kvm</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/network/">network</a>
@@ -1878,6 +1979,18 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
   
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -1891,6 +2004,42 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
   <aside id="related-posts" aria-labelledby="related-label">
     <h3 class="mb-4" id="related-label">Further Reading</h3>
     <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/galaxy-kvm_1/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719714420"
+  data-df="ll"
+  
+>
+  Jun 30, 2024
+</time>
+
+              <h4 class="pt-0 my-2">Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  개발하다 보면 Arm 기반 프로세서에서도 테스트해 봐야 하는 상황이 종종 생긴다. 여태껏 QEMU Emulation을 통해 x86머신에서 테스트를 진행해 오긴 했지만, 아무래도 kvm을 쓸 수 없다 보니 너무 느리고 답답하다. Mac PC를 쓰면 된다지만, 1년에 한두 번 쓰자고 사기엔 Mac은 너무 비싸다…. 고민하던 중 놀고 있던 Galaxy No...
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
       
         <article class="col">
           <a href="/posts/stf/" class="post-preview card h-100">
@@ -2096,25 +2245,10 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
     
-      
-        
-        
-
   
     
     
     
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
     
   
     
@@ -2125,20 +2259,6 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         
         
 
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
   
     
     
@@ -2160,14 +2280,15 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
     
-      
-    
   
     
     
     
     
-      
+  
+    
+    
+    
     
   
     
@@ -2183,21 +2304,19 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
     
-      
-    
   
     
     
     
     
       
-    
+        
+        
+
   
     
     
     
-    
-      
     
   
     
@@ -2220,7 +2339,33 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
     
+  
+    
+    
+    
+    
       
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
     
   
     
@@ -2235,6 +2380,105 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
       
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
     
   
     
@@ -2277,10 +2521,16 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         <a class="post-tag btn btn-outline-primary" href="/tags/android/">android</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/linux-kernel/">Linux Kernel</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/exynos/">Exynos</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/gdb/">gdb</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/linux-kernel/">Linux Kernel</a>
+        <a class="post-tag btn btn-outline-primary" href="/tags/kvm/">kvm</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/network/">network</a>
