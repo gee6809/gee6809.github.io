@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle>It is a blog that organizes operating systems, QEMU, and various development logs.</subtitle>
-  <updated>2024-06-30T11:42:03+09:00</updated>
+  <updated>2024-06-30T13:13:22+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -62,7 +62,7 @@ Processor Support
     <link href="https://gee6809.github.io/posts/debug_kernel/" rel="alternate" type="text/html" title="GDB로 리눅스 커널 디버깅 하기" />
     <published>2024-06-25T14:11:00+09:00</published>
   
-    <updated>2024-06-25T14:11:00+09:00</updated>
+    <updated>2024-06-30T13:13:18+09:00</updated>
   
     <id>https://gee6809.github.io/posts/debug_kernel/</id>
     <content src="https://gee6809.github.io/posts/debug_kernel/" />

@@ -46,7 +46,7 @@
 <meta property="twitter:title" content="GDB로 리눅스 커널 디버깅 하기" />
 <meta name="google-site-verification" content="UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-06-25T14:11:00+09:00","datePublished":"2024-06-25T14:11:00+09:00","description":"리눅스 커널에 gdb를 붙여서 디버깅을 할 수 있다. gdb를 이용하면 line-by-line 실행 및 stacktrace, 변수값 출력등의 기능들을 사용할 수 있다.","headline":"GDB로 리눅스 커널 디버깅 하기","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/debug_kernel/"},"url":"https://gee6809.github.io/posts/debug_kernel/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-06-30T13:13:18+09:00","datePublished":"2024-06-25T14:11:00+09:00","description":"리눅스 커널에 gdb를 붙여서 디버깅을 할 수 있다. gdb를 이용하면 line-by-line 실행 및 stacktrace, 변수값 출력등의 기능들을 사용할 수 있다.","headline":"GDB로 리눅스 커널 디버깅 하기","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/debug_kernel/"},"url":"https://gee6809.github.io/posts/debug_kernel/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -702,6 +702,29 @@
 
       <!-- lastmod date -->
       
+        <span>
+          Updated
+          <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719720798"
+  data-df="ll"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  Jun 30, 2024
+</time>
+
+        </span>
+      
 
       
 
@@ -727,7 +750,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="1543 words"
+  title="1563 words"
 >
   <em>8 min</em> read</span>
 
@@ -1116,6 +1139,13 @@ qemu command는 다음과 같이 수정해주자.</p>
   <span class="nt">-initrd</span> initramfs.cpio.gz
 </pre></td></tr></tbody></table></code></div></div>
 
+<p>gdb는 gdb-multiarch를 사용해주어야 한다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>gdb-multiarch <span class="nt">-ex</span> <span class="s2">"target remote localhost:1234"</span> /path/to/linux/vmlinux
+</pre></td></tr></tbody></table></code></div></div>
+
   </div>
 
   <div class="post-tail-wrapper text-muted">
@@ -1266,14 +1296,14 @@ qemu command는 다음과 같이 수정해주자.</p>
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/galaxy-kvm_1/">Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</a>
+          <a href="/posts/debug_kernel/">GDB로 리눅스 커널 디버깅 하기</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/debug_kernel/">GDB로 리눅스 커널 디버깅 하기</a>
+          <a href="/posts/galaxy-kvm_1/">Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</a>
         </li>
       
         
