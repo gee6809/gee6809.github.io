@@ -46,7 +46,7 @@
 <meta property="twitter:title" content="Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)" />
 <meta name="google-site-verification" content="UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-06-30T11:27:00+09:00","datePublished":"2024-06-30T11:27:00+09:00","description":"Galaxy Note 10+ 에서 kvm을 활성화할 수 있을지 분석하는 글입니다.","headline":"Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/galaxy-kvm_1/"},"url":"https://gee6809.github.io/posts/galaxy-kvm_1/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-07-01T21:35:56+09:00","datePublished":"2024-06-30T11:27:00+09:00","description":"Galaxy Note 10+ 에서 kvm을 활성화할 수 있을지 분석하는 글입니다.","headline":"Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/galaxy-kvm_1/"},"url":"https://gee6809.github.io/posts/galaxy-kvm_1/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -625,6 +625,29 @@
 
       <!-- lastmod date -->
       
+        <span>
+          Updated
+          <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719837356"
+  data-df="ll"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  Jul  1, 2024
+</time>
+
+        </span>
+      
 
       
 
@@ -650,7 +673,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="874 words"
+  title="887 words"
 >
   <em>4 min</em> read</span>
 
@@ -677,9 +700,7 @@ Indicates whether Virtualization Host Extensions are supported.<br />
 
 <p>그런데 문제는, 해당 레지스터 Exception Level 1 이상에서만 읽을 수 있다는 것이다.</p>
 
-<blockquote class="prompt-info">
-  <p>ARM Exception Level은 프로세서의 실행 권한을 나타낸다. EL0, EL1, EL2, EL3 순으로 권한이 강해진다. EL0는 사용자 모드를 의미하고, EL1은 커널모드를 의미한다. EL2는 hypervisor모드로 kvm을 지원할 수 있는지는 EL2모드를 지원하는지 알아내는 것과도 같다.</p>
-</blockquote>
+<p>ARM Exception Level은 프로세서의 실행 권한을 나타낸다. EL0, EL1, EL2, EL3 순으로 권한이 강해진다. EL0는 사용자 모드를 의미하고, EL1은 커널모드를 의미한다. EL2는 hypervisor모드로 가상화를 관리하는 모드이다. kvm을 지원할 수 있는지는 EL2모드를 지원하는지 알아내는 것과도 같다.</p>
 
 <p>따라서 해당 레지스터를 읽기 위해서는 kernel mode에서 실행해야 한다. 간단히 linux kernel module을 만들어서 테스트해 보면 된다는 생각이 든다.</p>
 
@@ -920,6 +941,13 @@ Indicates whether Virtualization Host Extensions are supported.<br />
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/galaxy-kvm_1/">Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/charles_proxy/">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</a>
         </li>
       
@@ -942,13 +970,6 @@ Indicates whether Virtualization Host Extensions are supported.<br />
         
         <li class="text-truncate lh-lg">
           <a href="/posts/debug_kernel/">GDB로 리눅스 커널 디버깅 하기</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/galaxy-kvm_1/">Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</a>
         </li>
       
     </ul>
