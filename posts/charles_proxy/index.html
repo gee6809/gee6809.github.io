@@ -46,7 +46,7 @@
 <meta property="twitter:title" content="Charles Proxy로 안드로이드 HTTP 패킷 분석하기" />
 <meta name="google-site-verification" content="UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-06-08T19:55:51+09:00","datePublished":"2024-05-19T18:21:00+09:00","description":"Charles Proxy를 이용하여 안드로이드 어플들이 보내는 패킷을 후킹하는 방법에 대하여 안내합니다.","headline":"Charles Proxy로 안드로이드 HTTP 패킷 분석하기","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/charles_proxy/"},"url":"https://gee6809.github.io/posts/charles_proxy/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-07-01T21:28:28+09:00","datePublished":"2024-05-19T18:21:00+09:00","description":"Charles Proxy를 이용하여 안드로이드 어플들이 보내는 패킷을 후킹하는 방법에 대하여 안내합니다.","headline":"Charles Proxy로 안드로이드 HTTP 패킷 분석하기","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/charles_proxy/"},"url":"https://gee6809.github.io/posts/charles_proxy/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1180,13 +1180,13 @@
 
 <time
   
-  data-ts="1717844151"
+  data-ts="1719836908"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Jun  8, 2024
+  Jul  1, 2024
 </time>
 
         </span>
@@ -1245,7 +1245,7 @@ charles
 </pre></td></tr></tbody></table></code></div>    </div>
   </li>
   <li>Proxy -&gt; Proxy settings 에서 http proxy port를 확인해줍니다.
-<a href="/assets/img/charles_proxy/proxy_port.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/proxy_port.png" alt="alt text" loading="lazy"></a></li>
+<a href="/assets/img/charles_proxy/proxy_port.webp" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/proxy_port.webp" alt="alt text" loading="lazy"></a></li>
 </ul>
 
 <h2 id="android-proxy-설정"><span class="me-2">Android Proxy 설정</span><a href="#android-proxy-설정" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
@@ -1254,27 +1254,27 @@ charles
   <li>연결되어 있는 WIFI의 Proxy 설정으로 진입합니다.</li>
 </ul>
 
-<p><a href="/assets/img/charles_proxy/each_wifi.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/each_wifi.png" alt="alt text" width="400" loading="lazy"></a></p>
+<p><a href="/assets/img/charles_proxy/each_wifi.webp" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/each_wifi.webp" alt="alt text" width="400" loading="lazy"></a></p>
 
-<p><a href="/assets/img/charles_proxy/proxy_tab.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/proxy_tab.png" alt="alt text" width="400" loading="lazy"></a></p>
+<p><a href="/assets/img/charles_proxy/proxy_tab.webp" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/proxy_tab.webp" alt="alt text" width="400" loading="lazy"></a></p>
 
 <ul>
   <li>Charles Proxy를 실행하는 PC의 ip와, 이전에 확인했던 port값을 입력합니다.</li>
 </ul>
 
-<p><a href="/assets/img/charles_proxy/wifi_settings.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/wifi_settings.png" alt="alt text" loading="lazy"></a></p>
+<p><a href="/assets/img/charles_proxy/wifi_settings.webp" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/wifi_settings.webp" alt="alt text" loading="lazy"></a></p>
 
 <ul>
   <li>Android device에서 chrome을 실행하고 아무 페이지에 진입합니다.</li>
   <li>Charles Proxy에서 연결을 허용하겠냐는 팝업이 뜨면 “Allow”를 클릭합니다.
-<a href="/assets/img/charles_proxy/allow.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/allow.png" alt="alt text" loading="lazy"></a></li>
+<a href="/assets/img/charles_proxy/allow.webp" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/allow.webp" alt="alt text" loading="lazy"></a></li>
 </ul>
 
 <h2 id="packet-녹화"><span class="me-2">Packet 녹화</span><a href="#packet-녹화" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 <ul>
   <li>
     <p>Charles Proxy에서 “Start Recording” 버튼을 누르면 기록을 시작합니다.
-<a href="/assets/img/charles_proxy/recording.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/recording.png" alt="alt text" loading="lazy"></a></p>
+<a href="/assets/img/charles_proxy/recording.webp" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/recording.webp" alt="alt text" loading="lazy"></a></p>
   </li>
   <li>
     <p>핸드폰으로 웹사이트에 접근하면 charles proxy에서 패킷을 기록합니다.</p>
@@ -1381,7 +1381,7 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
   <li>Android 기기 설정 &gt; 생체 인식 및 보안 &gt; 기타 보안 설정 &gt; 인증서 확인에서 “XK72 Ltd”가 보이면 성공입니다.</li>
 </ul>
 
-<p><a href="/assets/img/charles_proxy/https_success.png" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/https_success.png" alt="alt text" loading="lazy"></a></p>
+<p><a href="/assets/img/charles_proxy/https_success.webp" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/https_success.webp" alt="alt text" loading="lazy"></a></p>
 
   </div>
 
@@ -1523,21 +1523,14 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/debug_kernel/">GDB로 리눅스 커널 디버깅 하기</a>
+          <a href="/posts/charles_proxy/">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</a>
         </li>
       
         
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/galaxy-kvm_1/">Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/ovmf/">QEMU UEFI 환경으로 부팅하기 (OVMF)</a>
+          <a href="/posts/stf/">나만의 Smartphone Test Farm 만들기 (STF)</a>
         </li>
       
         
@@ -1551,7 +1544,14 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         
         
         <li class="text-truncate lh-lg">
-          <a href="/posts/stf/">나만의 Smartphone Test Farm 만들기 (STF)</a>
+          <a href="/posts/debug_kernel/">GDB로 리눅스 커널 디버깅 하기</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/galaxy-kvm_1/">Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</a>
         </li>
       
     </ul>
