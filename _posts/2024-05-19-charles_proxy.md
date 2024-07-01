@@ -20,27 +20,27 @@ sudo apt-get update && sudo apt-get install charles-proxy
 charles
 ```
 - Proxy -> Proxy settings 에서 http proxy port를 확인해줍니다.
-![alt text](/assets/img/charles_proxy/proxy_port.png)
+![alt text](/assets/img/charles_proxy/proxy_port.webp)
 
 ## Android Proxy 설정
 - Android 디바이스에서 WIFI 설정으로 들어갑니다.
 - 연결되어 있는 WIFI의 Proxy 설정으로 진입합니다.
 
-![alt text](/assets/img/charles_proxy/each_wifi.png){: width="400"}
+![alt text](/assets/img/charles_proxy/each_wifi.webp){: width="400"}
 
-![alt text](/assets/img/charles_proxy/proxy_tab.png){: width="400"}
+![alt text](/assets/img/charles_proxy/proxy_tab.webp){: width="400"}
 
 - Charles Proxy를 실행하는 PC의 ip와, 이전에 확인했던 port값을 입력합니다.
 
-![alt text](/assets/img/charles_proxy/wifi_settings.png)
+![alt text](/assets/img/charles_proxy/wifi_settings.webp)
 
 - Android device에서 chrome을 실행하고 아무 페이지에 진입합니다.
 - Charles Proxy에서 연결을 허용하겠냐는 팝업이 뜨면 "Allow"를 클릭합니다.
-![alt text](/assets/img/charles_proxy/allow.png)
+![alt text](/assets/img/charles_proxy/allow.webp)
 
 ## Packet 녹화
 - Charles Proxy에서 "Start Recording" 버튼을 누르면 기록을 시작합니다.
-![alt text](/assets/img/charles_proxy/recording.png)
+![alt text](/assets/img/charles_proxy/recording.webp)
 
 - 핸드폰으로 웹사이트에 접근하면 charles proxy에서 패킷을 기록합니다.
 
@@ -105,4 +105,4 @@ rm -r /data/local/tmp/htk-ca-copy
 - 몇번의 재부팅을 해줍니다.  
 - Android 기기 설정 > 생체 인식 및 보안 > 기타 보안 설정 > 인증서 확인에서 "XK72 Ltd"가 보이면 성공입니다.
 
-![alt text](/assets/img/charles_proxy/https_success.png)
+![alt text](/assets/img/charles_proxy/https_success.webp)

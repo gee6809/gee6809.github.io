@@ -67,7 +67,7 @@ Samsung USB Driver의 압축을 풀고, exe파일을 통해 설치합니다.
 
 8) 패치가 완료된 파일을 컴퓨터로 복사합니다. (magisk_patched-XXX.tar)
 
-![magisk](/assets/img/rooting/magisk_app.png){: width="350" }
+![magisk](/assets/img/rooting/magisk_app.webp){: width="350" }
 
 
 ## Bootloader Unlock 하기
@@ -97,7 +97,7 @@ Samsung USB Driver의 압축을 풀고, exe파일을 통해 설치합니다.
    - 재부팅이 완료되면 다시 개발자 모드를 활성화합니다.
    - 개발자 옵션에서 'OEM 잠금 해제'가 음영 처리되어 있는지 확인합니다.
 
-![oem](/assets/img/rooting/oem.png){: width="350" }
+![oem](/assets/img/rooting/oem.webp){: width="350" }
 
 > 만약 OEM 잠금 해제 항목이 아예 보이지 않는 경우, 다음과 같이 수행합니다.
 > - '설정' → '개발자 옵션' → '시스템 자동 업데이트'를 해제합니다.
@@ -123,7 +123,7 @@ Samsung USB Driver의 압축을 풀고, exe파일을 통해 설치합니다.
      - "USERDATA"는 비워둡니다.
    - "Options"에서 "Auto Reboot" 옵션의 체크를 해제합니다.
 
-![odin](/assets/img/rooting/odin.png)
+![odin](/assets/img/rooting/odin.webp)
 
 
 1) **Firmware 설치**
@@ -138,7 +138,7 @@ Samsung USB Driver의 압축을 풀고, exe파일을 통해 설치합니다.
    - Magisk 앱을 실행 후 재부팅이 필요하다는 알림이 뜨면 확인을 눌러 재부팅합니다.
    - 재부팅 후, 루팅이 성공적으로 완료되었는지 확인합니다.
 
-![rooted_magisk](/assets/img/rooting/rooted_magisk.png){: width="350" }
+![rooted_magisk](/assets/img/rooting/rooted_magisk.webp){: width="350" }
 
 > Magisk를 이용한 루팅은 **리커버리 모드**에서만 작동합니다. 일반 부팅은 루팅이 되지 않은 상태로 부팅됩니다. 
 > 리커버리 모드로 부팅하기 위해서는, **휴대폰을 컴퓨터에 연결**한 채로 볼륨상키와 전원버튼을 꾹 누르고 있어야 합니다. (이후 Reboot System now를 통해 리커버리 모드로 부팅)
