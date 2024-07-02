@@ -1,5 +1,9 @@
 User-agent: *
 
 Disallow: /norobots/
+Disallow: /categories/
+Disallow: /tags/
+Disallow: /archives/
+Disallow: /about/
 
 Sitemap: https://gee6809.github.io/sitemap.xml
