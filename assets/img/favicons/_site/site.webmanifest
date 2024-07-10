@@ -1,8 +1,8 @@
 
 
 {
-  "name": "커널노트 블로그",
-  "short_name": "커널노트 블로그",
+  "name": "",
+  "short_name": "",
   "description": "",
   "icons": [
     {
@@ -20,4 +20,3 @@
   "background_color": "#ffffff",
   "display": "fullscreen"
 }
-

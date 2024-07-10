@@ -3,14 +3,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
-  <subtitle>It is a blog that organizes operating systems, QEMU, and various development logs.</subtitle>
-  <updated>2024-07-05T23:13:46+09:00</updated>
+  <subtitle></subtitle>
+  <updated>2024-07-10T21:21:36+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
   </author>
   <link rel="self" type="application/atom+xml" href="https://gee6809.github.io/feed.xml"/>
-  <link rel="alternate" type="text/html" hreflang="ko"
+  <link rel="alternate" type="text/html" hreflang="en"
     href="https://gee6809.github.io/"/>
   <generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator>
   <rights> © 2024 Jeuk Kim </rights>
