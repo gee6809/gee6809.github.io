@@ -1506,6 +1506,13 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/galaxy-kvm_3/">Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/galaxy-kvm_2/">Galaxy Note 10+ kvm 도전기 - 2 (LineageOS 설치하기)</a>
         </li>
       
@@ -1528,13 +1535,6 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         
         <li class="text-truncate lh-lg">
           <a href="/posts/stf/">나만의 Smartphone Test Farm 만들기 (STF)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/note10-rooting/">갤럭시 노트10+ 루팅하기 (Android 12)</a>
         </li>
       
     </ul>
@@ -1608,23 +1608,15 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
     
+  
+    
+    
+    
+    
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
@@ -1636,11 +1628,6 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
       
-    
-  
-    
-    
-    
     
   
     
@@ -1667,9 +1654,7 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
       
-        
-        
-
+    
   
     
     
@@ -1681,6 +1666,21 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1914,13 +1914,13 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         <a class="post-tag btn btn-outline-primary" href="/tags/linux-kernel/">Linux Kernel</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/qemu/">QEMU</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/exynos/">Exynos</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/kvm/">kvm</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/qemu/">QEMU</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/gdb/">gdb</a>
@@ -2039,6 +2039,18 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
@@ -2128,7 +2140,7 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         </article>
       
         <article class="col">
-          <a href="/posts/stf/" class="post-preview card h-100">
+          <a href="/posts/galaxy-kvm_3/" class="post-preview card h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -2140,14 +2152,14 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
 <time
   
-  data-ts="1716541020"
+  data-ts="1720694520"
   data-df="ll"
   
 >
-  May 24, 2024
+  Jul 11, 2024
 </time>
 
-              <h4 class="pt-0 my-2">나만의 Smartphone Test Farm 만들기 (STF)</h4>
+              <h4 class="pt-0 my-2">Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)</h4>
               <div class="text-muted">
                 <p>
                   
@@ -2156,7 +2168,10 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 
 
 
-                  이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인...
+                  이전 포스트 에서 프로세서는 EL2를 지원한다는 사실을 확인했다. 프로세서가 EL2를 지원하고, kernel에서 kvm option도 켰다. 그럼에도 /dev/kvm파일이 나타나지 않는 이유에 대해 확인할 차례다. kvm 커널 코드를 확인해보자.
+
+kvm_arm_init
+kvm 활성화는 arm_init() -&amp;gt; kvm_init() -&amp;gt; kv...
                 </p>
               </div>
             </div>
@@ -2307,23 +2322,15 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
     
+  
+    
+    
+    
+    
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
@@ -2335,11 +2342,6 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
       
-    
-  
-    
-    
-    
     
   
     
@@ -2366,9 +2368,7 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
       
-        
-        
-
+    
   
     
     
@@ -2380,6 +2380,21 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2613,13 +2628,13 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         <a class="post-tag btn btn-outline-primary" href="/tags/linux-kernel/">Linux Kernel</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/qemu/">QEMU</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/exynos/">Exynos</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/kvm/">kvm</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/qemu/">QEMU</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/gdb/">gdb</a>

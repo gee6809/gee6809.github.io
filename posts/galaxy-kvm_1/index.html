@@ -924,6 +924,13 @@ Indicates whether Virtualization Host Extensions are supported.<br />
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/galaxy-kvm_3/">Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/galaxy-kvm_2/">Galaxy Note 10+ kvm 도전기 - 2 (LineageOS 설치하기)</a>
         </li>
       
@@ -946,13 +953,6 @@ Indicates whether Virtualization Host Extensions are supported.<br />
         
         <li class="text-truncate lh-lg">
           <a href="/posts/stf/">나만의 Smartphone Test Farm 만들기 (STF)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/note10-rooting/">갤럭시 노트10+ 루팅하기 (Android 12)</a>
         </li>
       
     </ul>
@@ -1026,23 +1026,15 @@ Indicates whether Virtualization Host Extensions are supported.<br />
     
     
     
+  
+    
+    
+    
+    
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
@@ -1054,11 +1046,6 @@ Indicates whether Virtualization Host Extensions are supported.<br />
     
     
       
-    
-  
-    
-    
-    
     
   
     
@@ -1085,9 +1072,7 @@ Indicates whether Virtualization Host Extensions are supported.<br />
     
     
       
-        
-        
-
+    
   
     
     
@@ -1099,6 +1084,21 @@ Indicates whether Virtualization Host Extensions are supported.<br />
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -1332,13 +1332,13 @@ Indicates whether Virtualization Host Extensions are supported.<br />
         <a class="post-tag btn btn-outline-primary" href="/tags/linux-kernel/">Linux Kernel</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/qemu/">QEMU</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/exynos/">Exynos</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/kvm/">kvm</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/qemu/">QEMU</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/gdb/">gdb</a>
@@ -1404,6 +1404,18 @@ Indicates whether Virtualization Host Extensions are supported.<br />
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -1498,6 +1510,45 @@ Indicates whether Virtualization Host Extensions are supported.<br />
         </article>
       
         <article class="col">
+          <a href="/posts/galaxy-kvm_3/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1720694520"
+  data-df="ll"
+  
+>
+  Jul 11, 2024
+</time>
+
+              <h4 class="pt-0 my-2">Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  이전 포스트 에서 프로세서는 EL2를 지원한다는 사실을 확인했다. 프로세서가 EL2를 지원하고, kernel에서 kvm option도 켰다. 그럼에도 /dev/kvm파일이 나타나지 않는 이유에 대해 확인할 차례다. kvm 커널 코드를 확인해보자.
+
+kvm_arm_init
+kvm 활성화는 arm_init() -&amp;gt; kvm_init() -&amp;gt; kv...
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
           <a href="/posts/debug_kernel/" class="post-preview card h-100">
             <div class="card-body">
               <!--
@@ -1529,47 +1580,6 @@ Indicates whether Virtualization Host Extensions are supported.<br />
                   Linux kernel의 가장 큰 장점은 opensource라는 것이다. 모든 코드들이 공개되어 있기 때문에 시스템 개발자로서는 최고의 교과서라고 할 수 있다. 하지만 교과서가 너무 거대하다..
 
 QEMU를 이용하면 Linux kernel에 gdb를 붙여 그나마 코드 분석을 조금 용이하게 할 수 있다. 여기에는 QEMU와 gdb를 이용해서 linux ...
-                </p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/charles_proxy/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1716110460"
-  data-df="ll"
-  
->
-  May 19, 2024
-</time>
-
-              <h4 class="pt-0 my-2">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</h4>
-              <div class="text-muted">
-                <p>
-                  
-
-
-
-
-
-                  Charles Proxy를 이용하면, 안드로이드에서 보내는 패킷들을 분석할 수 있습니다.
-
-Charles Proxy 설치 및 환경설정
-
-  https://www.charlesproxy.com/ 에서 각 OS에 맞는 버전을 다운받습니다. ubuntu에서는 다음 명령어로 쉽게 설치할 수 있습니다.
-    wget -qO- https://www.charle...
                 </p>
               </div>
             </div>
@@ -1720,23 +1730,15 @@ Charles Proxy 설치 및 환경설정
     
     
     
+  
+    
+    
+    
+    
       
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
+        
+        
+
   
     
     
@@ -1748,11 +1750,6 @@ Charles Proxy 설치 및 환경설정
     
     
       
-    
-  
-    
-    
-    
     
   
     
@@ -1779,9 +1776,7 @@ Charles Proxy 설치 및 환경설정
     
     
       
-        
-        
-
+    
   
     
     
@@ -1793,6 +1788,21 @@ Charles Proxy 설치 및 환경설정
     
     
       
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
     
   
     
@@ -2026,13 +2036,13 @@ Charles Proxy 설치 및 환경설정
         <a class="post-tag btn btn-outline-primary" href="/tags/linux-kernel/">Linux Kernel</a>
       
         
-        <a class="post-tag btn btn-outline-primary" href="/tags/qemu/">QEMU</a>
-      
-        
         <a class="post-tag btn btn-outline-primary" href="/tags/exynos/">Exynos</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/kvm/">kvm</a>
+      
+        
+        <a class="post-tag btn btn-outline-primary" href="/tags/qemu/">QEMU</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/gdb/">gdb</a>

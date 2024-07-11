@@ -30,21 +30,25 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="커널노트 블로그" />
+<meta property="og:title" content="Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)" />
+<meta name="author" content="Jeuk Kim" />
 <meta property="og:locale" content="en" />
-<link rel="canonical" href="https://gee6809.github.io/" />
-<meta property="og:url" content="https://gee6809.github.io/" />
+<meta name="description" content="Galaxy Note 10+ 에서 kvm을 활성화할 수 있을지 분석하는 글입니다." />
+<meta property="og:description" content="Galaxy Note 10+ 에서 kvm을 활성화할 수 있을지 분석하는 글입니다." />
+<link rel="canonical" href="https://gee6809.github.io/posts/galaxy-kvm_3/" />
+<meta property="og:url" content="https://gee6809.github.io/posts/galaxy-kvm_3/" />
 <meta property="og:site_name" content="커널노트 블로그" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-07-11T19:42:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="커널노트 블로그" />
+<meta property="twitter:title" content="Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)" />
 <meta name="google-site-verification" content="UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","headline":"커널노트 블로그","name":"Jeuk Kim","sameAs":["https://github.com/gee6809","https://www.linkedin.com/in/jeuk-kim-098200288"],"url":"https://gee6809.github.io/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-07-11T19:42:00+09:00","datePublished":"2024-07-11T19:42:00+09:00","description":"Galaxy Note 10+ 에서 kvm을 활성화할 수 있을지 분석하는 글입니다.","headline":"Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/galaxy-kvm_3/"},"url":"https://gee6809.github.io/posts/galaxy-kvm_3/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>커널노트 블로그
+  <title>Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기) | 커널노트 블로그
   </title>
 
   <!--
@@ -101,11 +105,16 @@
   <link rel="stylesheet" href="/assets/css/jekyll-theme-chirpy.css">
 
   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.25.0/dist/tocbot.min.css">
+  
 
   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
   
 
+  
+    <!-- Manific Popup -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
   
 
   <!-- JavaScript -->
@@ -279,7 +288,7 @@
   <nav class="flex-column flex-grow-1 w-100 ps-0">
     <ul class="nav">
       <!-- home -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a href="/" class="nav-link">
           <i class="fa-fw fas fa-home"></i>
           <span>HOME</span>
@@ -443,9 +452,23 @@
       
 
       
-        <!-- index page -->
-        <span>Home</span>
+        
+          
+            <span>
+              <a href="/">Home</a>
+            </span>
 
+          
+        
+          
+        
+          
+            
+              <span>Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)</span>
+            
+
+          
+        
       
     </nav>
     <!-- endof #breadcrumb -->
@@ -455,7 +478,7 @@
     </button>
 
     <div id="topbar-title">
-      커널노트 블로그
+      Post
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -524,6 +547,60 @@
   
 
   
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
 
   
   
@@ -548,61 +625,15 @@
 
 
 
+<article class="px-1">
+  <header>
+    <h1 data-toc-skip>Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)</h1>
 
-
-
-
-
-<!-- Get pinned posts -->
-
-
-
-
-
-
-<!-- Get default posts -->
-
-
-
-
-
-
-
-
-
-
-<div id="post-list" class="flex-grow-1 px-xl-1">
-  
-    <article class="card-wrapper card">
-      <a href="/posts/galaxy-kvm_3/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>
-                
-
-
-
-
-
-                이전 포스트 에서 프로세서는 EL2를 지원한다는 사실을 확인했다. 프로세서가 EL2를 지원하고, kernel에서 kvm option도 켰다. 그럼에도 /dev/kvm파일이 나타나지 않는 이유에 대해 확인할 차례다. kvm 커널 코드를 확인해보자.
-
-kvm_arm_init
-kvm 활성화는 arm_init() -&amp;gt; kvm_init() -&amp;gt; kv...
-              </p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        Posted
+        <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
 -->
@@ -615,562 +646,312 @@ kvm 활성화는 arm_init() -&amp;gt; kvm_init() -&amp;gt; kv...
   data-ts="1720694520"
   data-df="ll"
   
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
 >
   Jul 11, 2024
 </time>
 
+      </span>
 
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Android
-                  </span>
-                
-              </div>
+      <!-- lastmod date -->
+      
 
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/galaxy-kvm_2/" class="post-preview row g-0 flex-md-row-reverse">
-        
+      
 
-        
+      <div class="d-flex justify-content-between">
+        <!-- read time -->
+        <!-- Calculate the post's reading time, and display the word count in tooltip -->
 
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Galaxy Note 10+ kvm 도전기 - 2 (LineageOS 설치하기)</h1>
 
-            <div class="card-text content mt-0 mb-3">
-              <p>
-                
+
+<!-- words per minute -->
 
 
 
 
 
-                이전 포스트 에서 직접 빌드한 Kernel이 필요하다는 걸 확인했다. galaxy note 10+ 의 커널을 바꿀 수 있는 방법은 여러가지가 있지만, 나는 LineageOS를 이용하기로 했다. LineageOS는 안드로이드 기반 커스텀 펌웨어로, 지속적인 업데이트가 이루어지고 있고 무엇보다 설치 및 빌드 가이드가 상세하게 나와있다.
-
-미리 빌드된 Li...
-              </p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
 
 
 
 
-<time
-  
-  data-ts="1719927720"
-  data-df="ll"
-  
+
+<!-- return element -->
+<span
+  class="readtime"
+  data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="1183 words"
 >
-  Jul  2, 2024
-</time>
+  <em>6 min</em> read</span>
 
+      </div>
+      <!-- .d-flex -->
+    </div>
+    <!-- .post-meta -->
+  </header>
 
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Android
-                  </span>
-                
-              </div>
+  <div class="content">
+    <p><a href="/posts/galaxy-kvm_2/">이전 포스트</a> 에서 프로세서는 EL2를 지원한다는 사실을 확인했다. 프로세서가 EL2를 지원하고, kernel에서 kvm option도 켰다. 그럼에도 <code class="language-plaintext highlighter-rouge">/dev/kvm</code>파일이 나타나지 않는 이유에 대해 확인할 차례다. kvm 커널 코드를 확인해보자.</p>
 
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
+<h2 id="kvm_arm_init"><span class="me-2">kvm_arm_init</span><a href="#kvm_arm_init" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>kvm 활성화는 <code class="language-plaintext highlighter-rouge">arm_init()</code> -&gt; <code class="language-plaintext highlighter-rouge">kvm_init()</code> -&gt; <code class="language-plaintext highlighter-rouge">kvm_arch_init()</code> -&gt; <code class="language-plaintext highlighter-rouge">is_hyp_mode_available()</code> 순으로 호출된다.
+<code class="language-plaintext highlighter-rouge">is_hyp_mode_available()</code> 함수가 true를 리턴하면 kvm 관련 초기화가 진행되고 <code class="language-plaintext highlighter-rouge">/dev/kvm</code> 파일이 나타나게 된다.
+<code class="language-plaintext highlighter-rouge">is_hyp_mode_available()</code> 함수가 무조건 true를 리턴하도록 수정해서 테스트해 본다.</p>
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="rouge-code"><pre><span class="cm">/* Reports the availability of HYP mode */</span>
+<span class="k">static</span> <span class="kr">inline</span> <span class="n">bool</span> <span class="nf">is_hyp_mode_available</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="c1">// return (__boot_cpu_mode[0] == BOOT_CPU_MODE_EL2 &amp;&amp;</span>
+	<span class="c1">// 	__boot_cpu_mode[1] == BOOT_CPU_MODE_EL2);</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>이렇게 해서 빌드하니 <code class="language-plaintext highlighter-rouge">/dev/kvm</code>이 나타났다…!</p>
+
+<h2 id="kvm-동작-test"><span class="me-2">kvm 동작 test</span><a href="#kvm-동작-test" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p><code class="language-plaintext highlighter-rouge">/dev/kvm</code>이 정상 동작하는지 테스트해 보자.
+kvm guest가 간단히 hello world를 출력하도록 하는 <a href="https://github.com/Lenz-K/arm64-kvm-hello-world">코드</a>를 이용했다. ioctl을 이용하도록 구현되어 있었고, 쉽게 빌드할 수 있었다.</p>
+
+<blockquote class="prompt-info">
+  <p>android에서 정상적으로 동작하게 하려면 Makefile에 -static 옵션을 추가해서 빌드해 주어야 한다.</p>
+</blockquote>
+
+<p>안타깝게도 결과는 Segmentation fault가 출력되었다.
+이유를 살펴보자.</p>
+
+<h2 id="__boot_cpu_mode"><span class="me-2">__boot_cpu_mode</span><a href="#__boot_cpu_mode" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p><code class="language-plaintext highlighter-rouge">is_hyp_mode_available()</code> 가 정상적으로 true를 리턴하려면 <code class="language-plaintext highlighter-rouge">__boot_cpu_mode</code> 가 <code class="language-plaintext highlighter-rouge">BOOT_CPU_MODE_EL2</code>를 가지고 있어야 한다.
+<code class="language-plaintext highlighter-rouge">__boot_cpu_mode</code>는 부트로더가 커널을 불러올 때 설정된다는 사실을 확인했다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>/*
+ * __boot_cpu_mode records what mode CPUs were booted in.
+ * A correctly-implemented bootloader must start all CPUs in the same mode:
+ * In this case, both 32bit halves of __boot_cpu_mode will contain the
+ * same value (either 0 if booted in EL1, BOOT_CPU_MODE_EL2 if booted in EL2).
+ *
+ * Should the bootloader fail to do this, the two values will be different.
+ * This allows the kernel to flag an error when the secondaries have come up.
+ */
+extern u32 __boot_cpu_mode[2];
+</pre></td></tr></tbody></table></code></div></div>
+<p><code class="language-plaintext highlighter-rouge">__boot_cpu_mode</code>가 중요한 이유는, Linux kernel이 프로세서의 hypervisor 기능을 초기화할 때 EL2 레벨이 필요하기 때문이다.</p>
+
+<p>linux kernel의 첫 실행 지점은 <code class="language-plaintext highlighter-rouge">arch/arm64/kernel/head.S</code>에 있다.</p>
+<div class="language-c highlighter-rouge"><div class="code-header">
+        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="cm">/*
+ * Kernel startup entry point.
+ * ---------------------------
+ *
+ ...
+ */</span>
+	<span class="n">__HEAD</span>
+<span class="n">_head</span><span class="o">:</span>
+	<span class="p">...</span>
+	<span class="n">__INIT</span>
+<span class="n">ENTRY</span><span class="p">(</span><span class="n">stext</span><span class="p">)</span>
+	<span class="n">bl</span>	<span class="n">preserve_boot_args</span>
+	<span class="n">bl</span>	<span class="n">el2_setup</span>			<span class="c1">// Drop to EL1, w0=cpu_boot_mode</span>
+	<span class="n">adrp</span>	<span class="n">x23</span><span class="p">,</span> <span class="n">__PHYS_OFFSET</span>
+    <span class="p">...</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>kernel startup 시에 <code class="language-plaintext highlighter-rouge">el2_setup</code>이 호출되게 되고, <code class="language-plaintext highlighter-rouge">el2_setup</code>은 CurrentEL이 EL2인지 확인한다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre>ENTRY(el2_setup)
+	msr	SPsel, #1			// We want to use SP_EL{1,2}
+	mrs	x0, CurrentEL
+	cmp	x0, #CurrentEL_EL2
+	b.eq	1f
+	mov_q	x0, (SCTLR_EL1_RES1 | ENDIAN_SET_EL1)
+	msr	sctlr_el1, x0
+	mov	w0, #BOOT_CPU_MODE_EL1		// This cpu booted in EL1
+	isb
+	ret
+
+1:	mov_q	x0, (SCTLR_EL2_RES1 | ENDIAN_SET_EL2)
+	msr	sctlr_el2, x0
+    ...
+</pre></td></tr></tbody></table></code></div></div>
+<p>CurrentEL이 EL1일 경우 el2_setup은 BOOT_CPU_MODE_EL1을 설정해 놓고 바로 끝나버린다. 코드를 수정해서 억지로 진행한다고 하더라도, 뒤의 instruction들은 EL2레벨이 필요한 instruction들이다.</p>
+
+<p>즉, Linux Kernel의 초기화 시점에 <strong>무조건 프로세서가 EL2 레벨</strong> 이어야 한다.</p>
+
+<h2 id="우회방법"><span class="me-2">우회방법..?</span><a href="#우회방법" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>스마트폰의 부트로더를 수정하는 것은 쉽지가 않다. 단순히 커널을 바꾸는 것과 달리 부트로더는 한 번만 실수해도 바로 벽돌이 되어 버리기 때문이다. <del>그리고 부트로더 수정할 수 있을 정도면 왜 kvm 쓰냐. Native로 쓰지</del> (부트로더를 수정하는 대범한 <a href="https://renegade-project.tech/en/home">프로젝트</a>들도 있다.. )</p>
+
+<p>어떻게든 Kernel에서 해결할방법이 없을까 찾던중에 다음 자료를 발견했다.</p>
+
+<p><a href="https://github.com/sleirsgoevy/exynos-kvm-patch">https://github.com/sleirsgoevy/exynos-kvm-patch</a></p>
+
+<p>Galaxy A6 (exynos7870) 에서 kvm을 활성화하는데 성공했다고 한다.
+어떻게 했는지 살펴보니, samsung bootloader(SBOOT)의 백도어를 이용했다고 한다.
+삼성 커널이 RKP hypervisor를 Load하기 위해 EL3 (Trustzone)으로 갈 수 있는 백도어를 SBOOT에 설치했고, <code class="language-plaintext highlighter-rouge">init/vmm.c</code>에 있는 함수들을 통해 이 백도어를 이용할 수 있다고 한다. EL3로 갈수만 있다면 하위 레벨인 EL2로 가기는 쉬우니, 그 상태에서 커널 초기화를 다시 수행하면 된다는 것이다.</p>
+
+<p>후다닥 <a href="https://opensource.samsung.com/uploadList">Samsung OpenSource 홈페이지</a>에 가서 note10+ 커널 소스를 받아보았다. 하지만 note10+ 커널 소스에는 <code class="language-plaintext highlighter-rouge">init/vmm.c</code> 파일이 존재하지 않았다… (Galaxy A6 커널 소스에는 진짜로 <code class="language-plaintext highlighter-rouge">init/vmm.c</code> 파일이 존재했다.) 아무래도 백도어가 막힌 듯하다…</p>
+
+<p>부트로더를 수정하는 건 너무나도 위험해 보여서, 안타깝지만 “note10+ kvm 활성하기”는 일단 실패로 마무리하기로 했다.</p>
+
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
+    
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        
+          <a href="/categories/android/">Android</a>
+      </div>
+    
+
+    <!-- tags -->
+    
+      <div class="post-tags">
+        <i class="fa fa-tags fa-fw me-1"></i>
+        
+          <a
+            href="/tags/android/"
+            class="post-tag no-text-decoration"
+          >android</a>
+        
+          <a
+            href="/tags/linux-kernel/"
+            class="post-tag no-text-decoration"
+          >Linux Kernel</a>
+        
+          <a
+            href="/tags/kvm/"
+            class="post-tag no-text-decoration"
+          >kvm</a>
+        
+          <a
+            href="/tags/exynos/"
+            class="post-tag no-text-decoration"
+          >Exynos</a>
+        
+      </div>
+    
+
+    <div
+      class="
+        post-tail-bottom
+        d-flex justify-content-between align-items-center mt-5 pb-2
+      "
+    >
+      <div class="license-wrapper">
+        
+          
+
+          This post is licensed under 
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          CC BY 4.0
+        </a>
+         by the author.
+        
+      </div>
+
+      <!-- Post sharing snippet -->
+
+<div class="share-wrapper d-flex align-items-center">
+  <span class="share-label text-muted">Share</span>
+  <span class="share-icons">
+    
+    
+    
+
+    
+
+      
+
+      <a href="https://twitter.com/intent/tweet?text=Galaxy%20Note%2010+%20kvm%20%EB%8F%84%EC%A0%84%EA%B8%B0%20-%203%20(Arm%20Exception%20Level%20%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fgalaxy-kvm_3%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+        <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/galaxy-kvm_1/" class="post-preview row g-0 flex-md-row-reverse">
-        
+    
 
-        
+      
 
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>
-                
-
-
-
-
-
-                개발하다 보면 Arm 기반 프로세서에서도 테스트해 봐야 하는 상황이 종종 생긴다. 여태껏 QEMU Emulation을 통해 x86머신에서 테스트를 진행해 오긴 했지만, 아무래도 kvm을 쓸 수 없다 보니 너무 느리고 답답하다. Mac PC를 쓰면 된다지만, 1년에 한두 번 쓰자고 사기엔 Mac은 너무 비싸다…. 고민하던 중 놀고 있던 Galaxy No...
-              </p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719714420"
-  data-df="ll"
-  
->
-  Jun 30, 2024
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Android
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Galaxy%20Note%2010+%20kvm%20%EB%8F%84%EC%A0%84%EA%B8%B0%20-%203%20(Arm%20Exception%20Level%20%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&u=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fgalaxy-kvm_3%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+        <i class="fa-fw fab fa-facebook-square"></i>
       </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/debug_kernel/" class="post-preview row g-0 flex-md-row-reverse">
-        
+    
 
-        
+      
 
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">GDB로 리눅스 커널 디버깅 하기</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>
-                
-
-
-
-
-
-                Linux kernel의 가장 큰 장점은 opensource라는 것이다. 모든 코드들이 공개되어 있기 때문에 시스템 개발자로서는 최고의 교과서라고 할 수 있다. 하지만 교과서가 너무 거대하다..
-
-QEMU를 이용하면 Linux kernel에 gdb를 붙여 그나마 코드 분석을 조금 용이하게 할 수 있다. 여기에는 QEMU와 gdb를 이용해서 linux ...
-              </p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719292260"
-  data-df="ll"
-  
->
-  Jun 25, 2024
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Linux Kernel
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fgalaxy-kvm_3%2F&text=Galaxy%20Note%2010+%20kvm%20%EB%8F%84%EC%A0%84%EA%B8%B0%20-%203%20(Arm%20Exception%20Level%20%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+        <i class="fa-fw fab fa-telegram"></i>
       </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/note10-rooting/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">갤럭시 노트10+ 루팅하기 (Android 12)</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>
-                
-
-
-
-
-
-                
-  루팅을 진행하게 되면 갤럭시 노트 워런티가 깨지게 됩니다. 추후 순정 펌웨어로 돌린다고 하더라도 삼성페이를 포함한 각종 은행 어플들을 사용할 수 없게 됩니다.
-
-
-안드로이드 버전 12 및 13에는 동일한 방법으로 루팅을 할 수 있습니다.
-
-  갤럭시 S20, S21, S22 시리즈
-  갤럭시 노트 10, 20 시리즈
-  갤럭시 탭 S6 lite,...
-              </p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719142380"
-  data-df="ll"
-  
->
-  Jun 23, 2024
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Tips
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/stf/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">나만의 Smartphone Test Farm 만들기 (STF)</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>
-                
-
-
-
-
-
-                이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인...
-              </p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1716541020"
-  data-df="ll"
-  
->
-  May 24, 2024
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Tips
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/ovmf/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">QEMU UEFI 환경으로 부팅하기 (OVMF)</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>
-                
-
-
-
-
-
-                OVMF란?
-QEMU는 기본 bios로 SeaBios를 사용합니다. SeaBios는 GPT를 지원하지 않습니다. 이 때문에 다른 PC에서 설치한 운영체제를 QEMU로 부팅하려고 하면 실패하는 경우가 많습니다 (대부분의 최신 메인보드는 UEFI를 지원하기 때문에, GPT 테이블을 이용하고 있을 확률이 높습니다).
-
-이때 필요한 게 OVMF입니다. OVM...
-              </p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1716390000"
-  data-df="ll"
-  
->
-  May 23, 2024
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      QEMU
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/charles_proxy/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>
-                
-
-
-
-
-
-                Charles Proxy를 이용하면, 안드로이드에서 보내는 패킷들을 분석할 수 있습니다.
-
-Charles Proxy 설치 및 환경설정
-
-  https://www.charlesproxy.com/ 에서 각 OS에 맞는 버전을 다운받습니다. ubuntu에서는 다음 명령어로 쉽게 설치할 수 있습니다.
-    wget -qO- https://www.charle...
-              </p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1716110460"
-  data-df="ll"
-  
->
-  May 19, 2024
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      Tips
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
-    <article class="card-wrapper card">
-      <a href="/posts/qemu-network/" class="post-preview row g-0 flex-md-row-reverse">
-        
-
-        
-
-        <div class="col-md-12">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">QEMU Network 설정 방법 (가상머신끼리 통신하기)</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>
-                
-
-
-
-
-
-                User Networking (SLIRP)
-
-                             +---------------------------+
-                             |      Host Machine         |
-                             |                        ...
-              </p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1715833200"
-  data-df="ll"
-  
->
-  May 16, 2024
-</time>
-
-
-                <!-- categories -->
-                
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    
-                      QEMU
-                  </span>
-                
-              </div>
-
-              
-            </div>
-            <!-- .post-meta -->
-          </div>
-          <!-- .card-body -->
-        </div>
-      </a>
-    </article>
-  
+    
+
+    <button
+      id="copy-link"
+      aria-label="Copy link"
+      class="btn small"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="Copy link"
+      data-title-succeed="Link copied successfully!"
+    >
+      <i class="fa-fw fas fa-link pe-none fs-6"></i>
+    </button>
+  </span>
 </div>
-<!-- #post-list -->
 
-
+    </div>
+    <!-- .post-tail-bottom -->
+  </div>
+  <!-- div.post-tail-wrapper -->
+</article>
 
 
             
@@ -1640,12 +1421,262 @@ Charles Proxy 설치 및 환경설정
             </div>
 
             
+              
+              
+
+
+
+  <section id="toc-wrapper" class="ps-0 pe-4">
+    <p class="panel-heading ps-3 pt-2 mb-2">Contents</p>
+    <nav id="toc"></nav>
+  </section>
+
+
+            
           </aside>
         </div>
 
         <div class="row">
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
+            
+              
+              <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
+
+<!-- The total size of related posts -->
+
+
+<!-- An random integer that bigger than 0 -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">Further Reading</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/galaxy-kvm_1/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719714420"
+  data-df="ll"
+  
+>
+  Jun 30, 2024
+</time>
+
+              <h4 class="pt-0 my-2">Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  개발하다 보면 Arm 기반 프로세서에서도 테스트해 봐야 하는 상황이 종종 생긴다. 여태껏 QEMU Emulation을 통해 x86머신에서 테스트를 진행해 오긴 했지만, 아무래도 kvm을 쓸 수 없다 보니 너무 느리고 답답하다. Mac PC를 쓰면 된다지만, 1년에 한두 번 쓰자고 사기엔 Mac은 너무 비싸다…. 고민하던 중 놀고 있던 Galaxy No...
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/galaxy-kvm_2/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719927720"
+  data-df="ll"
+  
+>
+  Jul  2, 2024
+</time>
+
+              <h4 class="pt-0 my-2">Galaxy Note 10+ kvm 도전기 - 2 (LineageOS 설치하기)</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  이전 포스트 에서 직접 빌드한 Kernel이 필요하다는 걸 확인했다. galaxy note 10+ 의 커널을 바꿀 수 있는 방법은 여러가지가 있지만, 나는 LineageOS를 이용하기로 했다. LineageOS는 안드로이드 기반 커스텀 펌웨어로, 지속적인 업데이트가 이루어지고 있고 무엇보다 설치 및 빌드 가이드가 상세하게 나와있다.
+
+미리 빌드된 Li...
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/debug_kernel/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719292260"
+  data-df="ll"
+  
+>
+  Jun 25, 2024
+</time>
+
+              <h4 class="pt-0 my-2">GDB로 리눅스 커널 디버깅 하기</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  Linux kernel의 가장 큰 장점은 opensource라는 것이다. 모든 코드들이 공개되어 있기 때문에 시스템 개발자로서는 최고의 교과서라고 할 수 있다. 하지만 교과서가 너무 거대하다..
+
+QEMU를 이용하면 Linux kernel에 gdb를 붙여 그나마 코드 분석을 조금 용이하게 할 수 있다. 여기에는 QEMU와 gdb를 이용해서 linux ...
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
+
+
+            
+              
+              <!-- Navigation buttons at the bottom of the post. -->
+
+<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
+  
+  
+
+  
+    <a
+      href="/posts/galaxy-kvm_2/"
+      class="btn btn-outline-primary"
+      aria-label="Older"
+    >
+      <p>Galaxy Note 10+ kvm 도전기 - 2 (LineageOS 설치하기)</p>
+    </a>
+  
+
+  
+    <div class="btn btn-outline-primary disabled" aria-label="Newer">
+      <p>-</p>
+    </div>
+  
+</nav>
+
+            
+              
+              <!--  The comments switcher -->
+
+
             
 
             <!-- The Footer -->
@@ -2144,6 +2175,9 @@ Charles Proxy 설치 및 환경설정
   
 
   
+    <!-- image lazy-loading & popup & clipboard -->
+    
+  
 
 
 
@@ -2215,16 +2249,37 @@ Charles Proxy 설치 및 환경설정
 
   
 
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.7.1/dist/jquery.min.js,npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js,npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/dayjs@1.11.10/dayjs.min.js,npm/dayjs@1.11.10/locale/en.min.js,npm/dayjs@1.11.10/plugin/relativeTime.min.js,npm/dayjs@1.11.10/plugin/localizedFormat.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.7.1/dist/jquery.min.js,npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js,npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.10/dayjs.min.js,npm/dayjs@1.11.10/locale/en.min.js,npm/dayjs@1.11.10/plugin/relativeTime.min.js,npm/dayjs@1.11.10/plugin/localizedFormat.min.js,npm/tocbot@4.25.0/dist/tocbot.min.js"></script>
 
 
 
 
 
 
-<script defer src="/assets/js/dist/home.min.js"></script>
+<script defer src="/assets/js/dist/post.min.js"></script>
 
 
 
