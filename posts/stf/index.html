@@ -44,7 +44,7 @@
 <meta property="twitter:title" content="나만의 Smartphone Test Farm 만들기 (STF)" />
 <meta name="google-site-verification" content="UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-07-01T21:28:28+09:00","datePublished":"2024-05-24T17:57:00+09:00","description":"이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인 것 같습니다.","headline":"나만의 Smartphone Test Farm 만들기 (STF)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/stf/"},"url":"https://gee6809.github.io/posts/stf/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-07-14T19:58:05+09:00","datePublished":"2024-05-24T17:57:00+09:00","description":"이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인 것 같습니다.","headline":"나만의 Smartphone Test Farm 만들기 (STF)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/stf/"},"url":"https://gee6809.github.io/posts/stf/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -880,13 +880,13 @@
 
 <time
   
-  data-ts="1719836908"
+  data-ts="1720954685"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Jul  1, 2024
+  Jul 14, 2024
 </time>
 
         </span>
@@ -916,9 +916,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="631 words"
+  title="758 words"
 >
-  <em>3 min</em> read</span>
+  <em>4 min</em> read</span>
 
       </div>
       <!-- .d-flex -->
@@ -1013,11 +1013,42 @@ wget <span class="nt">-qO-</span> https://download.rethinkdb.com/repository/raw/
 <span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> nodejs adb rethinkdb cmake graphicsmagick libzmq3-dev libprotobuf-dev yasm pkg-config npm
 </pre></td></tr></tbody></table></code></div></div>
 
+<p>만약 <code class="language-plaintext highlighter-rouge">apt update</code>중에 RethinkDB repository 때문에 error가 난다면 직접 빌드해서 사용할수도 있습니다.</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="c"># Remove RethinkDB repository</span>
+<span class="nb">sudo rm</span> /usr/share/keyrings/rethinkdb-archive-keyrings.gpg
+<span class="nb">sudo rm</span> /etc/apt/sources.list.d/rethinkdb.list
+
+<span class="c"># Get the Source code</span>
+wget https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.4.tgz
+<span class="nb">tar </span>xf rethinkdb-2.4.4.tgz
+
+<span class="c"># Build RethinkDB</span>
+<span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> clang python m4
+<span class="nb">cd </span>rethinkdb-2.4.4
+<span class="nv">PYTHON</span><span class="o">=</span>/bin/python3 ./configure <span class="nt">--allow-fetch</span> <span class="nv">CXX</span><span class="o">=</span>clang++
+<span class="nb">sudo </span>make <span class="nb">install</span>
+</pre></td></tr></tbody></table></code></div></div>
+
 <h3 id="2-stf-설치"><span class="me-2">2. STF 설치</span><a href="#2-stf-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>npm <span class="nb">install</span> <span class="nt">-g</span> @devicefarmer/stf
+</pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>npm <span class="nb">install</span> <span class="nt">-g</span> @devicefarmer/stf
 </pre></td></tr></tbody></table></code></div></div>
 <h3 id="3-rethinkdb-실행"><span class="me-2">3. RethinkDB 실행</span><a href="#3-rethinkdb-실행" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 <div class="language-bash highlighter-rouge"><div class="code-header">
@@ -1060,6 +1091,11 @@ E-mail: administrator@fakedomain.com</p>
 </pre></td></tr></tbody></table></code></div></div>
 <p><a href="/assets/img/STF/stf.webp" class="popup img-link  shimmer"><img src="/assets/img/STF/stf.webp" alt="stf 화면" loading="lazy"></a></p>
 <p class="image-caption">STF 메인 화면</p>
+
+<blockquote class="prompt-tip">
+  <p>만약 접속이 안되거나 control 페이지에 디바이스 화면이 보이지 않는다면, 방화벽을 끄고 시도해보세요.</p>
+</blockquote>
+
 
   </div>
 
@@ -1186,6 +1222,13 @@ E-mail: administrator@fakedomain.com</p>
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/stf/">나만의 Smartphone Test Farm 만들기 (STF)</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/galaxy-kvm_3/">Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)</a>
         </li>
       
@@ -1208,13 +1251,6 @@ E-mail: administrator@fakedomain.com</p>
         
         <li class="text-truncate lh-lg">
           <a href="/posts/charles_proxy/">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/stf/">나만의 Smartphone Test Farm 만들기 (STF)</a>
         </li>
       
     </ul>
