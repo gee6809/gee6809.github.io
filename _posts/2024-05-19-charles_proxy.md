@@ -56,13 +56,9 @@ charles
 - SSL Proxying을 활성화하고 Add 버튼을 클릭하여 HTTPS 트래픽을 모니터링할 도메인을 추가합니다. (*를 입력하여 모든 도메인의 HTTPS 트래픽을 모니터링할 수 있습니다.)
 
 ### 컴퓨터에 SSL 인증서 설치
-- Help > SSL Proxying > Install Charles Root Certificate를 선택합니다.
-- 설치 후 인증서를 신뢰하는지 묻는 팝업이 뜨면 신뢰를 선택합니다.
-
-> ubuntu에서 설치가 잘 안될 시에, 수동으로 설치할 수 있습니다.
-> - Help > SSL Proxying > Save Charles Root Certificate를 선택합니다.
-> - Binary certificate (.cer)을 선택하고 확인을 누릅니다.
-> - 다음 명령어를 통해 시스템 인증서 저장소를 업데이트합니다
+- Help > SSL Proxying > Save Charles Root Certificate를 선택합니다.
+- Binary certificate (.cer)을 선택하고 확인을 누릅니다.
+- 다음 명령어를 통해 시스템 인증서 저장소를 업데이트합니다
 ```bash
 sudo openssl x509 -inform DER -in ~/charles-ssl-proxying-certificate.cer -out /usr/local/share/ca-certificates/charles-ssl-proxying-certificate.crt
 cd /usr/local/share/ca-certificates
@@ -72,37 +68,42 @@ sudo update-ca-certificates
 
 
 ### 안드로이드 장치에 인증서 설치
-- 모바일 디바이스에서 http://chls.pro/ssl에 접속합니다. (charles proxy에 연결되어 있어야 합니다.)
-- Charles 인증서를 다운로드합니다.
-- HTTPS 트래픽을 후킹하기 위해 Android에서 신뢰할 수 있는 시스템 CA 인증서로 보이도록 해줘야 합니다. 다음 명령어를 수행합니다.
-> Android 인증서 저장소:
-> - 시스템 저장소: /system/etc/security/cacerts/
-> - 사용자 저장소: /data/misc/user/0/cacerts-added/
-{: .prompt-info }
+안드로이드 N 이상에서는 시스템 인증서가 아니면 신뢰하지 않도록 되어 있습니다. 따라서 Android에서 신뢰할 수 있는 시스템 CA 인증서로 보이도록 하는 작업이 추가적으로 필요합니다. 이때 루트 권한이 필요합니다.
+
+- Help > SSL Proxying > Save Charles Root Certificate를 선택합니다.
+- Binary certificate (.cer)을 선택하고 확인을 누릅니다.
+- .cer파일을 핸드폰으로 옮겨 줍니다.
+- 설정 -> 보안 -> 암호화 및 사용자 인증 정보 -> 인증서 설치를 선택합니다.
+- .cer파일을 선택하여 CA 인증서로 설치합니다. (사용자 인증서로 설치됩니다.)
+- 다음 명령어를 수행합니다. (시스템 인증서로 덮어쓰는 방법입니다.)
 
 ```bash
-# 안드로이드 기기에 다운로드 했던 charles 인증서 파일을 데스크탑으로 옮겨서 작업합니다.
-openssl x509 -inform PEM -subject_hash_old -in your_certificate.pem.crt | head -1 # 해쉬값이 나옵니다 (ex. abcdef12)
-mv your_certificate.pem.crt your_hash.0 # ex. mv charle-proxy-ssl-proxying-certificate.pem.crt abcdef12.0
-adb push your_hash.0 /data/local/tmp/
-
 adb shell
-su
+
+# 사용자 인증서 목록에 charles 인증서 확인
+ls /data/misc/user/0/cacerts-added/ # --> hash값.0 파일이 있어야 합니다.
+
 mkdir -p -m 700 /data/local/tmp/htk-ca-copy
 cp /system/etc/security/cacerts/* /data/local/tmp/htk-ca-copy/
 mount -t tmpfs tmpfs /system/etc/security/cacerts
 mv /data/local/tmp/htk-ca-copy/* /system/etc/security/cacerts/
-mv /data/local/tmp/your_hash.0 /system/etc/security/cacerts/
+cp /data/misc/user/0/cacerts-added/hash값.0 /system/etc/security/cacerts/
 chown root:root /system/etc/security/cacerts/*
 chmod 644 /system/etc/security/cacerts/*
 chcon u:object_r:system_file:s0 /system/etc/security/cacerts/*
 
 rm -r /data/local/tmp/htk-ca-copy
 ```
-> 참고사이트: https://httptoolkit.com/blog/intercepting-android-https/
-{: .prompt-info}
 
-- 몇번의 재부팅을 해줍니다.  
+> Android 인증서 저장소:
+> - 시스템 저장소: /system/etc/security/cacerts/
+> - 사용자 저장소: /data/misc/user/0/cacerts-added/
+{: .prompt-info }
+
 - Android 기기 설정 > 생체 인식 및 보안 > 기타 보안 설정 > 인증서 확인에서 "XK72 Ltd"가 보이면 성공입니다.
+- 재부팅하게 되면 시스템 인증서가 초기화될 수 있습니다.
 
 ![alt text](/assets/img/charles_proxy/https_success.webp)
+
+> 참고사이트: https://httptoolkit.com/blog/intercepting-android-https/
+{: .prompt-info}
