@@ -44,7 +44,7 @@
 <meta property="twitter:title" content="Charles Proxy로 안드로이드 HTTP 패킷 분석하기" />
 <meta name="google-site-verification" content="UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-07-01T21:28:28+09:00","datePublished":"2024-05-19T18:21:00+09:00","description":"Charles Proxy를 이용하여 안드로이드 어플들이 보내는 패킷을 후킹하는 방법에 대하여 안내합니다.","headline":"Charles Proxy로 안드로이드 HTTP 패킷 분석하기","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/charles_proxy/"},"url":"https://gee6809.github.io/posts/charles_proxy/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-07-18T16:21:17+09:00","datePublished":"2024-05-19T18:21:00+09:00","description":"Charles Proxy를 이용하여 안드로이드 어플들이 보내는 패킷을 후킹하는 방법에 대하여 안내합니다.","headline":"Charles Proxy로 안드로이드 HTTP 패킷 분석하기","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/charles_proxy/"},"url":"https://gee6809.github.io/posts/charles_proxy/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1178,13 +1178,13 @@
 
 <time
   
-  data-ts="1719836908"
+  data-ts="1721287277"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Jul  1, 2024
+  Jul 18, 2024
 </time>
 
         </span>
@@ -1214,9 +1214,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="1053 words"
+  title="1091 words"
 >
-  <em>5 min</em> read</span>
+  <em>6 min</em> read</span>
 
       </div>
       <!-- .d-flex -->
@@ -1294,18 +1294,11 @@ charles
 </ul>
 
 <h3 id="컴퓨터에-ssl-인증서-설치"><span class="me-2">컴퓨터에 SSL 인증서 설치</span><a href="#컴퓨터에-ssl-인증서-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul>
-  <li>Help &gt; SSL Proxying &gt; Install Charles Root Certificate를 선택합니다.</li>
-  <li>설치 후 인증서를 신뢰하는지 묻는 팝업이 뜨면 신뢰를 선택합니다.</li>
-</ul>
-
-<blockquote class="prompt-info">
-  <p>ubuntu에서 설치가 잘 안될 시에, 수동으로 설치할 수 있습니다.</p>
-  <ul>
-    <li>Help &gt; SSL Proxying &gt; Save Charles Root Certificate를 선택합니다.</li>
-    <li>Binary certificate (.cer)을 선택하고 확인을 누릅니다.</li>
-    <li>다음 명령어를 통해 시스템 인증서 저장소를 업데이트합니다
-      <div class="language-bash highlighter-rouge"><div class="code-header">
+<ul class="prompt-info">
+  <li>Help &gt; SSL Proxying &gt; Save Charles Root Certificate를 선택합니다.</li>
+  <li>Binary certificate (.cer)을 선택하고 확인을 누릅니다.</li>
+  <li>다음 명령어를 통해 시스템 인증서 저장소를 업데이트합니다
+    <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
@@ -1313,24 +1306,20 @@ charles
 </pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>openssl x509 <span class="nt">-inform</span> DER <span class="nt">-in</span> ~/charles-ssl-proxying-certificate.cer <span class="nt">-out</span> /usr/local/share/ca-certificates/charles-ssl-proxying-certificate.crt
 <span class="nb">cd</span> /usr/local/share/ca-certificates
 <span class="nb">sudo </span>update-ca-certificates
-</pre></td></tr></tbody></table></code></div>      </div>
-    </li>
-  </ul>
-</blockquote>
+</pre></td></tr></tbody></table></code></div>    </div>
+  </li>
+</ul>
 
 <h3 id="안드로이드-장치에-인증서-설치"><span class="me-2">안드로이드 장치에 인증서 설치</span><a href="#안드로이드-장치에-인증서-설치" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-<ul class="prompt-info">
-  <li>모바일 디바이스에서 http://chls.pro/ssl에 접속합니다. (charles proxy에 연결되어 있어야 합니다.)</li>
-  <li>Charles 인증서를 다운로드합니다.</li>
-  <li>HTTPS 트래픽을 후킹하기 위해 Android에서 신뢰할 수 있는 시스템 CA 인증서로 보이도록 해줘야 합니다. 다음 명령어를 수행합니다.
-    <blockquote>
-      <p>Android 인증서 저장소:</p>
-      <ul>
-        <li>시스템 저장소: /system/etc/security/cacerts/</li>
-        <li>사용자 저장소: /data/misc/user/0/cacerts-added/</li>
-      </ul>
-    </blockquote>
-  </li>
+<p>안드로이드 N 이상에서는 시스템 인증서가 아니면 신뢰하지 않도록 되어 있습니다. 따라서 Android에서 신뢰할 수 있는 시스템 CA 인증서로 보이도록 하는 작업이 추가적으로 필요합니다. 이때 루트 권한이 필요합니다.</p>
+
+<ul>
+  <li>Help &gt; SSL Proxying &gt; Save Charles Root Certificate를 선택합니다.</li>
+  <li>Binary certificate (.cer)을 선택하고 확인을 누릅니다.</li>
+  <li>.cer파일을 핸드폰으로 옮겨 줍니다.</li>
+  <li>설정 -&gt; 보안 -&gt; 암호화 및 사용자 인증 정보 -&gt; 인증서 설치를 선택합니다.</li>
+  <li>.cer파일을 선택하여 CA 인증서로 설치합니다. (사용자 인증서로 설치됩니다.)</li>
+  <li>다음 명령어를 수행합니다. (시스템 인증서로 덮어쓰는 방법입니다.)</li>
 </ul>
 
 <div class="language-bash highlighter-rouge"><div class="code-header">
@@ -1350,36 +1339,41 @@ charles
 13
 14
 15
-16
-17
-</pre></td><td class="rouge-code"><pre><span class="c"># 안드로이드 기기에 다운로드 했던 charles 인증서 파일을 데스크탑으로 옮겨서 작업합니다.</span>
-openssl x509 <span class="nt">-inform</span> PEM <span class="nt">-subject_hash_old</span> <span class="nt">-in</span> your_certificate.pem.crt | <span class="nb">head</span> <span class="nt">-1</span> <span class="c"># 해쉬값이 나옵니다 (ex. abcdef12)</span>
-<span class="nb">mv </span>your_certificate.pem.crt your_hash.0 <span class="c"># ex. mv charle-proxy-ssl-proxying-certificate.pem.crt abcdef12.0</span>
-adb push your_hash.0 /data/local/tmp/
+</pre></td><td class="rouge-code"><pre>adb shell
 
-adb shell
-su
+<span class="c"># 사용자 인증서 목록에 charles 인증서 확인</span>
+<span class="nb">ls</span> /data/misc/user/0/cacerts-added/ <span class="c"># --&gt; hash값.0 파일이 있어야 합니다.</span>
+
 <span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nt">-m</span> 700 /data/local/tmp/htk-ca-copy
 <span class="nb">cp</span> /system/etc/security/cacerts/<span class="k">*</span> /data/local/tmp/htk-ca-copy/
 mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
 <span class="nb">mv</span> /data/local/tmp/htk-ca-copy/<span class="k">*</span> /system/etc/security/cacerts/
-<span class="nb">mv</span> /data/local/tmp/your_hash.0 /system/etc/security/cacerts/
+<span class="nb">cp</span> /data/misc/user/0/cacerts-added/hash값.0 /system/etc/security/cacerts/
 <span class="nb">chown </span>root:root /system/etc/security/cacerts/<span class="k">*</span>
 <span class="nb">chmod </span>644 /system/etc/security/cacerts/<span class="k">*</span>
 <span class="nb">chcon </span>u:object_r:system_file:s0 /system/etc/security/cacerts/<span class="k">*</span>
 
 <span class="nb">rm</span> <span class="nt">-r</span> /data/local/tmp/htk-ca-copy
 </pre></td></tr></tbody></table></code></div></div>
+
 <blockquote class="prompt-info">
-  <p>참고사이트: https://httptoolkit.com/blog/intercepting-android-https/</p>
+  <p>Android 인증서 저장소:</p>
+  <ul>
+    <li>시스템 저장소: /system/etc/security/cacerts/</li>
+    <li>사용자 저장소: /data/misc/user/0/cacerts-added/</li>
+  </ul>
 </blockquote>
 
 <ul>
-  <li>몇번의 재부팅을 해줍니다.</li>
   <li>Android 기기 설정 &gt; 생체 인식 및 보안 &gt; 기타 보안 설정 &gt; 인증서 확인에서 “XK72 Ltd”가 보이면 성공입니다.</li>
+  <li>재부팅하게 되면 시스템 인증서가 초기화될 수 있습니다.</li>
 </ul>
 
 <p><a href="/assets/img/charles_proxy/https_success.webp" class="popup img-link  shimmer"><img src="/assets/img/charles_proxy/https_success.webp" alt="alt text" loading="lazy"></a></p>
+
+<blockquote class="prompt-info">
+  <p>참고사이트: https://httptoolkit.com/blog/intercepting-android-https/</p>
+</blockquote>
 
   </div>
 
@@ -1506,6 +1500,13 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/charles_proxy/">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/stf/">나만의 Smartphone Test Farm 만들기 (STF)</a>
         </li>
       
@@ -1528,13 +1529,6 @@ mount <span class="nt">-t</span> tmpfs tmpfs /system/etc/security/cacerts
         
         <li class="text-truncate lh-lg">
           <a href="/posts/galaxy-kvm_1/">Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/charles_proxy/">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</a>
         </li>
       
     </ul>
