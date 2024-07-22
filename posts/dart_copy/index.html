@@ -30,25 +30,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)" />
-<meta name="author" content="Jeuk Kim" />
+<meta property="og:title" content="Dart의 값 복사와 참조 복사 (Deep Copy vs. Shallow Copy)" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Galaxy Note 10+ 에서 kvm을 활성화할 수 있을지 분석하는 글입니다." />
-<meta property="og:description" content="Galaxy Note 10+ 에서 kvm을 활성화할 수 있을지 분석하는 글입니다." />
-<link rel="canonical" href="https://gee6809.github.io/posts/galaxy-kvm_1/" />
-<meta property="og:url" content="https://gee6809.github.io/posts/galaxy-kvm_1/" />
+<meta name="description" content="Flutter의 언어인 Dart에서, 값복사와 참조복사가 어떻게 이루어지는지 설명합니다. 또 코드 예시를 통해서 실제 동작을 테스트합니다." />
+<meta property="og:description" content="Flutter의 언어인 Dart에서, 값복사와 참조복사가 어떻게 이루어지는지 설명합니다. 또 코드 예시를 통해서 실제 동작을 테스트합니다." />
+<link rel="canonical" href="https://gee6809.github.io/posts/dart_copy/" />
+<meta property="og:url" content="https://gee6809.github.io/posts/dart_copy/" />
 <meta property="og:site_name" content="커널노트 블로그" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-06-30T11:27:00+09:00" />
+<meta property="article:published_time" content="2024-07-22T22:43:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)" />
+<meta property="twitter:title" content="Dart의 값 복사와 참조 복사 (Deep Copy vs. Shallow Copy)" />
 <meta name="google-site-verification" content="UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeuk Kim","url":"https://github.com/gee6809/"},"dateModified":"2024-07-01T21:35:56+09:00","datePublished":"2024-06-30T11:27:00+09:00","description":"Galaxy Note 10+ 에서 kvm을 활성화할 수 있을지 분석하는 글입니다.","headline":"Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/galaxy-kvm_1/"},"url":"https://gee6809.github.io/posts/galaxy-kvm_1/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-07-22T22:43:00+09:00","datePublished":"2024-07-22T22:43:00+09:00","description":"Flutter의 언어인 Dart에서, 값복사와 참조복사가 어떻게 이루어지는지 설명합니다. 또 코드 예시를 통해서 실제 동작을 테스트합니다.","headline":"Dart의 값 복사와 참조 복사 (Deep Copy vs. Shallow Copy)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/dart_copy/"},"url":"https://gee6809.github.io/posts/dart_copy/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기) | 커널노트 블로그
+  <title>Dart의 값 복사와 참조 복사 (Deep Copy vs. Shallow Copy) | 커널노트 블로그
   </title>
 
   <!--
@@ -464,7 +463,7 @@
         
           
             
-              <span>Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</span>
+              <span>Dart의 값 복사와 참조 복사 (Deep Copy vs. Shallow Copy)</span>
             
 
           
@@ -565,6 +564,28 @@
 
       
     
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
 
     
   
@@ -594,7 +615,7 @@
 
 <article class="px-1">
   <header>
-    <h1 data-toc-skip>Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</h1>
+    <h1 data-toc-skip>Dart의 값 복사와 참조 복사 (Deep Copy vs. Shallow Copy)</h1>
 
     <div class="post-meta text-muted">
       <!-- published date -->
@@ -610,41 +631,18 @@
 
 <time
   
-  data-ts="1719714420"
+  data-ts="1721655780"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Jun 30, 2024
+  Jul 22, 2024
 </time>
 
       </span>
 
       <!-- lastmod date -->
-      
-        <span>
-          Updated
-          <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719837356"
-  data-df="ll"
-  
-    data-bs-toggle="tooltip" data-bs-placement="bottom"
-  
->
-  Jul  1, 2024
-</time>
-
-        </span>
       
 
       
@@ -671,7 +669,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="887 words"
+  title="772 words"
 >
   <em>4 min</em> read</span>
 
@@ -682,28 +680,88 @@
   </header>
 
   <div class="content">
-    <p>개발하다 보면 Arm 기반 프로세서에서도 테스트해 봐야 하는 상황이 종종 생긴다. 여태껏 QEMU Emulation을 통해 x86머신에서 테스트를 진행해 오긴 했지만, 아무래도 kvm을 쓸 수 없다 보니 너무 느리고 답답하다. Mac PC를 쓰면 된다지만, 1년에 한두 번 쓰자고 사기엔 Mac은 너무 비싸다…. 고민하던 중 놀고 있던 Galaxy Note 10+가 눈에 들어왔다. Arm-v8기반 CPU에 12G라는 넉넉한 RAM까지. kvm만 사용할 수 있다면 ubuntu는 물론 window까지도 쉽게 올려서 test 해볼 수 있을 것이다. 난이도가 굉장히 높을 건 알았지만, 반쯤은 재미로 Galaxy Note 10+에서 kvm을 활성화하는 데에 도전해 보았다.</p>
+    <p>C++를 주로 하다가 Dart 언어로 넘어오면서 자주 착각한 게 있는데, 바로 Dart는 기본적으로 참조 복사가 일어난다는 것이다.</p>
 
-<h2 id="processor-support"><span class="me-2">Processor Support</span><a href="#processor-support" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="dart의-구조"><span class="me-2">Dart의 구조</span><a href="#dart의-구조" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>값 복사는 변수에 값을 할당할 때 실제 데이터의 복사본이 생성되는 것을 의미한다.</p>
 
-<p>일단 무엇보다도 processor가 하드웨어 가상화 지원해야 한다. 갤럭시 노트10+는 Exynos 9825라는 SoC를 사용하고 있다. Exynos 9825는 ARM Cortex-A75, ARM Cortex-A55 cpu를 사용한다. 둘 다 ARM-v8에 해당하며, ARM-v8은 대부분 하드웨어 가상화를 지원한다고 한다. 하지만 “Galaxy Note 10+ Processor가 하드웨어 가상화를 지원한다”라는 공식 문서 같은 건 찾을 수 없었다. 이에 직접 ARM spec문서를 찾아보았다.</p>
+<p>Dart에서는 기본 자료형(int, double, bool, String 등)에서 값 복사가 일어난다.</p>
 
-<p><a href="https://developer.arm.com/documentation/100442/0100/register-descriptions/aarch64-system-registers/id-aa64mmfr1-el1--aarch64-memory-model-feature-register-1--el1">ARM Cortex-A55 spec 페이지</a>에 따르면, ID_AA64MMFR1_EL1 레지스터의 8~11 bit을 읽으면 Virtualization Host Extensions Support를 알 수 있다고 한다.</p>
+<p>반면, 참조 복사(reference copy)는 변수에 값을 할당할 때 데이터의 주소를 복사하는 것을 의미하며, Dart에서는 기본 자료형을 제외한 나머지 객체(Object)에서 주로 발생한다.</p>
 
-<blockquote>
-  <p>VH, [11:8]<br />
-Indicates whether Virtualization Host Extensions are supported.<br />
-0x1 Virtualization Host Extensions supported.</p>
-</blockquote>
+<p>영어에서 값 복사는 deep copy, 참조 복사는 shallow copy라고 불린다.</p>
 
-<p>그런데 문제는, 해당 레지스터 Exception Level 1 이상에서만 읽을 수 있다는 것이다.</p>
+<h2 id="예시-코드"><span class="me-2">예시 코드</span><a href="#예시-코드" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<div class="language-dart highlighter-rouge"><div class="code-header">
+        <span data-label-text="Dart"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// 값 복사 예시</span>
+  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+  <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">'a: </span><span class="si">$a</span><span class="s">, b: </span><span class="si">$b</span><span class="s">'</span><span class="p">);</span> <span class="c1">// a: 10, b: 20</span>
 
-<p>ARM Exception Level은 프로세서의 실행 권한을 나타낸다. EL0, EL1, EL2, EL3 순으로 권한이 강해진다. EL0는 사용자 모드를 의미하고, EL1은 커널모드를 의미한다. EL2는 hypervisor모드로 가상화를 관리하는 모드이다. kvm을 지원할 수 있는지는 EL2모드를 지원하는지 알아내는 것과도 같다.</p>
+  <span class="c1">// 참조 복사 예시</span>
+  <span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+  <span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span><span class="p">;</span>
+  <span class="n">list2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">'list1: </span><span class="si">$list1</span><span class="s">, list2: </span><span class="si">$list2</span><span class="s">'</span><span class="p">);</span> <span class="c1">// list1: [100, 2, 3], list2: [100, 2, 3]</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p>위의 코드에서 int 타입 변수는 값 복사가 일어나기 때문에 b의 값을 변경해도 a에 영향을 주지 않는다. 
+반면에 List<int> 타입 변수는 참조 복사가 일어나기 때문에 list2의 값을 변경하면 list1에도 영향을 미친다.</int></p>
 
-<p>따라서 해당 레지스터를 읽기 위해서는 kernel mode에서 실행해야 한다. 간단히 linux kernel module을 만들어서 테스트해 보면 된다는 생각이 든다.</p>
+<p>주의할 점은 단순히 copy뿐만 아니라 함수의 인자로 넘겨줄 때도 참조 복사가 일어난다는 점이다.</p>
+<div class="language-dart highlighter-rouge"><div class="code-header">
+        <span data-label-text="Dart"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="nf">changeValues</span><span class="p">(</span><span class="kt">int</span> <span class="kt">num</span><span class="p">,</span> <span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">list</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">num</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+  <span class="n">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">'Inside function: num = </span><span class="si">$num</span><span class="s">, list = </span><span class="si">$list</span><span class="s">'</span><span class="p">);</span> <span class="c1">// num = 20, list = [100, 2, 3]</span>
+<span class="p">}</span>
 
-<div class="language-c highlighter-rouge"><div class="code-header">
-        <span data-label-text="C"><i class="fas fa-code fa-fw small"></i></span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+  <span class="n">changeValues</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">list1</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">'Outside function: a = </span><span class="si">$a</span><span class="s">, list1 = </span><span class="si">$list1</span><span class="s">'</span><span class="p">);</span> <span class="c1">// a = 10, list1 = [100, 2, 3]</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></div></div>
+<p>따라서 dart로 개발할 때는 parameter로 전달한 변수가 의도치 않게 수정되지 않도록 주의가 필요하다.</p>
+
+<h2 id="만약-값복사를-하고-싶다면"><span class="me-2">만약 값복사를 하고 싶다면?</span><a href="#만약-값복사를-하고-싶다면" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p>참조 복사가 아닌 값복사(deep copy)를 원할 경우에는 수동으로 객체의 모든 필드를 복사해야 한다.</p>
+
+<p>만약 직접 만든 class의 경우, class에 clone 메서드를 추가하는 것이 좋다. (아니면 매번 새 오브젝트를 만들어서 일일이 복사하거나)</p>
+<div class="language-dart highlighter-rouge"><div class="code-header">
+        <span data-label-text="Dart"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
@@ -728,61 +786,52 @@ Indicates whether Virtualization Host Extensions are supported.<br />
 22
 23
 24
-25
-</pre></td><td class="rouge-code"><pre><span class="cp">#include</span> <span class="cpf">&lt;linux/module.h&gt;</span><span class="cp">
-#include</span> <span class="cpf">&lt;linux/kernel.h&gt;</span><span class="cp">
-#include</span> <span class="cpf">&lt;linux/init.h&gt;</span><span class="cp">
-#include</span> <span class="cpf">&lt;linux/printk.h&gt;</span><span class="cp">
-</span>
-<span class="k">static</span> <span class="kr">inline</span> <span class="kt">uint64_t</span> <span class="nf">read_id_aa64pfr0_el1</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">uint64_t</span> <span class="n">value</span><span class="p">;</span>
-    <span class="n">asm</span> <span class="k">volatile</span><span class="p">(</span><span class="s">"mrs %0, id_aa64pfr0_el1"</span> <span class="o">:</span> <span class="s">"=r"</span> <span class="p">(</span><span class="n">value</span><span class="p">));</span>
-    <span class="k">return</span> <span class="n">value</span><span class="p">;</span>
+</pre></td><td class="rouge-code"><pre><span class="kd">class</span> <span class="nc">Person</span> <span class="p">{</span>
+  <span class="kt">String</span> <span class="n">name</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+
+  <span class="n">Person</span><span class="p">(</span><span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">,</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span><span class="p">);</span>
+
+  <span class="c1">// deep copy를 위한 메서드</span>
+  <span class="n">Person</span> <span class="n">clone</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">Person</span><span class="p">(</span><span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="p">,</span> <span class="k">this</span><span class="o">.</span><span class="na">age</span><span class="p">);</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">static</span> <span class="kt">int</span> <span class="n">__init</span> <span class="nf">hypervisor_check_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">uint64_t</span> <span class="n">id_aa64pfr0_el1</span> <span class="o">=</span> <span class="n">read_id_aa64pfr0_el1</span><span class="p">();</span>
-    <span class="n">printk</span><span class="p">(</span><span class="s">"id_aa64pfr0_el1: 0x%llx"</span><span class="p">,</span> <span class="n">id_aa64pfr0_el1</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">changePerson</span><span class="p">(</span><span class="n">Person</span> <span class="n">person</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">person</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">'John'</span><span class="p">;</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">'Inside function: </span><span class="si">${person.name}</span><span class="s">, </span><span class="si">${person.age}</span><span class="s">'</span><span class="p">);</span> <span class="c1">// John, 30</span>
 <span class="p">}</span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="n">__exit</span> <span class="nf">hypervisor_check_exit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printk</span><span class="p">(</span><span class="s">"Hypervisor check module exited."</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Person</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s">'Alice'</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+  <span class="n">Person</span> <span class="n">pCopy</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">clone</span><span class="p">();</span>
+
+  <span class="n">changePerson</span><span class="p">(</span><span class="n">pCopy</span><span class="p">);</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">'Outside function: </span><span class="si">${p.name}</span><span class="s">, </span><span class="si">${p.age}</span><span class="s">'</span><span class="p">);</span> <span class="c1">// Alice, 30</span>
 <span class="p">}</span>
-
-<span class="n">module_init</span><span class="p">(</span><span class="n">hypervisor_check_init</span><span class="p">);</span>
-<span class="n">module_exit</span><span class="p">(</span><span class="n">hypervisor_check_exit</span><span class="p">);</span>
-
-<span class="n">MODULE_LICENSE</span><span class="p">(</span><span class="s">"GPL"</span><span class="p">);</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>Makefile도 작성한다.</p>
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
-        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>obj-m += hypervisor_check.o
-</pre></td></tr></tbody></table></code></div></div>
-
-<p>arm에서 돌릴 거니까 CROSS_COMPILE까지 야무지게 해줘야 한다.</p>
-
-<div class="language-bash highlighter-rouge"><div class="code-header">
-        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+<p>List, Sets, Maps같은 Built-in types에서는 from() 메서드를 지원하여 쉽게 값복사를 할 수 있다.</p>
+<div class="language-dart highlighter-rouge"><div class="code-header">
+        <span data-label-text="Dart"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
 4
 5
-</pre></td><td class="rouge-code"><pre>make <span class="se">\</span>
-  <span class="nv">ARCH</span><span class="o">=</span>arm64 <span class="se">\</span>
-  <span class="nv">CROSS_COMPILE</span><span class="o">=</span>aarch64-linux-gnu- <span class="se">\</span>
-  ...
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="kt">void</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">originalList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+  <span class="kt">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">copiedList</span> <span class="o">=</span> <span class="kt">List</span><span class="o">.</span><span class="na">from</span><span class="p">(</span><span class="n">originalList</span><span class="p">);</span>
 
+  <span class="n">copiedList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">'Original List: </span><span class="si">$originalList</span><span class="s">'</span><span class="p">);</span> <span class="c1">// [1, 2, 3]</span>
+  <span class="n">print</span><span class="p">(</span><span class="s">'Copied List: </span><span class="si">$copiedList</span><span class="s">'</span><span class="p">);</span> <span class="c1">// [100, 2, 3]</span>
+<span class="p">}</span>
 </pre></td></tr></tbody></table></code></div></div>
-<p>make 명령어를 적다가 머리를 스치는 생각이 있다. linux kernel은 기본적으로 버전이 불일치하는 모듈을 받아주지 않는다. 심지어 버전이 맞더라도 compiler가 다른 것도 안 받아준다. (clang vs gcc) 나는 note 10+에 어떤 버전의 커널이 깔려있는지도 모르고, 정품 펌웨어가 어떻게 커널을 빌드했는지는 더더욱 알 리가 없다…</p>
-
-<p>결국 핸드폰의 커널부터 전부 갈아엎기로 했다. (<del>본격 배보다 배꼽 시리즈 시작…</del>)</p>
-
-<p>2편에서 계속…</p>
 
   </div>
 
@@ -792,7 +841,7 @@ Indicates whether Virtualization Host Extensions are supported.<br />
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/android/">Android</a>
+          <a href="/categories/flutter/">Flutter</a>
       </div>
     
 
@@ -802,24 +851,14 @@ Indicates whether Virtualization Host Extensions are supported.<br />
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/android/"
+            href="/tags/flutter/"
             class="post-tag no-text-decoration"
-          >android</a>
+          >Flutter</a>
         
           <a
-            href="/tags/linux-kernel/"
+            href="/tags/dart/"
             class="post-tag no-text-decoration"
-          >Linux Kernel</a>
-        
-          <a
-            href="/tags/kvm/"
-            class="post-tag no-text-decoration"
-          >kvm</a>
-        
-          <a
-            href="/tags/exynos/"
-            class="post-tag no-text-decoration"
-          >Exynos</a>
+          >Dart</a>
         
       </div>
     
@@ -855,21 +894,21 @@ Indicates whether Virtualization Host Extensions are supported.<br />
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=Galaxy%20Note%2010+%20kvm%20%EB%8F%84%EC%A0%84%EA%B8%B0%20-%201%20(processor%20%EC%A7%80%EC%9B%90%20%EC%97%AC%EB%B6%80%20%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fgalaxy-kvm_1%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=Dart%EC%9D%98%20%EA%B0%92%20%EB%B3%B5%EC%82%AC%EC%99%80%20%EC%B0%B8%EC%A1%B0%20%EB%B3%B5%EC%82%AC%20(Deep%20Copy%20vs.%20Shallow%20Copy)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fdart_copy%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=Galaxy%20Note%2010+%20kvm%20%EB%8F%84%EC%A0%84%EA%B8%B0%20-%201%20(processor%20%EC%A7%80%EC%9B%90%20%EC%97%AC%EB%B6%80%20%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&u=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fgalaxy-kvm_1%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Dart%EC%9D%98%20%EA%B0%92%20%EB%B3%B5%EC%82%AC%EC%99%80%20%EC%B0%B8%EC%A1%B0%20%EB%B3%B5%EC%82%AC%20(Deep%20Copy%20vs.%20Shallow%20Copy)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&u=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fdart_copy%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fgalaxy-kvm_1%2F&text=Galaxy%20Note%2010+%20kvm%20%EB%8F%84%EC%A0%84%EA%B8%B0%20-%201%20(processor%20%EC%A7%80%EC%9B%90%20%EC%97%AC%EB%B6%80%20%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fdart_copy%2F&text=Dart%EC%9D%98%20%EA%B0%92%20%EB%B3%B5%EC%82%AC%EC%99%80%20%EC%B0%B8%EC%A1%B0%20%EB%B3%B5%EC%82%AC%20(Deep%20Copy%20vs.%20Shallow%20Copy)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -1413,54 +1452,7 @@ Indicates whether Virtualization Host Extensions are supported.<br />
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 
 
@@ -1470,130 +1462,6 @@ Indicates whether Virtualization Host Extensions are supported.<br />
 
 
 
-
-
-  <aside id="related-posts" aria-labelledby="related-label">
-    <h3 class="mb-4" id="related-label">Further Reading</h3>
-    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
-      
-        <article class="col">
-          <a href="/posts/galaxy-kvm_2/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719927720"
-  data-df="ll"
-  
->
-  Jul  2, 2024
-</time>
-
-              <h4 class="pt-0 my-2">Galaxy Note 10+ kvm 도전기 - 2 (LineageOS 설치하기)</h4>
-              <div class="text-muted">
-                <p>
-                  
-
-
-
-
-
-                  이전 포스트 에서 직접 빌드한 Kernel이 필요하다는 걸 확인했다. galaxy note 10+ 의 커널을 바꿀 수 있는 방법은 여러가지가 있지만, 나는 LineageOS를 이용하기로 했다. LineageOS는 안드로이드 기반 커스텀 펌웨어로, 지속적인 업데이트가 이루어지고 있고 무엇보다 설치 및 빌드 가이드가 상세하게 나와있다.
-
-미리 빌드된 Li...
-                </p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/galaxy-kvm_3/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1720694520"
-  data-df="ll"
-  
->
-  Jul 11, 2024
-</time>
-
-              <h4 class="pt-0 my-2">Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)</h4>
-              <div class="text-muted">
-                <p>
-                  
-
-
-
-
-
-                  이전 포스트 에서 프로세서는 EL2를 지원한다는 사실을 확인했다. 프로세서가 EL2를 지원하고, kernel에서 kvm option도 켰다. 그럼에도 /dev/kvm파일이 나타나지 않는 이유에 대해 확인할 차례다. kvm 커널 코드를 확인해보자.
-
-kvm_arm_init
-kvm 활성화는 arm_init() -&amp;gt; kvm_init() -&amp;gt; kv...
-                </p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-        <article class="col">
-          <a href="/posts/debug_kernel/" class="post-preview card h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1719292260"
-  data-df="ll"
-  
->
-  Jun 25, 2024
-</time>
-
-              <h4 class="pt-0 my-2">GDB로 리눅스 커널 디버깅 하기</h4>
-              <div class="text-muted">
-                <p>
-                  
-
-
-
-
-
-                  Linux kernel의 가장 큰 장점은 opensource라는 것이다. 모든 코드들이 공개되어 있기 때문에 시스템 개발자로서는 최고의 교과서라고 할 수 있다. 하지만 교과서가 너무 거대하다..
-
-QEMU를 이용하면 Linux kernel에 gdb를 붙여 그나마 코드 분석을 조금 용이하게 할 수 있다. 여기에는 QEMU와 gdb를 이용해서 linux ...
-                </p>
-              </div>
-            </div>
-          </a>
-        </article>
-      
-    </nav>
-  </aside>
-  <!-- #related-posts -->
 
 
             
@@ -1606,22 +1474,18 @@ QEMU를 이용하면 Linux kernel에 gdb를 붙여 그나마 코드 분석을 �
 
   
     <a
-      href="/posts/debug_kernel/"
+      href="/posts/galaxy-kvm_3/"
       class="btn btn-outline-primary"
       aria-label="Older"
     >
-      <p>GDB로 리눅스 커널 디버깅 하기</p>
+      <p>Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)</p>
     </a>
   
 
   
-    <a
-      href="/posts/galaxy-kvm_2/"
-      class="btn btn-outline-primary"
-      aria-label="Newer"
-    >
-      <p>Galaxy Note 10+ kvm 도전기 - 2 (LineageOS 설치하기)</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="Newer">
+      <p>-</p>
+    </div>
   
 </nav>
 
