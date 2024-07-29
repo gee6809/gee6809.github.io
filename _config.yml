@@ -222,4 +222,3 @@ jekyll-archives:
     tag: /tags/:name/
     category: /categories/:name/
 
-destination: "/home/jeuk/workspace/gee6809.github.io/"

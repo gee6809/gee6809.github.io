@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- markdownlint-disable-next-line -->
 <div align="center">
 
@@ -82,3 +83,12 @@ This project is published under [MIT License][license].
 [lib]: https://github.com/cotes2020/chirpy-static-assets
 [vscode]: https://code.visualstudio.com/
 [jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
+=======
+# gee6809's github blog
+
+## To build
+bundle exec jekyll build --destination /home/jeuk/workspace/gee6809.github.io
+
+## To test
+bundle exec jekyll serve --host 0.0.0.0 --port 4000 --drafts
+>>>>>>> 186eec4 (build destination을 config에서 제거. 대신 --destination=/home/jeuk/workspace/gee6809.github.io를 수동으로 사용하기)
