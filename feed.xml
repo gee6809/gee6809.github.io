@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle></subtitle>
-  <updated>2024-07-28T12:23:34+09:00</updated>
+  <updated>2024-07-31T22:07:38+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,64 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Dart에서 동시성과 이벤트 루프 이해하기</title>
+    <link href="https://gee6809.github.io/posts/event_loop/" rel="alternate" type="text/html" title="Dart에서 동시성과 이벤트 루프 이해하기" />
+    <published>2024-07-31T21:41:00+09:00</published>
+  
+    <updated>2024-07-31T21:41:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/event_loop/</id>
+    <content src="https://gee6809.github.io/posts/event_loop/" />
+    <author>
+      <name>Jeuk Kim</name>
+    </author>
+
+  
+    
+    <category term="Flutter" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      병렬성과 동시성
+Event Loop를 보기 전에 미리 알고 가야 하는 개념이 있다. Parallelism(병렬성)과 Concurrency(동시성)이다. 동시성과 병렬성은 운영체제에서 나오는 개념인데, 다음과 같은 차이가 있다.
+
+
+  
+    
+      동시성(Concurrency)
+      병렬성(Parallelism)
+    
+  
+  
+    
+      여러 작업이 동시에 실행되는 것처럼 보이지만, 실제로는 번갈아 가며 실행됨
+      여러 개의 CPU 코어를 사용하여 여러 작업이 실제로 동시에 실행됨
+    
+  
+
+
+concurrency
+flowchart LR
+
+A0[Core0] --&amp;gt; B0[Task 0]
+B0 --&amp;gt; C0[Task 1]
+C0 --&amp;gt; D0[Task 0]
+...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -180,54 +238,6 @@ Bootloader Unlock
 Processor Support
 
 일단...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>GDB로 리눅스 커널 디버깅 하기</title>
-    <link href="https://gee6809.github.io/posts/debug_kernel/" rel="alternate" type="text/html" title="GDB로 리눅스 커널 디버깅 하기" />
-    <published>2024-06-25T14:11:00+09:00</published>
-  
-    <updated>2024-06-30T13:13:18+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/debug_kernel/</id>
-    <content src="https://gee6809.github.io/posts/debug_kernel/" />
-    <author>
-      <name>jeuk</name>
-    </author>
-
-  
-    
-    <category term="Linux Kernel" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Linux kernel의 가장 큰 장점은 opensource라는 것이다. 모든 코드들이 공개되어 있기 때문에 시스템 개발자로서는 최고의 교과서라고 할 수 있다. 하지만 교과서가 너무 거대하다..
-
-QEMU를 이용하면 Linux kernel에 gdb를 붙여 그나마 코드 분석을 조금 용이하게 할 수 있다. 여기에는 QEMU와 gdb를 이용해서 linux kernel을 디버깅하는 방법에 대해 정리해놓는다.
-
-환경
-
-  x86_64 CPU
-  Ubuntu 22.04
-  Linux kernel source code v6.10 기준
-
-
-준비물
-QEMU에서는 linux kernel을 간단하게 올려볼 수 있도록 -kernel 옵션을 제공한다.
-
-  When using these options, you can use ...
     </summary>
   
 
