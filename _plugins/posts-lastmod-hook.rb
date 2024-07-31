@@ -10,5 +10,11 @@ Jekyll::Hooks.register :posts, :post_init do |post|
     lastmod_date = `git log -1 --pretty="%ad" --date=iso "#{ post.path }"`
     post.data['last_modified_at'] = lastmod_date
   end
+end
 
+Jekyll::Hooks.register :site, :post_write do |site|
+  if ENV['SERVE_MODE'] == 'true'
+    puts "Copying PNG files from _drafts to _site directory..."
+    system("find _drafts -type f -name '*.png' -exec cp {} _site/ \\;")
+  end
 end
