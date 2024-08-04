@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle></subtitle>
-  <updated>2024-08-04T12:04:27+09:00</updated>
+  <updated>2024-08-04T19:46:31+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,63 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>[Flutter] DraggableScrollableSheet로 ModalBottomSheet을 전체화면으로 드래그 가능하도록 만들기</title>
+    <link href="https://gee6809.github.io/posts/showModalBottomSheet/" rel="alternate" type="text/html" title="[Flutter] DraggableScrollableSheet로 ModalBottomSheet을 전체화면으로 드래그 가능하도록 만들기" />
+    <published>2024-08-04T19:40:00+09:00</published>
+  
+    <updated>2024-08-04T19:40:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/showModalBottomSheet/</id>
+    <content src="https://gee6809.github.io/posts/showModalBottomSheet/" />
+    <author>
+      <name>Jeuk Kim</name>
+    </author>
+
+  
+    
+    <category term="Flutter" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      지도에서 자주 보이는 하단의 BottomSheet를 Flutter에서 구현하는 방법을 알아본다.
+
+
+ShowModalBottomSheet
+ShowModalBottomSheet()은 화면 하단에 UI가 나타나도록 해준다.
+
+showModalBottomSheet(
+  context: context,
+  builder: (BuildContext context) {
+    return Container(
+      height: 200,
+      color: Colors.white,
+      child: Center(
+        child: Text('This is a modal bottom sheet'),
+      ),
+    );
+  },
+);
+
+
+
+
+드래그 가능한 ModalBottomSheet
+...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -209,46 +266,6 @@ kvm 활성화는 arm_init() -&amp;gt; kvm_init() -&amp;gt; kvm_arch_init() -&amp
 is_hyp_mode_available() 함수가 true를 리턴하면 kvm 관련 초기화가 진행되고 /dev/kvm 파일이 나타나게 된다.
 is_hyp_mode_available() 함수가 무조건 true를 리턴하도록 수정해서 테스트해 본다.
 /* Reports...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Galaxy Note 10+ kvm 도전기 - 2 (LineageOS 설치하기)</title>
-    <link href="https://gee6809.github.io/posts/galaxy-kvm_2/" rel="alternate" type="text/html" title="Galaxy Note 10+ kvm 도전기 - 2 (LineageOS 설치하기)" />
-    <published>2024-07-02T22:42:00+09:00</published>
-  
-    <updated>2024-07-02T22:42:00+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/galaxy-kvm_2/</id>
-    <content src="https://gee6809.github.io/posts/galaxy-kvm_2/" />
-    <author>
-      <name>jeuk</name>
-    </author>
-
-  
-    
-    <category term="Android" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      이전 포스트 에서 직접 빌드한 Kernel이 필요하다는 걸 확인했다. galaxy note 10+ 의 커널을 바꿀 수 있는 방법은 여러가지가 있지만, 나는 LineageOS를 이용하기로 했다. LineageOS는 안드로이드 기반 커스텀 펌웨어로, 지속적인 업데이트가 이루어지고 있고 무엇보다 설치 및 빌드 가이드가 상세하게 나와있다.
-
-미리 빌드된 LineageOS 설치해보기
-직접 커널을 빌드하기 전에, 먼저 미리 빌드된 LineageOS를 설치해보자. 이 과정을 성공해야 추후 직접 빌드한 LineageOS 설치에 실패했을 때, 핸드폰에는 문제가 없음을 확신하고 진행할 수 있을 것이다.
-
-Bootloader Unlock
-삼성 스마트폰에 커스텀 펌웨어를 올리고자 한다면 bootloader unlock 작업...
     </summary>
   
 
