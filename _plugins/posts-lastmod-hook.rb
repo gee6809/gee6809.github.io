@@ -15,6 +15,6 @@ end
 Jekyll::Hooks.register :site, :post_write do |site|
   if ENV['SERVE_MODE'] == 'true'
     puts "Copying PNG files from _drafts to _site directory..."
-    system("find _drafts -type f -name '*.png' -exec cp {} _site/ \\;")
+    system("find _drafts -type f \\( -name '*.png' -o -name '*.gif' \\) -exec cp {} _site/ \\;")
   end
 end
