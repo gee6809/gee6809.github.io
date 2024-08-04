@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle></subtitle>
-  <updated>2024-07-31T22:07:38+09:00</updated>
+  <updated>2024-08-04T12:04:27+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,55 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>[Flutter] 위젯의 Size 결정 원칙</title>
+    <link href="https://gee6809.github.io/posts/flutter_size/" rel="alternate" type="text/html" title="[Flutter] 위젯의 Size 결정 원칙" />
+    <published>2024-08-04T12:02:00+09:00</published>
+  
+    <updated>2024-08-04T12:02:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/flutter_size/</id>
+    <content src="https://gee6809.github.io/posts/flutter_size/" />
+    <author>
+      <name>Jeuk Kim</name>
+    </author>
+
+  
+    
+    <category term="Flutter" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Flutter의 Constraints 및 Size 결정 원칙
+Flutter에서 Widget의 크기와 위치는 다음 한 문장으로 정리할 수 있다.
+
+“Constraints go down. Sizes go up. Parent sets position.”
+
+부모는 자식에게 Constraints를 주고, 자식은 자신의 Size를 결정해서 부모에게 알린다. 부모는 자식의 크기 정보들을 바탕으로 위치를 결정한다.
+
+
+  Constraints의 전달:
+    
+      부모 위젯은 자식 위젯에게 constraints를 전달한다. 이 constraints는 자식 위젯이 가질 수 있는 최소 및 최대 크기를 정의한다.
+    
+  
+  자식 위젯의 크기 결정:
+    
+      자식 위젯은 부모로부터 받은 constr...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -200,44 +249,6 @@ is_hyp_mode_available() 함수가 무조건 true를 리턴하도록 수정해서
 
 Bootloader Unlock
 삼성 스마트폰에 커스텀 펌웨어를 올리고자 한다면 bootloader unlock 작업...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)</title>
-    <link href="https://gee6809.github.io/posts/galaxy-kvm_1/" rel="alternate" type="text/html" title="Galaxy Note 10+ kvm 도전기 - 1 (processor 지원 여부 확인하기)" />
-    <published>2024-06-30T11:27:00+09:00</published>
-  
-    <updated>2024-07-01T21:35:56+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/galaxy-kvm_1/</id>
-    <content src="https://gee6809.github.io/posts/galaxy-kvm_1/" />
-    <author>
-      <name>jeuk</name>
-    </author>
-
-  
-    
-    <category term="Android" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      개발하다 보면 Arm 기반 프로세서에서도 테스트해 봐야 하는 상황이 종종 생긴다. 여태껏 QEMU Emulation을 통해 x86머신에서 테스트를 진행해 오긴 했지만, 아무래도 kvm을 쓸 수 없다 보니 너무 느리고 답답하다. Mac PC를 쓰면 된다지만, 1년에 한두 번 쓰자고 사기엔 Mac은 너무 비싸다…. 고민하던 중 놀고 있던 Galaxy Note 10+가 눈에 들어왔다. Arm-v8기반 CPU에 12G라는 넉넉한 RAM까지. kvm만 사용할 수 있다면 ubuntu는 물론 window까지도 쉽게 올려서 test 해볼 수 있을 것이다. 난이도가 굉장히 높을 건 알았지만, 반쯤은 재미로 Galaxy Note 10+에서 kvm을 활성화하는 데에 도전해 보았다.
-
-Processor Support
-
-일단...
     </summary>
   
 
