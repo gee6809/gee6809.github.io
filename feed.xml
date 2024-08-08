@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle></subtitle>
-  <updated>2024-08-04T19:46:31+09:00</updated>
+  <updated>2024-08-08T15:16:48+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,66 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Debian 기반 rootfs 제작하기</title>
+    <link href="https://gee6809.github.io/posts/debian_rootfs/" rel="alternate" type="text/html" title="Debian 기반 rootfs 제작하기" />
+    <published>2024-08-08T11:03:00+09:00</published>
+  
+    <updated>2024-08-08T11:03:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/debian_rootfs/</id>
+    <content src="https://gee6809.github.io/posts/debian_rootfs/" />
+    <author>
+      <name>Jeuk Kim</name>
+    </author>
+
+  
+    
+    <category term="QEMU" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      필요한 도구 설치
+sudo apt update
+sudo apt install qemu qemu-system-x86 debootstrap
+
+
+debian기반 rootfs 이미지 생성
+
+1) QEMU 디스크 이미지 생성
+
+qemu-img create -f qcow2 debian-rootfs.img 10G
+
+
+2) 디스크 이미지 포맷 및 마운트
+
+sudo modprobe nbd max_part=8
+sudo qemu-nbd --connect=/dev/nbd0 debian-rootfs.img
+
+# 연결된 디스크를 포맷합니다.
+sudo mkfs.ext4 /dev/nbd0
+
+# 파일 시스템을 마운트합니다.
+sudo mount /dev/nbd0 /mnt
+
+
+3) debootstrap 실행
+
+sudo debootstr...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -226,46 +286,6 @@ void main() {
   // 값 복사 예시
   int a = 10;
 ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)</title>
-    <link href="https://gee6809.github.io/posts/galaxy-kvm_3/" rel="alternate" type="text/html" title="Galaxy Note 10+ kvm 도전기 - 3 (Arm Exception Level 확인하기)" />
-    <published>2024-07-11T19:42:00+09:00</published>
-  
-    <updated>2024-07-11T19:42:00+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/galaxy-kvm_3/</id>
-    <content src="https://gee6809.github.io/posts/galaxy-kvm_3/" />
-    <author>
-      <name>jeuk</name>
-    </author>
-
-  
-    
-    <category term="Android" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      이전 포스트 에서 프로세서는 EL2를 지원한다는 사실을 확인했다. 프로세서가 EL2를 지원하고, kernel에서 kvm option도 켰다. 그럼에도 /dev/kvm파일이 나타나지 않는 이유에 대해 확인할 차례다. kvm 커널 코드를 확인해보자.
-
-kvm_arm_init
-kvm 활성화는 arm_init() -&amp;gt; kvm_init() -&amp;gt; kvm_arch_init() -&amp;gt; is_hyp_mode_available() 순으로 호출된다.
-is_hyp_mode_available() 함수가 true를 리턴하면 kvm 관련 초기화가 진행되고 /dev/kvm 파일이 나타나게 된다.
-is_hyp_mode_available() 함수가 무조건 true를 리턴하도록 수정해서 테스트해 본다.
-/* Reports...
     </summary>
   
 

@@ -1,6 +1,23 @@
 [
   
   {
+    "title": "Debian 기반 rootfs 제작하기",
+    "url": "/posts/debian_rootfs/",
+    "categories": "QEMU",
+    "tags": "",
+    "date": "2024-08-08 11:03:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "필요한 도구 설치sudo apt updatesudo apt install qemu qemu-system-x86 debootstrapdebian기반 rootfs 이미지 생성1) QEMU 디스크 이미지 생성qemu-img create -f qcow2 debian-rootfs.img 10G2) 디스크 이미지 포맷 및 마운트sudo modprobe nbd m...",
+    "content": "필요한 도구 설치sudo apt updatesudo apt install qemu qemu-system-x86 debootstrapdebian기반 rootfs 이미지 생성1) QEMU 디스크 이미지 생성qemu-img create -f qcow2 debian-rootfs.img 10G2) 디스크 이미지 포맷 및 마운트sudo modprobe nbd max_part=8sudo qemu-nbd --connect=/dev/nbd0 debian-rootfs.img# 연결된 디스크를 포맷합니다.sudo mkfs.ext4 /dev/nbd0# 파일 시스템을 마운트합니다.sudo mount /dev/nbd0 /mnt3) debootstrap 실행sudo debootstrap --arch=amd64 bullseye /mnt http://deb.debian.org/debian4) 초기 설정 (network 설정 포함)sudo chroot /mntpasswd # root에 대한 password를 설정해 줍니다.# -----------------------------------#eth0 는 ip link 통해 내 network에 맞게 수정해주어야 합니다.cat &lt;&lt;EOT &gt; /etc/network/interfacesauto loiface lo inet loopbackauto eth0iface eth0 inet dhcpEOT# -----------------------------------cat &lt;&lt;EOT &gt; /etc/fstab/dev/sda / ext4 errors=remount-ro 0 1EOT# -----------------------------------exitsudo umount /mntsudo qemu-nbd --disconnect /dev/nbd0QEMU 부팅sudo qemu-system-x86_64 \\    -kernel /path/to/linux/arch/x86/boot/bzImage \\    -append \"root=/dev/sda console=ttyS0\" \\    -hda /path/to/debian-rootfs.img \\    -m 1024 \\    -netdev user,id=usernet,hostfwd=tcp::2222-:22,hostfwd=tcp::8080-:80 \\    -device e1000,netdev=usernet \\    -nographic“root / 설정한 비밀번호” 로그인하면 됩니다.만약 인터넷이 안될 시  QEMU 환경 내에서 ip link를 통해 네트워크 인터페이스(eth0, enp0s3, …)를 확인합니다.    nano /etc/network/interfaces        네트워크 인터페이스가 올바르게 되어 있는지 확인합니다.    수정 후 네트워크를 재실행합니다.    /etc/init.d/networking restart        네트워크 연결 상태를 확인합니다.    ping -c 4 google.com      user 추가하기처음 실행했을 때는 root user밖에 없습니다. ssh-server 등을 사용하기 위해서는 새로운 user를 추가해 줄 필요가 있습니다.adduser newuserusermod -aG sudo newuserapt install sudo"
+  },
+  
+  {
     "title": "[Flutter] DraggableScrollableSheet로 ModalBottomSheet을 전체화면으로 드래그 가능하도록 만들기",
     "url": "/posts/showModalBottomSheet/",
     "categories": "Flutter",
