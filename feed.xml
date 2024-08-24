@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle></subtitle>
-  <updated>2024-08-19T21:14:22+09:00</updated>
+  <updated>2024-08-24T13:14:31+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,62 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Google Books Open API 간단 가이드 (API Key 발급)</title>
+    <link href="https://gee6809.github.io/posts/google_books_api/" rel="alternate" type="text/html" title="Google Books Open API 간단 가이드 (API Key 발급)" />
+    <published>2024-08-24T13:11:00+09:00</published>
+  
+    <updated>2024-08-24T13:11:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/google_books_api/</id>
+    <content src="https://gee6809.github.io/posts/google_books_api/" />
+    <author>
+      <name>Jeuk Kim</name>
+    </author>
+
+  
+    
+    <category term="Tips" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Google Cloud 프로젝트 만들기
+1. Google Cloud 홈에 접속하여 프로젝트를 생성해줍니다.
+
+
+2. 프로젝트 생성이 완료되면 검색창에 “book”을 검색하고 “Books API”를 선택합니다.
+
+
+3. Enable 버튼을 눌러줍니다.
+
+
+4. 좌측의 “Credentials”를 클릭하고, API key를 생성해줍니다.
+
+
+5. 키 생성이 완료되면, 해당 key를 메모장에 따로 적어놓습니다.
+
+
+도서 검색하기
+Google Books APIs에 들어가면 API 사용법에 대한 가이드가 자세히 적혀있습니다.
+
+여기서는 간단히 keyword로 도서 검색하는 방법을 안내합니다.
+
+keyword 도서 검색
+GET https://www.googleapis.com/books/v1/volumes?q="키워...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -236,55 +292,6 @@ flowchart LR
 A0[Core0] --&amp;gt; B0[Task 0]
 B0 --&amp;gt; C0[Task 1]
 C0 --&amp;gt; D0[Task 0]
-...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Dart의 값 복사와 참조 복사 (Deep Copy vs. Shallow Copy)</title>
-    <link href="https://gee6809.github.io/posts/dart_copy/" rel="alternate" type="text/html" title="Dart의 값 복사와 참조 복사 (Deep Copy vs. Shallow Copy)" />
-    <published>2024-07-22T22:43:00+09:00</published>
-  
-    <updated>2024-07-22T22:43:00+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/dart_copy/</id>
-    <content src="https://gee6809.github.io/posts/dart_copy/" />
-    <author>
-      <name>Jeuk Kim</name>
-    </author>
-
-  
-    
-    <category term="Flutter" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      C++를 주로 하다가 Dart 언어로 넘어오면서 자주 착각한 게 있는데, 바로 Dart는 기본적으로 참조 복사가 일어난다는 것이다.
-
-Dart의 구조
-값 복사는 변수에 값을 할당할 때 실제 데이터의 복사본이 생성되는 것을 의미한다.
-
-Dart에서는 기본 자료형(int, double, bool, String 등)에서 값 복사가 일어난다.
-
-반면, 참조 복사(reference copy)는 변수에 값을 할당할 때 데이터의 주소를 복사하는 것을 의미하며, Dart에서는 기본 자료형을 제외한 나머지 객체(Object)에서 주로 발생한다.
-
-영어에서 값 복사는 deep copy, 참조 복사는 shallow copy라고 불린다.
-
-예시 코드
-void main() {
-  // 값 복사 예시
-  int a = 10;
 ...
     </summary>
   

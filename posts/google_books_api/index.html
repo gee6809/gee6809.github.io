@@ -41,21 +41,24 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Flutter" />
+<meta property="og:title" content="Google Books Open API 간단 가이드 (API Key 발급)" />
 <meta property="og:locale" content="en" />
-<link rel="canonical" href="https://gee6809.github.io/tags/flutter/" />
-<meta property="og:url" content="https://gee6809.github.io/tags/flutter/" />
+<meta name="description" content="Google Books Open API 사용을 위한 간단한 가이드를 제공합니다. Google Cloud 홈에서 API Key를 발급받는 방법을 포함합니다." />
+<meta property="og:description" content="Google Books Open API 사용을 위한 간단한 가이드를 제공합니다. Google Cloud 홈에서 API Key를 발급받는 방법을 포함합니다." />
+<link rel="canonical" href="https://gee6809.github.io/posts/google_books_api/" />
+<meta property="og:url" content="https://gee6809.github.io/posts/google_books_api/" />
 <meta property="og:site_name" content="커널노트 블로그" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-08-24T13:11:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Flutter" />
+<meta property="twitter:title" content="Google Books Open API 간단 가이드 (API Key 발급)" />
 <meta name="google-site-verification" content="UIN-OQ8KIQ2HwFth5flfdZTSVdojpCLXYaln7cXJ7h4" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","headline":"Flutter","url":"https://gee6809.github.io/tags/flutter/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-08-24T13:11:00+09:00","datePublished":"2024-08-24T13:11:00+09:00","description":"Google Books Open API 사용을 위한 간단한 가이드를 제공합니다. Google Cloud 홈에서 API Key를 발급받는 방법을 포함합니다.","headline":"Google Books Open API 간단 가이드 (API Key 발급)","mainEntityOfPage":{"@type":"WebPage","@id":"https://gee6809.github.io/posts/google_books_api/"},"url":"https://gee6809.github.io/posts/google_books_api/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Flutter | 커널노트 블로그
+  <title>Google Books Open API 간단 가이드 (API Key 발급) | 커널노트 블로그
   </title>
 
   <!--
@@ -112,9 +115,16 @@
   <link rel="stylesheet" href="/assets/css/jekyll-theme-chirpy.css">
 
   
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.25.0/dist/tocbot.min.css">
   
 
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
+  
+
+  
+    <!-- Manific Popup -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
   
 
   <!-- JavaScript -->
@@ -461,14 +471,10 @@
           
         
           
-            <span>
-              <a href="/tags/">Tags</a>
-            </span>
-          
         
           
             
-              <span>Flutter</span>
+              <span>Google Books Open API 간단 가이드 (API Key 발급)</span>
             
 
           
@@ -482,7 +488,7 @@
     </button>
 
     <div id="topbar-title">
-      Tag
+      Post
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link">
@@ -508,27 +514,459 @@
         <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4">
             
-              
+              <!-- Refactor the HTML structure -->
+
+
+
+<!--
+  In order to allow a wide table to scroll horizontally,
+  we suround the markdown table with `<div class="table-wrapper">` and `</div>`
+-->
+
+
+
+<!--
+  Fixed kramdown code highlight rendering:
+  https://github.com/penibelst/jekyll-compress-html/issues/101
+  https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
+-->
+
+
+
+<!-- Change the icon of checkbox -->
+
+
+
+<!-- Handle images -->
+
+
+
+
+  
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+    
+
+    
+
+    
+      
+    
+
+    <!-- lazy-load images -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+
+        
+        
+      
+    
+
+    <!-- combine -->
+    
+  
+
+  
+
+
+<!-- Add header for code snippets -->
+
+
+
+<!-- Create heading anchors -->
+
+
+
+
+
+  
+  
+
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
+
+  
+  
+
+  
+    
+    
+
+    
+      
+        
+        
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    
+
+    
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+
+
+
+<!-- return -->
+
 
 
 
 <article class="px-1">
-  
-    
+  <header>
+    <h1 data-toc-skip>Google Books Open API 간단 가이드 (API Key 발급)</h1>
 
-
-
-<div id="page-tag">
-  <h1 class="ps-lg-2">
-    <i class="fa fa-tag fa-fw text-muted"></i>
-    Flutter
-    <span class="lead text-muted ps-2">2</span>
-  </h1>
-  <ul class="content ps-0">
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/event_loop/">Dart에서 동시성과 이벤트 루프 이해하기</a>
-        <span class="dash flex-grow-1"></span>
+    <div class="post-meta text-muted">
+      <!-- published date -->
+      <span>
+        Posted
         <!--
   Date format snippet
   See: ${JS_ROOT}/utils/locale-dateime.js
@@ -539,46 +977,297 @@
 
 <time
   
-    class="text-muted small text-nowrap"
-  
-  data-ts="1722429660"
+  data-ts="1724472660"
   data-df="ll"
   
->
-  Jul 31, 2024
-</time>
-
-      </li>
-    
-      <li class="d-flex justify-content-between px-md-3">
-        <a href="/posts/dart_copy/">Dart의 값 복사와 참조 복사 (Deep Copy vs. Shallow Copy)</a>
-        <span class="dash flex-grow-1"></span>
-        <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-    class="text-muted small text-nowrap"
-  
-  data-ts="1721655780"
-  data-df="ll"
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Jul 22, 2024
+  Aug 24, 2024
 </time>
 
-      </li>
+      </span>
+
+      <!-- lastmod date -->
+      
+
+      
+
+      <div class="d-flex justify-content-between">
+        <!-- read time -->
+        <!-- Calculate the post's reading time, and display the word count in tooltip -->
+
+
+
+<!-- words per minute -->
+
+
+
+
+
+
+
+
+
+
+<!-- return element -->
+<span
+  class="readtime"
+  data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="431 words"
+>
+  <em>2 min</em> read</span>
+
+      </div>
+      <!-- .d-flex -->
+    </div>
+    <!-- .post-meta -->
+  </header>
+
+  <div class="content">
+    <h2 id="google-cloud-프로젝트-만들기"><span class="me-2">Google Cloud 프로젝트 만들기</span><a href="#google-cloud-프로젝트-만들기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p><strong>1. <a href="https://console.cloud.google.com/">Google Cloud 홈</a>에 접속하여 프로젝트를 생성해줍니다.</strong>
+<a href="/assets/img/google_books_api/google_cloud_home.png" class="popup img-link  shimmer"><img src="/assets/img/google_books_api/google_cloud_home.png" alt="Google Cloud 홈" loading="lazy"></a></p>
+
+<p><strong>2. 프로젝트 생성이 완료되면 검색창에 “book”을 검색하고 “Books API”를 선택합니다.</strong>
+<a href="/assets/img/google_books_api/search_books_api.png" class="popup img-link  shimmer"><img src="/assets/img/google_books_api/search_books_api.png" alt="books API 검색창" loading="lazy"></a></p>
+
+<p><strong>3. Enable 버튼을 눌러줍니다.</strong>
+<a href="/assets/img/google_books_api/enable.png" class="popup img-link  shimmer"><img src="/assets/img/google_books_api/enable.png" alt="Enable Button" loading="lazy"></a></p>
+
+<p><strong>4. 좌측의 “Credentials”를 클릭하고, API key를 생성해줍니다.</strong>
+<a href="/assets/img/google_books_api/Credential_page.png" class="popup img-link  shimmer"><img src="/assets/img/google_books_api/Credential_page.png" alt="Credential Page" loading="lazy"></a></p>
+
+<p><strong>5. 키 생성이 완료되면, 해당 key를 메모장에 따로 적어놓습니다.</strong>
+<a href="/assets/img/google_books_api/api_key.png" class="popup img-link  shimmer"><img src="/assets/img/google_books_api/api_key.png" alt="API Key" loading="lazy"></a></p>
+
+<h2 id="도서-검색하기"><span class="me-2">도서 검색하기</span><a href="#도서-검색하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p><a href="https://developers.google.com/books/docs/v1/reference/volumes#resource">Google Books APIs</a>에 들어가면 API 사용법에 대한 가이드가 자세히 적혀있습니다.</p>
+
+<p>여기서는 간단히 keyword로 도서 검색하는 방법을 안내합니다.</p>
+
+<h3 id="keyword-도서-검색"><span class="me-2">keyword 도서 검색</span><a href="#keyword-도서-검색" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<p><code class="language-plaintext highlighter-rouge">GET https://www.googleapis.com/books/v1/volumes?q="키워드"&amp;key="발급받은 API KEY"</code> 를 통해서 검색할 수 있습니다.</p>
+
+<p>예시로 달러구트를 검색했을때 결과는 다음과 같습니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="code-header">
+        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+</pre></td><td class="rouge-code"><pre>{
+  "kind": "books#volumes",
+  "totalItems": 1399,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "oa9izwEACAAJ",
+      "etag": "lx5lwxHI874",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/oa9izwEACAAJ",
+      "volumeInfo": {
+        "title": "달러구트 꿈 백화점 2(큰글자도서)(리더스원)",
+        "authors": [
+          "이미예"
+        ],
+        "publishedDate": "2022-09-16",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9791165345686"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 0,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "language": "ko",
+        "previewLink": "http://books.google.co.kr/books?id=oa9izwEACAAJ&amp;dq=%EB%8B%AC%EB%9F%AC%EA%B5%AC%ED%8A%B8&amp;hl=&amp;cd=1&amp;source=gbs_api",
+        "infoLink": "http://books.google.co.kr/books?id=oa9izwEACAAJ&amp;dq=%EB%8B%AC%EB%9F%AC%EA%B5%AC%ED%8A%B8&amp;hl=&amp;source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/%EB%8B%AC%EB%9F%AC%EA%B5%AC%ED%8A%B8_%EA%BF%88_%EB%B0%B1%ED%99%94%EC%A0%90_2_%ED%81%B0%EA%B8%80%EC%9E%90.html?hl=&amp;id=oa9izwEACAAJ"
+      },
+      "saleInfo": {
+        "country": "KR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "KR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=oa9izwEACAAJ&amp;hl=&amp;source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    ...
+  ]
+}
+</pre></td></tr></tbody></table></code></div></div>
+
+  </div>
+
+  <div class="post-tail-wrapper text-muted">
+    <!-- categories -->
     
-  </ul>
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        
+          <a href="/categories/tips/">Tips</a>
+      </div>
+    
+
+    <!-- tags -->
+    
+
+    <div
+      class="
+        post-tail-bottom
+        d-flex justify-content-between align-items-center mt-5 pb-2
+      "
+    >
+      <div class="license-wrapper">
+        
+          
+
+          This post is licensed under 
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          CC BY 4.0
+        </a>
+         by the author.
+        
+      </div>
+
+      <!-- Post sharing snippet -->
+
+<div class="share-wrapper d-flex align-items-center">
+  <span class="share-label text-muted">Share</span>
+  <span class="share-icons">
+    
+    
+    
+
+    
+
+      
+
+      <a href="https://twitter.com/intent/tweet?text=Google%20Books%20Open%20API%20%EA%B0%84%EB%8B%A8%20%EA%B0%80%EC%9D%B4%EB%93%9C%20(API%20Key%20%EB%B0%9C%EA%B8%89)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fgoogle_books_api%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+        <i class="fa-fw fa-brands fa-square-x-twitter"></i>
+      </a>
+    
+
+      
+
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Google%20Books%20Open%20API%20%EA%B0%84%EB%8B%A8%20%EA%B0%80%EC%9D%B4%EB%93%9C%20(API%20Key%20%EB%B0%9C%EA%B8%89)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8&u=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fgoogle_books_api%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+        <i class="fa-fw fab fa-facebook-square"></i>
+      </a>
+    
+
+      
+
+      <a href="https://t.me/share/url?url=https%3A%2F%2Fgee6809.github.io%2Fposts%2Fgoogle_books_api%2F&text=Google%20Books%20Open%20API%20%EA%B0%84%EB%8B%A8%20%EA%B0%80%EC%9D%B4%EB%93%9C%20(API%20Key%20%EB%B0%9C%EA%B8%89)%20-%20%EC%BB%A4%EB%84%90%EB%85%B8%ED%8A%B8%20%EB%B8%94%EB%A1%9C%EA%B7%B8" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+        <i class="fa-fw fab fa-telegram"></i>
+      </a>
+    
+
+    <button
+      id="copy-link"
+      aria-label="Copy link"
+      class="btn small"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title="Copy link"
+      data-title-succeed="Link copied successfully!"
+    >
+      <i class="fa-fw fas fa-link pe-none fs-6"></i>
+    </button>
+  </span>
 </div>
 
-  
+    </div>
+    <!-- .post-tail-bottom -->
+  </div>
+  <!-- div.post-tail-wrapper -->
 </article>
+
 
             
           </main>
@@ -1055,12 +1744,259 @@
             </div>
 
             
+              
+              
+
+
+
+  <section id="toc-wrapper" class="ps-0 pe-4">
+    <p class="panel-heading ps-3 pt-2 mb-2">Contents</p>
+    <nav id="toc"></nav>
+  </section>
+
+
+            
           </aside>
         </div>
 
         <div class="row">
           <!-- tail -->
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
+            
+              
+              <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
+
+<!-- The total size of related posts -->
+
+
+<!-- An random integer that bigger than 0 -->
+
+
+<!-- Equals to TAG_SCORE / {max_categories_hierarchy} -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">Further Reading</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/charles_proxy/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1716110460"
+  data-df="ll"
+  
+>
+  May 19, 2024
+</time>
+
+              <h4 class="pt-0 my-2">Charles Proxy로 안드로이드 HTTP 패킷 분석하기</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  Charles Proxy를 이용하면, 안드로이드에서 보내는 패킷들을 분석할 수 있습니다.
+
+Charles Proxy 설치 및 환경설정
+
+  https://www.charlesproxy.com/ 에서 각 OS에 맞는 버전을 다운받습니다. ubuntu에서는 다음 명령어로 쉽게 설치할 수 있습니다.
+    wget -qO- https://www.charle...
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/stf/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1716541020"
+  data-df="ll"
+  
+>
+  May 24, 2024
+</time>
+
+              <h4 class="pt-0 my-2">나만의 Smartphone Test Farm 만들기 (STF)</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  이 글에서는 스마트폰과 스마트워치 등의 장치를 원격으로 디버깅할 수 있는 STF(Smartphone Test Farm)에 대해 소개합니다. STF를 이용하면 다양한 디바이스를 서버에 연결하여, 개발한 애플리케이션을 여러 디바이스 환경에서 쉽게 테스트할 수 있습니다. 1인 개발자로서, 브라우저를 통해 원격으로 핸드폰을 조작할 수 있다는게 가장 큰 장점인...
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+        <article class="col">
+          <a href="/posts/note10-rooting/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1719142380"
+  data-df="ll"
+  
+>
+  Jun 23, 2024
+</time>
+
+              <h4 class="pt-0 my-2">갤럭시 노트10+ 루팅하기 (Android 12)</h4>
+              <div class="text-muted">
+                <p>
+                  
+
+
+
+
+
+                  
+  루팅을 진행하게 되면 갤럭시 노트 워런티가 깨지게 됩니다. 추후 순정 펌웨어로 돌린다고 하더라도 삼성페이를 포함한 각종 은행 어플들을 사용할 수 없게 됩니다.
+
+
+안드로이드 버전 12 및 13에는 동일한 방법으로 루팅을 할 수 있습니다.
+
+  갤럭시 S20, S21, S22 시리즈
+  갤럭시 노트 10, 20 시리즈
+  갤럭시 탭 S6 lite,...
+                </p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
+
+
+            
+              
+              <!-- Navigation buttons at the bottom of the post. -->
+
+<nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation">
+  
+  
+
+  
+    <a
+      href="/posts/debian_rootfs/"
+      class="btn btn-outline-primary"
+      aria-label="Older"
+    >
+      <p>Debian 기반 rootfs 제작하기</p>
+    </a>
+  
+
+  
+    <div class="btn btn-outline-primary disabled" aria-label="Newer">
+      <p>-</p>
+    </div>
+  
+</nav>
+
+            
+              
+              <!--  The comments switcher -->
+
+
             
 
             <!-- The Footer -->
@@ -1564,6 +2500,13 @@
 
 
 
+  
+
+  
+    <!-- image lazy-loading & popup & clipboard -->
+    
+  
+
 
 
 
@@ -1627,16 +2570,44 @@
 
   
 
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
+
+  
+    
+
+    
+
+  
 
 
-  <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.7.1/dist/jquery.min.js,npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js,npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/dayjs@1.11.10/dayjs.min.js,npm/dayjs@1.11.10/locale/en.min.js,npm/dayjs@1.11.10/plugin/relativeTime.min.js,npm/dayjs@1.11.10/plugin/localizedFormat.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.7.1/dist/jquery.min.js,npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js,npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js,npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.umd.min.js,npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js,npm/clipboard@2.0.11/dist/clipboard.min.js,npm/dayjs@1.11.10/dayjs.min.js,npm/dayjs@1.11.10/locale/en.min.js,npm/dayjs@1.11.10/plugin/relativeTime.min.js,npm/dayjs@1.11.10/plugin/localizedFormat.min.js,npm/tocbot@4.25.0/dist/tocbot.min.js"></script>
 
 
 
 
 
 
-<script defer src="/assets/js/dist/misc.min.js"></script>
+<script defer src="/assets/js/dist/post.min.js"></script>
 
 
 
