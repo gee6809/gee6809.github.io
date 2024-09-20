@@ -1,6 +1,23 @@
 [
   
   {
+    "title": "Android 에뮬레이터에서 키보드 입력이 안될 때 해결방법",
+    "url": "/posts/android_emulator_keyboard/",
+    "categories": "Android",
+    "tags": "",
+    "date": "2024-09-20 19:49:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Android 에뮬레이터를 사용하다보면, 스크린 키보드는 사용 가능하지만, 물리키보드는 사용 불가능한 경우가 있다.이는 해당 에뮬레이터 머신의 설정에서 키보드 사용이 꺼져있기 때문이다.~/.android/avd/&lt;emulator-device-name&gt;.avd/config.ini 파일에 hw.keyboard=no를 hw.keyboard=yes...",
+    "content": "Android 에뮬레이터를 사용하다보면, 스크린 키보드는 사용 가능하지만, 물리키보드는 사용 불가능한 경우가 있다.이는 해당 에뮬레이터 머신의 설정에서 키보드 사용이 꺼져있기 때문이다.~/.android/avd/&lt;emulator-device-name&gt;.avd/config.ini 파일에 hw.keyboard=no를 hw.keyboard=yes로 바꿔주면 간단히 해결된다."
+  },
+  
+  {
     "title": "Google Books Open API 간단 가이드 (API Key 발급)",
     "url": "/posts/google_books_api/",
     "categories": "Tips",
