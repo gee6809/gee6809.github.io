@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle></subtitle>
-  <updated>2024-09-20T19:50:41+09:00</updated>
+  <updated>2024-09-29T00:24:28+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,51 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Firebase 안드로이드 앱 자동 테스트 하기 (Robo Test)</title>
+    <link href="https://gee6809.github.io/posts/robo_test/" rel="alternate" type="text/html" title="Firebase 안드로이드 앱 자동 테스트 하기 (Robo Test)" />
+    <published>2024-09-29T00:19:00+09:00</published>
+  
+    <updated>2024-09-29T00:19:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/robo_test/</id>
+    <content src="https://gee6809.github.io/posts/robo_test/" />
+    <author>
+      <name>Jeuk Kim</name>
+    </author>
+
+  
+    
+    <category term="Android" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      처음으로 1인 개발을 시도하면서 가장 큰 고민거리는 테스트였다. 앱이 버그로 인해 별점 1점을 도배받는 상황은 피하고 싶었고, 그래서 테스트의 중요성을 계속 인식하고 있었다.
+
+개발 중에도 틈틈이 유닛 테스트를 작성해왔지만, 다양한 해상도와 OS 버전에서 앱이 제대로 동작하는지 확인하는 일은 혼자서 하기엔 상당히 번거로웠다.
+
+이런 부담을 크게 덜어준 것이 바로 Firebase Test Lab의 Robo Test였다. 이번 글에서는 Robo Test에 대해 간단히 정리하려 한다.
+
+Robo Test란?
+
+Robo Test는 Firebase Test Lab에서 제공하는 자동화된 테스트로, 가장 큰 장점들은 다음과 같다.
+
+
+  apk 파일만 올리면 AI가 알아서 테스트해준다.  AI가 가능한 UI 입력들...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -224,55 +269,6 @@ showModalBottomSheet(
 
 드래그 가능한 ModalBottomSheet
 ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>[Flutter] 위젯의 Size 결정 원칙</title>
-    <link href="https://gee6809.github.io/posts/flutter_size/" rel="alternate" type="text/html" title="[Flutter] 위젯의 Size 결정 원칙" />
-    <published>2024-08-04T12:02:00+09:00</published>
-  
-    <updated>2024-08-04T12:02:00+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/flutter_size/</id>
-    <content src="https://gee6809.github.io/posts/flutter_size/" />
-    <author>
-      <name>Jeuk Kim</name>
-    </author>
-
-  
-    
-    <category term="Flutter" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Flutter의 Constraints 및 Size 결정 원칙
-Flutter에서 Widget의 크기와 위치는 다음 한 문장으로 정리할 수 있다.
-
-“Constraints go down. Sizes go up. Parent sets position.”
-
-부모는 자식에게 Constraints를 주고, 자식은 자신의 Size를 결정해서 부모에게 알린다. 부모는 자식의 크기 정보들을 바탕으로 위치를 결정한다.
-
-
-  Constraints의 전달:
-    
-      부모 위젯은 자식 위젯에게 constraints를 전달한다. 이 constraints는 자식 위젯이 가질 수 있는 최소 및 최대 크기를 정의한다.
-    
-  
-  자식 위젯의 크기 결정:
-    
-      자식 위젯은 부모로부터 받은 constr...
     </summary>
   
 
