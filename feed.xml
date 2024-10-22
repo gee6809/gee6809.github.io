@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle></subtitle>
-  <updated>2024-10-07T22:28:16+09:00</updated>
+  <updated>2024-10-22T23:14:16+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,56 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>[Flutter] 비동기 함수에서 파라미터 사용 시 주의할 점</title>
+    <link href="https://gee6809.github.io/posts/flutter_string/" rel="alternate" type="text/html" title="[Flutter] 비동기 함수에서 파라미터 사용 시 주의할 점" />
+    <published>2024-10-22T23:13:00+09:00</published>
+  
+    <updated>2024-10-22T23:13:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/flutter_string/</id>
+    <content src="https://gee6809.github.io/posts/flutter_string/" />
+    <author>
+      <name>Jeuk Kim</name>
+    </author>
+
+  
+    
+    <category term="Flutter" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      FutureBuilder를 이용해 HTTP 요청이 완료되면 Text 위젯을 리턴해주는 함수를 만들었는데, HTTP 요청이 정상적으로 완료되었음에도 불구하고 값이 제대로 바뀌지 않는 상황을 겪었다.
+
+이 문제는 비동기 함수에서의 값 타입과 참조 타입의 차이에서 발생한 것이었다.
+
+비동기 함수는 코드의 실행 순서가 예기치 않게 뒤섞일 수 있기 때문에, 값 타입과 참조 타입의 동작 방식 차이가 큰 영향을 미친다.
+
+이를 더 잘 이해하기 위해, 다음 예시 코드를 살펴보자.
+
+예시 코드
+class Wrapper {
+  String str;
+
+  Wrapper(this.str);
+}
+
+Future&amp;lt;void&amp;gt; foo(String plainStr, Wrapper wrappedStr) async {
+  pr...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -196,66 +246,6 @@ Google Books APIs에 들어가면 API 사용법에 대한 가이드가 자세히
 
 keyword 도서 검색
 GET https://www.googleapis.com/books/v1/volumes?q="키워...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Debian 기반 rootfs 제작하기</title>
-    <link href="https://gee6809.github.io/posts/debian_rootfs/" rel="alternate" type="text/html" title="Debian 기반 rootfs 제작하기" />
-    <published>2024-08-08T11:03:00+09:00</published>
-  
-    <updated>2024-08-08T11:03:00+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/debian_rootfs/</id>
-    <content src="https://gee6809.github.io/posts/debian_rootfs/" />
-    <author>
-      <name>Jeuk Kim</name>
-    </author>
-
-  
-    
-    <category term="QEMU" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      필요한 도구 설치
-sudo apt update
-sudo apt install qemu qemu-system-x86 debootstrap
-
-
-debian기반 rootfs 이미지 생성
-
-1) QEMU 디스크 이미지 생성
-
-qemu-img create -f qcow2 debian-rootfs.img 10G
-
-
-2) 디스크 이미지 포맷 및 마운트
-
-sudo modprobe nbd max_part=8
-sudo qemu-nbd --connect=/dev/nbd0 debian-rootfs.img
-
-# 연결된 디스크를 포맷합니다.
-sudo mkfs.ext4 /dev/nbd0
-
-# 파일 시스템을 마운트합니다.
-sudo mount /dev/nbd0 /mnt
-
-
-3) debootstrap 실행
-
-sudo debootstr...
     </summary>
   
 
