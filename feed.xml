@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle></subtitle>
-  <updated>2024-11-01T13:42:17+09:00</updated>
+  <updated>2024-11-04T08:45:24+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,57 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>macOS Sequoia(15.0.1) Sunshine 설정하는 법</title>
+    <link href="https://gee6809.github.io/posts/mac_sunshine/" rel="alternate" type="text/html" title="macOS Sequoia(15.0.1) Sunshine 설정하는 법" />
+    <published>2024-11-04T08:40:00+09:00</published>
+  
+    <updated>2024-11-04T08:40:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/mac_sunshine/</id>
+    <content src="https://gee6809.github.io/posts/mac_sunshine/" />
+    <author>
+      <name>Jeuk Kim</name>
+    </author>
+
+  
+    
+    <category term="Tips" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Windows 환경과 Mac 환경을 오가며 작업해야 하는 일이 많아졌다.
+
+원격 연결을 사용하기로 결심했고, 최종 후보로 Sunshine을 선택했다.
+
+오픈소스인 Sunshine과 Moonlight가 macOS를 지원하며, 낮은 레이턴시로 유명하다. 그리고 무료다!
+
+Sunshine 공식 가이드대로 진행하면 막히는 부분이 있었고, 여기에 그 해결법을 정리해 두려고 한다.
+
+Macport 설치하기
+MacPorts에 접속해 macOS Sequoia v15 pkg 파일을 다운로드한다.
+
+다운로드한 파일을 더블클릭해 설치하자.
+
+macport source update
+sudo nano /opt/local/etc/macports/sources.conf
+
+위 명령어를 통해 마지막 줄에 다음 줄을 추가한다.
+fil...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -190,62 +241,6 @@ Robo Test는 Firebase Test Lab에서 제공하는 자동화된 테스트로, 가
 
 ~/.android/avd/&amp;lt;emulator-device-name&amp;gt;.avd/config.ini 파일에 hw.keyboard=no를 hw.keyboard=yes로 바꿔주면 간단히 해결된다.
 
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Google Books Open API 간단 가이드 (API Key 발급)</title>
-    <link href="https://gee6809.github.io/posts/google_books_api/" rel="alternate" type="text/html" title="Google Books Open API 간단 가이드 (API Key 발급)" />
-    <published>2024-08-24T13:11:00+09:00</published>
-  
-    <updated>2024-08-24T13:11:00+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/google_books_api/</id>
-    <content src="https://gee6809.github.io/posts/google_books_api/" />
-    <author>
-      <name>Jeuk Kim</name>
-    </author>
-
-  
-    
-    <category term="Tips" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Google Cloud 프로젝트 만들기
-1. Google Cloud 홈에 접속하여 프로젝트를 생성해줍니다.
-
-
-2. 프로젝트 생성이 완료되면 검색창에 “book”을 검색하고 “Books API”를 선택합니다.
-
-
-3. Enable 버튼을 눌러줍니다.
-
-
-4. 좌측의 “Credentials”를 클릭하고, API key를 생성해줍니다.
-
-
-5. 키 생성이 완료되면, 해당 key를 메모장에 따로 적어놓습니다.
-
-
-도서 검색하기
-Google Books APIs에 들어가면 API 사용법에 대한 가이드가 자세히 적혀있습니다.
-
-여기서는 간단히 keyword로 도서 검색하는 방법을 안내합니다.
-
-keyword 도서 검색
-GET https://www.googleapis.com/books/v1/volumes?q="키워...
     </summary>
   
 
