@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle></subtitle>
-  <updated>2024-11-04T08:45:24+09:00</updated>
+  <updated>2024-11-13T21:13:04+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,58 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Ubuntu Local에서 Supabase 서버 실행하기 (with Edge Function)</title>
+    <link href="https://gee6809.github.io/posts/local_supabase_guide/" rel="alternate" type="text/html" title="Ubuntu Local에서 Supabase 서버 실행하기 (with Edge Function)" />
+    <published>2024-11-13T21:09:00+09:00</published>
+  
+    <updated>2024-11-13T21:09:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/local_supabase_guide/</id>
+    <content src="https://gee6809.github.io/posts/local_supabase_guide/" />
+    <author>
+      <name>Jeuk Kim</name>
+    </author>
+
+  
+    
+    <category term="Tips" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      1. Docker 설치
+
+Supabase를 로컬에서 실행하려면 Docker가 필요하다. Ubuntu에 Docker를 설치하는 방법은 다음과 같다.
+
+1.1 패키지 업데이트 및 필수 패키지 설치
+sudo apt-get update
+sudo apt-get install \
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  gnupg \
+  lsb-release
+
+
+1.2 Docker의 공식 GPG 키 추가
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+
+1.3 Docker 저장소...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -203,44 +255,6 @@ Robo Test는 Firebase Test Lab에서 제공하는 자동화된 테스트로, 가
 
 
   apk 파일만 올리면 AI가 알아서 테스트해준다.  AI가 가능한 UI 입력들...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Android 에뮬레이터에서 키보드 입력이 안될 때 해결방법</title>
-    <link href="https://gee6809.github.io/posts/android_emulator_keyboard/" rel="alternate" type="text/html" title="Android 에뮬레이터에서 키보드 입력이 안될 때 해결방법" />
-    <published>2024-09-20T19:49:00+09:00</published>
-  
-    <updated>2024-09-20T19:49:00+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/android_emulator_keyboard/</id>
-    <content src="https://gee6809.github.io/posts/android_emulator_keyboard/" />
-    <author>
-      <name>Jeuk Kim</name>
-    </author>
-
-  
-    
-    <category term="Android" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Android 에뮬레이터를 사용하다보면, 스크린 키보드는 사용 가능하지만, 물리키보드는 사용 불가능한 경우가 있다.
-이는 해당 에뮬레이터 머신의 설정에서 키보드 사용이 꺼져있기 때문이다.
-
-~/.android/avd/&amp;lt;emulator-device-name&amp;gt;.avd/config.ini 파일에 hw.keyboard=no를 hw.keyboard=yes로 바꿔주면 간단히 해결된다.
-
     </summary>
   
 
