@@ -1,6 +1,23 @@
 [
   
   {
+    "title": "[Flutter] Google Analytics 연동하기",
+    "url": "/posts/google_analytics/",
+    "categories": "Flutter",
+    "tags": "",
+    "date": "2024-12-01 18:18:00 +0900",
+    
+
+
+
+
+
+    
+    "snippet": "Firebase 프로젝트 생성Firebase Console(https://console.firebase.google.com/)에 접속하여 새 프로젝트를 생성합니다.      프로젝트 추가 버튼을 클릭합니다.        프로젝트 이름을 입력한 후 Firebase 사용 약관에 동의합니다.        Google Analytics 사용 여부를 선택한 후...",
+    "content": "Firebase 프로젝트 생성Firebase Console(https://console.firebase.google.com/)에 접속하여 새 프로젝트를 생성합니다.      프로젝트 추가 버튼을 클릭합니다.        프로젝트 이름을 입력한 후 Firebase 사용 약관에 동의합니다.        Google Analytics 사용 여부를 선택한 후 프로젝트를 생성합니다.  Google Analytics 설정  Firebase Console에서 프로젝트를 생성한 후, Google Analytics를 활성화합니다.          Firebase &gt; 애널리틱스 &gt; Google 애널리틱스 사용 설정을 클릭합니다.            Firebase Console의 좌측 상단 메뉴에서 프로젝트 개요 오른쪽의 설정 아이콘(톱니바퀴)을 클릭합니다.          프로젝트 설정을 선택합니다.            iOS와 Android 각각의 설정을 완료합니다.          각 플랫폼에 맞는 Google Analytics 구성 파일을 다운로드합니다.        Android:          google-services.json 파일을 다운로드하여 Flutter 프로젝트의 다음 경로에 추가합니다:        YOUR_FLUTTER_PROJECT/android/app/google-services.json                      iOS:          GoogleService-Info.plist 파일을 다운로드하여 Flutter 프로젝트의 다음 경로에 추가합니다:        YOUR_FLUTTER_PROJECT/ios/Runner/GoogleService-Info.plist                    Xcode에서 프로젝트를 열고, 왼쪽 프로젝트 탐색기에서 Runner 폴더를 우클릭한 후, ‘Add Files to “Runner”‘를 선택합니다.      GoogleService-Info.plist 파일을 선택하여 추가합니다.      Firebase CLI 설치 및 로그인  Node.js 및 npm 설치:  Firebase CLI는 Node.js가 필요하므로 터미널에서 다음 명령어를 실행하여 Node.js와 npm을 설치합니다:      sudo apt update  sudo apt install -y nodejs npm        Firebase CLI 설치:  Firebase CLI를 npm으로 설치합니다:      sudo npm install -g firebase-tools        Firebase CLI 로그인:  Firebase 계정에 로그인합니다:      firebase login        이 명령어를 실행하면 브라우저가 열리고 Firebase 계정에 로그인할 수 있습니다.        Firebase에서 프로젝트 설정 페이지에 접속합니다.         Flutter를 선택합니다.     FlutterFire CLI 설치:  Firebase의 가이드에 따라 다음 명령어를 실행합니다:      cd YOUR_FLUTTER_PROJECT  dart pub global activate flutterfire_cli  export PATH=$PATH:$HOME/.pub-cache/bin  flutterfire configure --project=YOUR_PROJECT_ID        이 명령어를 실행하면 firebase_options.dart 파일이 생성됩니다. 이 파일은 Firebase.initializeApp()에 사용됩니다.  Flutter에 코드 추가main.dart 파일에 Firebase와 Google Analytics 초기화 코드를 추가합니다:Flutter 프로젝트를 실행하여 Google Analytics가 올바르게 동작하는지 확인합니다.Firebase에서 확인하기  Firebase Console에 접속합니다.https://console.firebase.google.com/  좌측 메뉴에서 애널리틱스 &gt; DebugView로 이동합니다.  터미널에서 다음 명령어를 실행합니다.      adb shell setprop debug.firebase.analytics.app PACKAGE_ID # ex) adb shell setprop debug.firebase.analytics.app com.company.example        앱에서 트리거된 이벤트가 표시되는지 확인합니다. "
+  },
+  
+  {
     "title": "Ubuntu Local에서 Supabase 서버 실행하기 (with Edge Function)",
     "url": "/posts/local_supabase_guide/",
     "categories": "Tips",

@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle></subtitle>
-  <updated>2024-11-13T21:13:04+09:00</updated>
+  <updated>2024-12-03T08:15:42+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,64 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>[Flutter] Google Analytics 연동하기</title>
+    <link href="https://gee6809.github.io/posts/google_analytics/" rel="alternate" type="text/html" title="[Flutter] Google Analytics 연동하기" />
+    <published>2024-12-01T18:18:00+09:00</published>
+  
+    <updated>2024-12-01T18:18:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/google_analytics/</id>
+    <content src="https://gee6809.github.io/posts/google_analytics/" />
+    <author>
+      <name>Jeuk Kim</name>
+    </author>
+
+  
+    
+    <category term="Flutter" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Firebase 프로젝트 생성
+
+Firebase Console(https://console.firebase.google.com/)에 접속하여 새 프로젝트를 생성합니다.
+
+  
+    프로젝트 추가 버튼을 클릭합니다.
+  
+  
+    프로젝트 이름을 입력한 후 Firebase 사용 약관에 동의합니다.
+  
+  
+    Google Analytics 사용 여부를 선택한 후 프로젝트를 생성합니다.
+  
+
+
+Google Analytics 설정
+
+
+  Firebase Console에서 프로젝트를 생성한 후, Google Analytics를 활성화합니다.
+    
+      Firebase &amp;gt; 애널리틱스 &amp;gt; Google 애널리틱스 사용 설정을 클릭합니다.
+    
+  
+  
+    Firebase C...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -210,51 +268,6 @@ integration_test 실행하기
 integration_test 의존성 추가하기
 다음 명령어를 사용하여 의존성을 추가한다.
 flutter pub add 'dev:integrati...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Firebase 안드로이드 앱 자동 테스트 하기 (Robo Test)</title>
-    <link href="https://gee6809.github.io/posts/robo_test/" rel="alternate" type="text/html" title="Firebase 안드로이드 앱 자동 테스트 하기 (Robo Test)" />
-    <published>2024-09-29T00:19:00+09:00</published>
-  
-    <updated>2024-09-29T00:19:00+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/robo_test/</id>
-    <content src="https://gee6809.github.io/posts/robo_test/" />
-    <author>
-      <name>Jeuk Kim</name>
-    </author>
-
-  
-    
-    <category term="Android" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      처음으로 1인 개발을 시도하면서 가장 큰 고민거리는 테스트였다. 앱이 버그로 인해 별점 1점을 도배받는 상황은 피하고 싶었고, 그래서 테스트의 중요성을 계속 인식하고 있었다.
-
-개발 중에도 틈틈이 유닛 테스트를 작성해왔지만, 다양한 해상도와 OS 버전에서 앱이 제대로 동작하는지 확인하는 일은 혼자서 하기엔 상당히 번거로웠다.
-
-이런 부담을 크게 덜어준 것이 바로 Firebase Test Lab의 Robo Test였다. 이번 글에서는 Robo Test에 대해 간단히 정리하려 한다.
-
-Robo Test란?
-
-Robo Test는 Firebase Test Lab에서 제공하는 자동화된 테스트로, 가장 큰 장점들은 다음과 같다.
-
-
-  apk 파일만 올리면 AI가 알아서 테스트해준다.  AI가 가능한 UI 입력들...
     </summary>
   
 
