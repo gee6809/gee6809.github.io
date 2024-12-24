@@ -4,7 +4,7 @@
   <id>https://gee6809.github.io/</id>
   <title>커널노트 블로그</title>
   <subtitle></subtitle>
-  <updated>2024-12-03T08:15:42+09:00</updated>
+  <updated>2024-12-28T00:43:32+09:00</updated>
   <author>
     <name>Jeuk Kim</name>
     <uri>https://gee6809.github.io/</uri>
@@ -17,6 +17,57 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>[Flutter] Supabase Google Login 지원하기 (Android &amp; iOS)</title>
+    <link href="https://gee6809.github.io/posts/supabase_auth_google/" rel="alternate" type="text/html" title="[Flutter] Supabase Google Login 지원하기 (Android &amp;amp; iOS)" />
+    <published>2024-12-28T00:39:00+09:00</published>
+  
+    <updated>2024-12-28T00:39:00+09:00</updated>
+  
+    <id>https://gee6809.github.io/posts/supabase_auth_google/</id>
+    <content src="https://gee6809.github.io/posts/supabase_auth_google/" />
+    <author>
+      <name>Jeuk Kim</name>
+    </author>
+
+  
+    
+    <category term="Flutter" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Supabase를 이용해 flutter에서 Social Login을 구현해 보았습니다. 생각보다 엄청 복잡합니다… 😭
+
+중간에 하나라도 빠뜨리면 api 거절을 당하기 때문에, 상세하게 정리하려 노력했습니다.
+
+Google Login과 Apple Login 두 편으로 나누어서 작성했습니다.
+
+Supabase 프로젝트를 이미 생성했다고 가정하고 시작하겠습니다. 만약 아직 생성하지 않으셨다면, Supabase Dashboard에서 프로젝트 하나를 생성해 주시면 됩니다.
+
+
+Google Cloud Console 설정하기
+
+1. 프로젝트 생성
+Google Cloud Console에 접속하여 새 프로젝트를 생성합니다.
+
+2. OAuth 2.0 클라이언트 ID 생성
+
+
+  Supabase를 통한 social log...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -224,50 +275,6 @@ class Wrapper {
 
 Future&amp;lt;void&amp;gt; foo(String plainStr, Wrapper wrappedStr) async {
   pr...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>[Flutter] integration_test로 다양한 디바이스에서 UI 테스트하기</title>
-    <link href="https://gee6809.github.io/posts/flutter_integration_test/" rel="alternate" type="text/html" title="[Flutter] integration_test로 다양한 디바이스에서 UI 테스트하기" />
-    <published>2024-10-07T22:21:00+09:00</published>
-  
-    <updated>2024-10-07T22:21:00+09:00</updated>
-  
-    <id>https://gee6809.github.io/posts/flutter_integration_test/</id>
-    <content src="https://gee6809.github.io/posts/flutter_integration_test/" />
-    <author>
-      <name>Jeuk Kim</name>
-    </author>
-
-  
-    
-    <category term="Flutter" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      Flutter에는 End-to-End test를 위한 integration test가 존재한다. integration test를 이용하면 혹시 모를 UI error나 hang issue, uncaught exception 같은 버그들을 사전에 확인할 수 있다.
-또한 adb로 연결된 여러 디바이스(가상 디바이스 포함)에서 동시에 실행시킬 수 있기 때문에, 다양한 해상도의 디바이스에 대해 UI를 테스트할 때 특히 유용했다.
-
-
-Integration Test 실제 실행화면. 다양한 해상도의 디바이스에서 테스트 할 수 있다.
-
-integration_test 실행하기
-
-integration_test 의존성 추가하기
-다음 명령어를 사용하여 의존성을 추가한다.
-flutter pub add 'dev:integrati...
     </summary>
   
 
