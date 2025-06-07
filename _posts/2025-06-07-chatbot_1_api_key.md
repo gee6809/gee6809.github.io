@@ -2,9 +2,7 @@
 title: "Langchain 기반 챗봇 만들기 #1 - OpenAI API Key 발급"
 description: OpenAI API를 사용하기 위해 계정 생성부터 API Key 발급, 모델 등록, 테스트 코드 실행까지의 과정을 단계별로
   정리했습니다. 다음 장에서는 Langchain을 활용해 기억하는 챗봇을 만들어봅니다.
-categories:
-- Flutter
-- Programming
+categories: Programming
 date: 2025-06-07 13:32 +0900
 ---
 # OpenAI API Key 발급 기록
