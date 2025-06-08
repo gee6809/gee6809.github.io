@@ -14,12 +14,13 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 커널노트 블로그 # the main title
+title: UK's Blog
 
-tagline: 운영체제, QEMU 및 각종 개발기록들을 정리하는 블로그입니다. # it will display as the sub-title
+tagline: 개발자의 일상과 기술 이야기
 
-# description: >- # used by seo meta and the atom feed
-#   It is a blog that organizes operating systems, QEMU, and various development logs.
+description: >- # used by seo meta and the atom feed
+  운영체제, 가상화, 모바일 개발, 그리고 다양한 개발 경험을 공유하는 기술 블로그입니다.
+  QEMU/KVM, Flutter, Android, 그리고 개발 도구들에 대한 실용적인 내용을 다룹니다.
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
