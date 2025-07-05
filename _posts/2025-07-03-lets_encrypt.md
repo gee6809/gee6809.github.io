@@ -106,7 +106,6 @@ server {
 docker compose up -d nginx
 
 # 인증서 최초 발급 (웹루트 방식)
-# ⚠️ docker-compose.yml의 certbot command를 제거하고 아래 명령어를 사용하세요
 docker compose run --rm certbot certonly \
   --webroot -w /var/www/certbot \
   -d your-domain.duckdns.org \
