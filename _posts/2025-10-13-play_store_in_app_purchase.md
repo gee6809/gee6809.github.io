@@ -421,4 +421,147 @@ class _IapTestPageState extends State<IapTestPage> {
 
 ![alt text](/assets/img/in_app_purchase/result_screen.png)
 
+---
 
+## Google Play 실시간 구독 알림 (RTDN) 설정
+
+구독이 갱신되거나 취소·만료될 때마다 서버가 자동으로 이를 감지하려면
+**Real-Time Developer Notifications (RTDN)** 기능을 활성화해야 합니다.
+Google Play → Cloud Pub/Sub → 서버로 이벤트가 전달되는 구조입니다.
+
+```mermaid
+sequenceDiagram
+    participant Play as "Google Play"
+    participant PubSub as "Cloud Pub/Sub"
+    participant BE as "서버(FastAPI)"
+    participant DevAPI as "Google Play Developer API"
+    participant DB as "Database"
+
+    Play->>PubSub: "RTDN 이벤트 게시 (base64 JSON)"
+    PubSub->>BE: "HTTP POST /rtdn/google"
+    BE->>BE: "base64 디코딩 및 알림 파싱"
+    BE->>DevAPI: "subscriptionsv2.get 호출"
+    DevAPI-->>BE: "현재 구독 상태 응답"
+    BE->>DB: "상태 업데이트 (갱신·취소·만료)"
+    BE-->>PubSub: "200 OK (처리 완료 응답)"
+```
+
+---
+
+### 5-1. Cloud Pub/Sub 설정
+
+#### ① API 활성화
+
+1. [Google Cloud Console](https://console.cloud.google.com)
+2. **Pub/Sub API** 검색 → **Enable**
+![alt text](/assets/img/in_app_purchase/cloud_pub_sub_api.png)
+
+#### ② 토픽(Topic) 생성
+
+1. **Pub/Sub → Topics → Create topic**
+2. ID: `rtdn-notifications` 등
+3. 생성 후 표시되는 전체 경로를 복사해둡니다.
+![alt text](/assets/img/in_app_purchase/pub_sub.png)
+![alt text](/assets/img/in_app_purchase/pub_sub_create_topic.png)
+   ```
+   projects/<PROJECT_ID>/topics/rtdn-notifications
+   ```
+
+#### ③ 권한 부여
+
+1. 생성한 토픽 → **Permissions** 탭 → **Add principal**
+![alt text](/assets/img/in_app_purchase/add_principal.png)
+2. 아래 이메일을 추가하고 **Pub/Sub Publisher** 역할 부여
+   ```
+   google-play-developer-notifications@system.gserviceaccount.com
+   ```
+   ![alt text](/assets/img/in_app_purchase/pub_sub_publisher.png)
+3. 저장 후 1~2분 정도 기다리면 반영됩니다.
+
+> 이 과정을 통해 Google Play가 해당 토픽으로 알림 메시지를 발행할 수 있게 됩니다.
+{: .prompt-info}
+
+#### ④ 구독(Subscription) 생성
+
+1. 토픽 상세 페이지 → **Create subscription**
+![alt text](/assets/img/in_app_purchase/make_subscription.png)
+2. ID: `rtdn-subscription`
+3. **Delivery type**: Push
+4. **Push endpoint URL**:
+
+   ```
+   https://{서버도메인}/rtdn/google
+   ```
+5. 나머지는 기본값 그대로 두고 **Create**
+
+---
+
+### 5-2. Play Console 연결
+
+1. [Play Console](https://play.google.com/console) → 앱 선택
+2. **Monetize → Monetization setup → Real-time developer notifications**
+3. **Enable real-time notifications** 체크
+4. Topic name 입력:
+
+   ```
+   projects/<PROJECT_ID>/topics/rtdn-notifications
+   ```
+5. **Save changes**
+![alt text](/assets/img/in_app_purchase/play_console_monetization_rtdn_setup.png)
+6. **Send test message** 버튼으로 연결 성공 여부를 확인합니다.
+
+---
+
+### 5-3. 서버 구현 (FastAPI 예시)
+
+아래 코드는 Pub/Sub이 전송한 RTDN 알림을 받는 `/rtdn/google` 엔드포인트 예시입니다.
+알림 본문은 base64 인코딩된 JSON이므로, 디코딩 후 구독 상태를 다시 조회해야 합니다.
+
+```python
+# iap/rtdn.py
+from fastapi import APIRouter, Request, HTTPException
+import base64, json
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+
+router = APIRouter()
+SCOPES = ["https://www.googleapis.com/auth/androidpublisher"]
+
+def _android_publisher():
+    creds = service_account.Credentials.from_service_account_file(
+        "service-account.json", scopes=SCOPES
+    )
+    return build("androidpublisher", "v3", credentials=creds, cache_discovery=False)
+
+@router.post("/rtdn/google")
+async def handle_rtdn(req: Request):
+    body = await req.json()
+    msg = body.get("message")
+    if not msg or "data" not in msg:
+        raise HTTPException(status_code=400, detail="invalid format")
+
+    decoded = base64.b64decode(msg["data"]).decode()
+    data = json.loads(decoded)
+
+    if "subscriptionNotification" not in data:
+        return {"ok": True, "msg": "ignored (non-subscription event)"}
+
+    n = data["subscriptionNotification"]
+    purchase_token = n["purchaseToken"]
+    notif_type = n["notificationType"]
+
+    pub = _android_publisher()
+    result = pub.purchases().subscriptionsv2().get(
+        packageName=data["packageName"], token=purchase_token
+    ).execute()
+
+    # 구독 상태(result["subscriptionState"])에 따라 DB 업데이트 수행
+    # 예: ACTIVE → 활성화, CANCELED/EXPIRED → 권한 회수 등
+
+    return {"ok": True, "notificationType": notif_type}
+```
+
+> RTDN은 “상태 변경”만 알리므로, 반드시 `subscriptionsv2.get`으로 **실제 구독 상태를 재조회**해야 합니다.
+> {: .prompt-info}
+
+---
