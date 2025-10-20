@@ -56,6 +56,7 @@ sequenceDiagram
 > 서비스 계정 이름(Service Account Name) 은 완전히 자유롭게 지정할 수 있지만, 운영 목적을 명확히 드러내는 규칙적 네이밍이 좋습니다. (ex. play-billing-verifier)
 
 ![alt text](/assets/img/in_app_purchase/gcp_email.png)
+
 여기서 생성된 이메일을 기억해야합니다.
 
 2. **Keys → Add key → Create new key → JSON** (서버가 사용할 “키” 파일)
