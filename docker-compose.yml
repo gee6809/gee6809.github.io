@@ -1,0 +1,21 @@
+services:
+  blog:
+    build: .
+    container_name: chirpy-jekyll
+    working_dir: /srv/jekyll
+    command:
+      - bash
+      - -lc
+      - bundle install && bundle exec jekyll serve --host 0.0.0.0 --port 4000 --livereload --force_polling --draft
+    ports:
+      - "4000:4000"   # http://localhost:4000
+      - "35729:35729" # livereload
+    environment:
+      JEKYLL_ENV: development
+    volumes:
+      - .:/srv/jekyll          # 현재 chirpy 블로그 소스
+      - bundle_cache:/usr/local/bundle  # gem 캐시
+
+volumes:
+  bundle_cache:
+
